@@ -1,0 +1,8 @@
+paramiko模块是基于ｓｓｈ用于连接远程服务器并执行相关操作。
+
+安装：pip3 install paramiko
+
+使用：
+SSHClient：用于连接远程服务器并执行基本命令.
+
+

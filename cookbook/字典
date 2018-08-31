@@ -1,0 +1,25 @@
+1.实现一个键对应多个值的字典，multidict
+
+一个字典就是一个键对应一个单值的映射。想一个键映射多个值，需要将这个多值放到另外的容器中。比如列表或者集合中。
+想保持元素的插入顺序，就使用列表。如果想去除重复的元素并且不关心元素的顺序问题，就使用集合。
+
+使用collections模块中的defaultdict来构造这样的字典。defaultdict的一个特征是会自动初始化每个key刚开始对应的值.
+所以只需要关注添加元素操作就可以了。
+
+一般来讲，创建一个多值映射的字典是很简单的，自己进行创建的话，在进行值的初始化的时候，会比较麻烦。
+d = {}
+for key, value in pairs:
+    if key not in d:
+        d[key] = []
+    d[key].append(value)
+
+如果使用 defaultdict 的话代码就更加简洁了：
+
+d = defaultdict(list)
+for key, value in pairs:
+    d[key].append(value)
+
+2.字典的排序
+在进行迭代或者序列化的时候，想控制元素的顺序？？？
+
+为了能控制一个字典中元素的顺序，可以使用collections

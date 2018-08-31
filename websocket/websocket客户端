@@ -1,0 +1,5 @@
+在客户端，实现websockets的web浏览器将通过websockets对象公开所有必须的客户端功能（浏览器要支持html5的浏览器）。
+
+客户端API：
+
+var Socket

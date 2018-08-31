@@ -1,0 +1,6 @@
+cuda:是显卡厂商nvidia推出的运算平台.是nvidia发布的GPU并行计算平台和模型。
+
+CUDA中线程管理分为三个层次: grid, block, thread, 每一个层次都有x-y-z三个维度.
+一组thread组成一个block, 一组block组成一个grid. 
+
+

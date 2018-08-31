@@ -1,0 +1,16 @@
+
+
+获得root 控制权限。在“#”下操作。
+
+查看防火墙状态。
+systemctl status firewalld
+
+临时关闭防火墙命令。重启电脑后，防火墙自动起来。
+systemctl stop firewalld
+
+永久关闭防火墙命令。重启后，防火墙不会自动启动。
+systemctl disable firewalld
+
+打开防火墙命令。
+systemctl enable firewalld
+

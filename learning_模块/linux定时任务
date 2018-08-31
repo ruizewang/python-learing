@@ -1,0 +1,7 @@
+1.定时任务的格式:
+00 23 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stra/dailyReportRedis.py > /var/log/caching_logs/cache_daily_report_data$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+注释:
+    crontab -l：查看所有的定时任务
+    crontab -e:编辑定时任务
+    :wq: 退出定时任务的编辑
