@@ -1,0 +1,147 @@
+1.安装nginx(/export/servers/nginx/)
+
+    保证/export/servers/nginx/是nginx的安装目录
+    /export/servers/nginx/conf/domain/xxx应用配置文件
+
+2.部署django环境,保证python manage.py runserver 0.0.0.0:8000能正常跑起来
+
+    1.项目名称:Python_20160906,里面有2个应用
+    2.一个应用名字叫app,一个叫做api
+    3.项目路径/export/App/DevOPS/Python_20160906
+    Alt text
+    图1
+    uwsgi相关的东西在下图这个配置文件中(项目settings.py文件目录下)
+    Alt text
+    图2
+
+3.uwsgi
+1.安装
+
+pip install uwsgi
+
+
+2.测试是否安装成功(uwsgi开启服务)
+
+--home:指定virtualenv的环境目录,如果没用virtualenv的话不用指定可选
+--chdir:指定django项目的根路径:/export/App/DevOPS/Python_20160906
+-w 指定django项目的wsgi文件位置,就是如图2的东西(因为项目目录为/export/App/DevOPS/Python_20160906,项目目录下还有个同名目录Python_20160906,存放项目配置文件的地方,里面有个wsgi.py文件,所以写作Python_20160906.wsgi)
+# uwsgi --http :8000 --home /home/siva/Env/first --chdir /export/App/DevOPS/Python_20160906 -w Siva_First.wsgi
+uwsgi --http :8000 --chdir /export/App/DevOPS/Python_20160906 -w Python_20160906.wsgi
+
+
+3.直接访问验证
+
+curl http://127.0.0.1:8000/
+
+    1
+
+4.写uwsgi配置文件(肯定不能手工命令起啊)
+
+mkdir -p /export/servers/nginx/conf/uwsgi/
+cd /export/servers/nginx/conf/uwsgi/
+vim Python_20160906.ini
+
+
+    <1>project:项目名
+    <2>chdir:指定django项目的根路径
+    <3>module:对应了上面命令行启动的-w参数,指定django项目的wsgi文件位置
+    <4>master:是否有主进程
+    <5>processes:几个工作进程
+    <6>socket:创建的socket套接字文件位置
+    <7>chmod-socket:套接字权限
+    <8>vacuum:当服务器退出的时候自动删除unix socket文件和pid文件
+
+[uwsgi]
+project = Python_20160906
+
+chdir = /export/App/DevOPS/%(project)
+module = %(project).wsgi
+
+master = true
+processes = 5
+
+socket = /export/App/DevOPS/%(project)/%(project).sock
+chmod-socket = 664
+vacuum = true
+
+
+5.开启uwsgi服务(启动后会创建sock套接字文件)
+
+uwsgi --ini /export/servers/nginx/conf/uwsgi/Python_20160906.ini &
+
+    1
+
+6.变更nginx配置文件
+
+map $http_upgrade $connection_upgrade {
+        default upgrade;
+        ''   close;
+}
+server
+                {
+
+                listen                   80;
+                server_name              devops.jd.com devops.jd.local;
+                access_log               /export/servers/nginx/logs/devops.jd.local/devops.jd.local_access.log main;
+                error_log                /export/servers/nginx/logs/devops.jd.local/devops.jd.local_error.log warn;
+                error_page 400 401 402 403 404 405 408 410 412 413 414 415 500 501 502 503 506 = http://www.jd.com/error2.aspx;
+                    charset     utf-8;
+    # #########################核心配置就这2行#########################################
+      location / {
+                include         /export/servers/nginx/conf/uwsgi_params;
+                uwsgi_pass      unix:/export/App/DevOPS/Python_20160906/Python_20160906.sock;
+        }
+    #################################################################################
+      location /static/ {
+            alias   /export/App/DevOPS/Python_20160906/static/;
+        }
+      # websocket的匹配
+      location ~ /index/websocket_demo/ {
+            include     /export/servers/nginx/conf/uwsgi_params;
+            uwsgi_pass      unix:/export/App/DevOPS/Python_20160906/Python_20160906.sock;
+            proxy_redirect off;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+    }
+        location = / {
+            rewrite ^ /index/ permanent;
+        }
+        location = /favicon.ico {
+            rewrite ^ /static/image/favicon.ico permanent;
+    }
+        location /devops/ {
+            rewrite ^/devops/(.*)$ /$1 last;
+    }
+        location /software/ {
+            alias /export/Data/software/;
+            allow all;
+            autoindex on;
+            autoindex_exact_size off;
+            autoindex_localtime on;
+        }
+}
+
+
+8.重启nginx
+
+/etc/init.d/nginx restart
+
+    1
+
+9.uwsgi支持django后端的websocket(dwebsocket模块)
+
+(1)修改django项目的settings.py,添加一条数据
+
+WEBSOCKET_FACTORY_CLASS = 'dwebsocket.backends.uwsgi.factory.uWsgiWebSocketFactory'
+
+
+(2)修改uwsgi的配置文件,添加异步选项
+
+async = 30
+ugreen = ''
+http-timeout = 300
+
+(3)重启uwsgi服务
+
+killall uwsgi
