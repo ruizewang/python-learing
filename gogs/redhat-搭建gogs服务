@@ -1,0 +1,64 @@
+在进行安装gogs之前，请先安装好mysql和nginx。
+
+
+在安装好ｍｙｓｑｌ后，创建数据库：
+１．登录ｍｙｓｑｌ数据库：
+mysql -u root -p
+２．创建ｇｏｇｓ数据库
+SET GLOBAL storage_engine = 'InnoDB';
+ CREATE DATABASE gogs CHARACTER SET utf8 COLLATE utf8_bin; GRANT ALL PRIVILEGES ON gogs.* TO ‘root’@‘localhost’ IDENTIFIED BY 'YourPassword';
+ FLUSH PRIVILEGES; 
+QUIT；
+
+
+在安装好mysql和nginx之后，
+１．创建一个ｇｉｔ用户：
+
+a.新建ｇｉｔ用户：
+adduser git
+２．以ｇｉｔ用户的身份进行登录
+su git
+
+３．通过ｃｄ,进入到/home/git/
+
+ｇｏｇｓ安装：
+su git
+cd ~
+wget https://dl.gogs.io/0.11.4/linux_amd64.zip
+unzip linux_amd64.zip
+
+ｇｏｇｓ配置：
+vim /home/git/gogs/scripts/init/centos/gogs
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin DESC="Go Git Service" NAME=gogs SERVICEVERBOSE=yes PIDFILE=/var/run/$NAME.pid SCRIPTNAME=/etc/init.d/$NAME WORKINGDIR=/home/git/gogs #这个根据自己的目录修改 DAEMON=$WORKINGDIR/$NAME DAEMON_ARGS="web" USER=git #如果运行gogs不是用的这个用户，修改对应用户
+
+
+切会root账户然后复制到/etc/init.d/
+
+sudo cp /home/git/gogs/scripts/init/centos/gogs /etc/init.d/
+
+增加执行权限
+
+sudo chmod +x /etc/init.d/gogs
+chkconfig --add gogs //添加服务
+chkconfig gogs on  //设置自动启动
+
+或　修改service文件
+
+    vim /usr/local/gogs/scripts/systemd/gogs.service
+    User=git  //运行账户
+    Group=gits   //运行账户组
+    WorkingDirectory=/usr/local/gogs //程序目录
+    ExecStart=/usr/local/gogs/gogs web //运行命令
+
+
+运行ｇｏｇｓ：
+１．手动启动：
+su git
+cd ~/gogs
+./gogs web
+
+２．开启守护进程:
+nohup ./gogs web &
+
+
