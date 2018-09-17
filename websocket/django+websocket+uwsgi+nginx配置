@@ -127,7 +127,6 @@ server
 
 /etc/init.d/nginx restart
 
-    1
 
 9.uwsgi支持django后端的websocket(dwebsocket模块)
 
