@@ -1,0 +1,11 @@
+针对不同的ajax的传递的data的形式的不同,后台获取post的参数也是不一样的.
+
+1.data: JSON.stringify(data):
+通过这种传递的参数,是通过request.body来进行获取传递的参数的
+paras = request.body.decode()
+paras = json.loads(paras)
+
+2.data: {"code": row.code}:
+通过这种方式传递的参数,是通过request.POST来进行获取传递的参数的
+paragrams = request.POST
+code = paragrams.get('code')
