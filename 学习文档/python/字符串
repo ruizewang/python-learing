@@ -1,0 +1,651 @@
+摘自:https://www.cnblogs.com/PeterZhang1520389703/p/7647160.html
+
+
+
+1.str.capitalize():返回字符串,其首字母大写,其他部分是小写
+
+1>>> str = "TEST"
+2>>> str1= "test"
+3>>> print(str + "-->" + str.capitalize() +'\n' + "-->" + str + str1.capitalize())
+4 TEST-->Test
+5 TEST-->Test
+
+2.str.casefold():字符串转换成小写,用于不区分大小写的字符串的比较
+1>>> str = "TESTtest"
+2>>> print(str.casefold())
+3 testtest
+
+3.str.center(width[, fillchar]):指定长度(此处是长度并不是索引值)填充字符
+1>>> str = "Python"
+2>>> print(str.center(7,'t'))
+3>>> print(str.center(8,'8'))
+4>>> print(str.center(9,'9'))
+5>>> print(str.center(10,'X'))#
+6 tPython
+7 8Python8
+8 99Python9
+9 XXPythonXX
+
+4.str.count(sub[, start[, end]])　--> int 　　　　查找某字符串(sub)出现的次数　，也可以查找在某个位置范围 [2,6] 内出现子字符串的次数　
+
+1 >>>str = "Pythont"
+2 >>>sub = "t"
+3 >>>print(str.count(sub))#查找‘t’在“Pythont”中出现的次数
+4 2
+5 >>>print(str.count(sub,2,6))#在[2,6]范围 内出现的次数
+6 1
+
+5.str.encode(encoding="utf-8", errors="strict") --> Object　　　　以指定的编码格式解码字符串。默认编码为字符串编码（适合python2中处理中文）
+
+
+
+1>>> str = "中文"
+2>>> sub = "test"
+3>>> print(str.encode(encoding='utf_8', errors='strict'))
+4 b'\xe4\xb8\xad\xe6\x96\x87'
+5>>> print(sub.encode(encoding='utf_8', errors='strict'))
+6 b'test'
+
+
+6.str.endswith(suffix[, start[, end]])  --> Bool(True or False)　　　　用于判断字符串是否以指定后缀结尾，如果以指定后缀结尾返回True，否则返回False。
+
+可选参数"start"与"end"为检索字符串的开始与结束位置
+
+1>>> str = "TestPython"
+2>>> sub = "test"
+3>>> print(str.endswith('on'))# 判断该字符串以指定后缀‘on’结尾
+4 True
+5>>> print(str.endswith("t",4,7))#判断4位置以‘t’开始，7位置以‘t’结尾
+6 True
+7>>> print(str.endswith("t",4,9))
+8 False
+
+7.str.expandtabs(tabsize=8) --> String　　　　将字符串中的tab符号('\t')转换为空格，默认的空格数是8；tabsize -- 指定转换字符串中的 tab 符号('\t')转为空格的字符数。
+
+
+
+1 >>> '01\t012\t0123\t01234'.expandtabs()
+2 '01      012     0123    01234'
+3 >>> '01\t012\t0123\t01234'.expandtabs(4)
+4 '01  012 0123    01234'
+
+8.str.find(sub[, start[, end]]) --> int　　　检测字符串中是否包含子字符串，如果指定 beg（开始）和 end（结束）范围，则检查是否包含在指定范围内，如果包含子字符串，则返回开始的索引值(下标，从0开始)，否则返回-1。
+ str.rfind(sub[, start[, end]]) --> int　       返回字符串最后一次出现的位置，如果没有匹配项则返回-1。
+
+ 1 >>> str = "TestPython"
+2 >>> sub = "Test"
+3 >>> print(str.find(sub))#检测是否包含子字符串sub,如果包含则返回开始的索引值，否则返回-1
+4 0
+5 >>> print(str.find('P'))
+6 4
+7 >>> print(str.find('A'))
+8 -1
+
+　　>>> s = 'lilin is good li lao ban'
+　　>>> s.rfind('li')
+　　14
+　　>>> s.rfind('li',0,8)
+　　2
+
+注意：只有当你知道子字符串的位置时才是用find()方法。如果你需要检测子字符串是否包含，请至少用 in 运算符：
+
+1 >>> 'Py' in 'Python'
+2 True
+
+
+
+9. str.format(*args, **kwargs) --> String 　　　　格式换字符串输出（方法与%相似，但可以指定顺序） 仔细阅读下面的例子
+
+1 >>> str = "programmer"
+2 >>> sub = "Python"
+3 >>> print('I am a {}, and learn {}'.format(str,sub))
+4 I am a programmer, and learn Python
+5 >>> print('I am a {1}, and learn {0}'.format(str,sub))
+6 I am a Python, and learn programmer
+7 >>> print('I am a {name}, and learn {tool}'.format(name = str,tool = sub))
+8 I am a programmer, and learn Python
+
+10.其他的
+
+str.format_map(mapping)  --> String 　　　　执行字符串格式化操作，替换字段使用{}分隔，同str.format(**mapping), 除了直接使用mapping，而不复制到一个dict
+复制代码
+
+1 >>> name = "Peter"
+2 >>> country = "China"
+3 >>> print('I\'m {name} and bron in {country}.'.format_map(vars()))
+4 I'm Peter and bron in China.
+5
+6 >>> str = "programmer"
+7 >>> sub = "Python"
+8 >>> print('I am a {str}, and learnning {sub}.'.format_map(vars()))
+9 I am a programmer, and learn Python.
+
+复制代码
+
+注： 此方法 出于 Python 3.2 之后
+
+str.index(sub[, start[, end]]) --> int 　　　　检测字符串string中是否包含子字符串 sub，如果存在，则返回sub在string中的索引值(下标)，如果指定began（开始）和 end（结束）范围，则检查是否包含在指定范围内，该方法与 python find()方法一样，只不过如果str不在 string中会报一个异常(ValueError: substring not found)。
+复制代码
+
+>>> str = "programmer"
+>>> print(str.index('m'))
+6
+>>> print(str.index('m',6,9))
+6
+>>> print(str.index('m',7,9))
+7
+
+复制代码
+
+
+
+
+字符串条件判断：
+
+str.isalnum() --> Bool (True or False)　　　　判断字符串String是否由字符串或数字组成，并且至少有一个字符（不为空）简而言之：只要 c.isalpha(), c.isdecimal(), c.isdigit(), c.isnumeric() 中任意一个为真，则 c.isalnum() 为真。
+复制代码
+
+'dobi'.isalnum()
+# True
+'dobi123'.isalnum()
+# True
+'123'.isalnum()
+# True
+'张'.isalnum()
+# True
+'dobi_123'.isalnum()
+# False
+'dobi 123'.isalnum()
+# False
+'%'.isalnum()
+# False
+
+复制代码
+
+str.isalpha() -->Bool (True or False) 　　　　判断字符串String是否只由字母组成，并且至少有一个字符（不为空）
+复制代码
+
+'dobi'.isalpha()
+# True
+'do bi'.isalpha()
+# False
+'dobi123'.isalpha()
+# False
+'张'.isalpha()
+# True
+
+复制代码
+
+str.isdecimal()小数; str.isdigit()数字; str.isnumeric()数值 -->Bool (True or False) 　　　　判断字符串String是否只由小数/数字/数值组成，并且至少有一个字符（不为空）
+三个方法的区别在于对 Unicode 通用标识的真值判断范围不同：
+isdecimal: Nd,   (小数)  all decimals are digits, but not all digits are decimals(所有小数都是数字，但不是全部数字都是小数)
+isdigit: No, Nd,  (数字)
+isnumeric: No, Nd, Nl  (数值)
+digit 与 decimal 的区别在于有些数值字符串，是 digit 却非 decimal ，具体戳 这里
+复制代码
+
+num = '\u2155'
+print(num)
+# ⅕
+num.isdecimal(), num.isdigit(), num.isnumeric()
+# (False, False, True)
+num = '\u00B2'
+print(num)
+# ²
+num.isdecimal(), num.isdigit(), num.isnumeric()
+# (False, True, True)
+num = "1"  #unicode
+num.isdecimal(), num.isdigit(), num.isnumeric()
+# (Ture, True, True)
+num = "'Ⅶ'"
+num.isdecimal(), num.isdigit(), num.isnumeric()
+# (False, False, True)
+num = "十"
+num.isdecimal(), num.isdigit(), num.isnumeric()
+# (False, False, True)
+num = b"1" # byte
+num.isdigit()   # True
+num.isdecimal() # AttributeError 'bytes' object has no attribute 'isdecimal'
+num.isnumeric() # AttributeError 'bytes' object has no attribute 'isnumeric'
+
+复制代码
+str.isidentifier() -->Bool (True or False)　　　　判断字符串中是否是有效标识符
+复制代码
+
+'def'.isidentifier()
+# True
+'with'.isidentifier()
+# True
+'false'.isidentifier()
+# True
+'dobi_123'.isidentifier()
+# True
+'dobi 123'.isidentifier()
+# False
+'123'.isidentifier()
+# False
+
+复制代码
+
+
+
+str.islower() -->Bool (True or False)　　　　判断字符串中是否是有效标识符
+复制代码
+
+str = "programmer"
+sub = "PYTHON"
+print(str.islower())
+# True
+print(sub.islower())
+# False
+'ß'.islower()   #德语大写字母
+# False
+
+复制代码
+
+
+
+ str.isprintable() -->Bool (True or False)　　　　判断字符串的所有字符都是可打印字符或字符串为空。Unicode 字符集中 “Other” “Separator” 类别的字符为不可打印的字符（但不包括 ASCII 的空格（0x20））。
+复制代码
+
+'dobi123'.isprintable()
+# True
+'dobi123\n'.isprintable()
+Out[24]: False
+'dobi 123'.isprintable()
+# True
+'dobi.123'.isprintable()
+# True
+''.isprintable()
+# True
+
+复制代码
+
+
+
+str.isspace()  -->Bool (True or False)　　　　检测字符串是否只由空格组成，并且至少有一个字符（判断字符串中是否至少有一个字符，并且所有字符都是空白字符。）
+
+'\r\n\t'.isspace()
+#True
+''.isspace()
+#False
+' '.isspace()
+#True
+
+str.istitle() -->Bool (True or False)　　　　 判断字符串中的字符是否是首字母大写，且其他字母为小写,其会忽视非字母字符
+复制代码
+
+'How Python Works'.istitle()
+# True
+'How Python WORKS'.istitle()
+# False
+'how python works'.istitle()
+# False
+'How Python  Works'.istitle()
+# True
+' '.istitle()
+# False
+''.istitle()
+# False
+'A'.istitle()
+# True
+'a'.istitle()
+# False
+'甩甩Abc Def 123'.istitle()
+# True
+
+复制代码
+
+str.isupper()  -->Bool (True or False)　　　　检测字符串中所有的字母是否都为大写
+复制代码
+
+'张'.isupper()
+# False
+'DOBI'.isupper()
+Out[41]: True
+'Dobi'.isupper()
+# False
+'DOBI123'.isupper()
+# True
+'DOBI 123'.isupper()
+# True
+'DOBI\t 123'.isupper()
+# True
+'DOBI_123'.isupper()
+# True
+'_123'.isupper()
+# False
+
+复制代码
+
+
+
+
+字符串的联合与分割:
+str.join(iterable)       --> String 　　　　用指定的字符串，连接元素为字符串的可迭代对象。
+复制代码
+
+'-'.join(['2012', '3', '12'])
+# '2012-3-12'
+'-'.join([2012, 3, 12])
+# TypeError: sequence item 0: expected str instance, int found
+'-'.join(['2012', '3', b'12'])  #bytes 为非字符串
+# TypeError: sequence item 2: expected str instance, bytes found
+'-'.join(['2012'])
+# '2012'
+'-'.join([])
+# ''
+'-'.join([None])
+# TypeError: sequence item 0: expected str instance, NoneType found
+'-'.join([''])
+# ''
+','.join({'dobi':'dog', 'polly':'bird'})
+# 'dobi,polly'
+','.join({'dobi':'dog', 'polly':'bird'}.values())
+# 'dog,bird'
+
+复制代码
+
+
+
+
+str.ljust(width[, fillchar]);  str.rjust(width[, fillchar])
+
+返回指定长度的字符串，字符串内容居左（右）如果长度小于字符串长度，则返回原始字符串，默认填充为 ASCII 空格，可指定填充的字符串。
+
+ width -- 指定填充指定字符后新字符串的总长度.
+
+ fillchar– 要填充的字符，默认为空格。
+复制代码
+
+print('dobi'.ljust(10))
+# 'dobi      '
+print('dobi'.ljust(10, '*'))
+# 'dobi~~~~~~'
+print('dobi'.ljust(3, '~'))
+# 'dobi'
+print('dobi'.ljust(3))
+# 'dobi'
+print('dobi'.rjust(10))
+#'      dobi'
+print('dobi'.rjust(10,'@'))
+#'@@@@@@dobi'
+print('dobi'.rjust(3,'@'))
+#'dobi'
+print('dobi'.rjust(3))
+#'dobi'
+
+复制代码
+
+
+
+str.lower() -->String 　　　　字符串转换成小写    其仅对 ASCII 编码的字母有效。
+复制代码
+
+print('PYTHON'.lower())
+#'python'
+print('Python'.lower())
+#'python'
+print('ß'.lower()) # 'ß' 为德语小写字母，其有另一种小写 'ss'， lower 方法无法转换
+#'ß'
+print('张PYTHON'.lower())
+#'张python'
+
+复制代码
+
+
+str.lstrip([chars]);    str.rstrip([chars]);    str.strip([chars])   -->  string or unicode
+去掉(删除)字符串后面 / 前面/ 两边 的空格(默认是空格)，或参数中的字符
+复制代码
+
+print('   Python   '.lstrip())
+#'Python   '
+print('Test Python lstrip'.lstrip('Test'))#去掉前面的参数中的字符'Test'
+#' Python lstrip'
+print('   Python   '.rstrip())
+#'   Python'
+print('   Python   '.strip())
+#'Python'
+
+复制代码
+
+static str.maketrans(x[, y[, z]])    str.translate(table)
+
+maktrans 是一个静态方法，用于生成一个对照表，以供 translate 使用。
+如果 maktrans 仅一个参数，则该参数必须是一个字典，字典的 key 要么是一个 Unicode 编码（一个整数），要么是一个长度为 1 的字符串，字典的 value 则可以是任意字符串、None或者 Unicode 编码。
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+
+#注释：ord() 函数是 chr() 函数（对于8位的ASCII字符串）或 unichr() 函数（对于Unicode对象）的配对函数，
+#它以一个字符（长度为1的字符串）作为参数，返回对应的 ASCII 数值，
+#或者 Unicode 数值，如果所给的 Unicode 字符超出了你的 Python 定义范围，则会引发一个 TypeError 的异常。
+
+a = 'dobi'
+ord('o')
+# 111
+ord('a')
+# 97
+hex(ord('狗'))
+# '0x72d7'
+b = {'d':'dobi', 111:' is ', 'b':97, 'i':' \u72d7\u72d7'}
+table = str.maketrans(b)
+print(a.translate(table))
+
+如果 maktrans 有两个参数，则两个参数形成映射，且两个字符串必须是长度相等；如果有第三个参数，则第三个参数也必须是字符串，该字符串将自动映射到 None：
+复制代码
+
+a = 'dobi is a dog'
+table = str.maketrans('dobi', 'alph')
+a.translate(table)
+# 'alph hs a alg'
+table = str.maketrans('dobi', 'alph', 'o')
+a.translate(table)
+# 'aph hs a ag'
+
+复制代码
+
+这里插一嘴：Python2.x和3.x下maketrans与translate函数使用上的不同
+
+看一个简单的例子来说明字符串转换的过程：
+    2.X下的演示过程：
+
+>>> import string                     #导入string模块
+>>> map = string.maketrans('123', 'abc') #建立映射表，将字符串中含有的'1','2','3'替换为'a','b','c'
+>>> s = '54321123789'                #转换前的字符串
+>>> s.translate(map)                  #用创建的映射表map转换字符串
+'54cbaabc789'                        #转换后的字符串
+
+    3.X下的演示过程：
+
+>>> map = str.maketrans('123','abc')
+>>> s = '54321123789'
+>>> s.translate(map)
+'54cbaabc789'
+
+ 2.X使用了string的maketrans函数，而3.X使用了str的maketrans函数，除了这一点，使用方法是基本相同的。若指定字符串中要删除的字符时，使用就会略有不同，如下：
+    2.X下的演示过程：
+
+>>> import string
+>>> map = string.maketrans('123', 'abc')
+>>> s = '54321123789'
+>>> s.translate(map, '78')        #除了转换，还要删除字符串中的字符'7','8'
+'54cbaabc9'               #转换后的字符串没有字符'7','8'
+
+    3.X下的演示过程：
+
+>>> map = str.maketrans('123','abc', '78')#要删除的字符需要在这指定
+>>> s = '54321123789'
+>>> s.translate(map)
+'54cbaabc9'
+
+ str.partition(sep) --> (head, sep, tail) 　　　　根据指定的分隔符将字符串进行分割（返回一个3元的元组，第一个为分隔符左边的子串，第二个为分隔符本身，第三个为分隔符右边的子串）
+注：str.partition(sep) 是从前往后查找 (从左往右)
+　　str.rpartition(sep)  是从后面开始查找 (从右往左)
+复制代码
+
+str = 'learn Python is so easy'
+print(str.partition('is'))
+#('learn Python ', 'is', ' so easy')
+print(str.partition('ii'))
+#('learn Python is so easy', '', '')#如果字符串中没有'ii',将返回整个字符串作为第一个，分割的本身以及尾部为空
+print(str.partition('learn'))
+#('', 'learn', ' Python is so easy')
+print(str.partition('easy'))
+#('learn Python is so ', 'easy', '')
+
+复制代码
+与 find() rfind() 类似，不同的是如果找不到，就会引发 ValueError。
+str.index(sub[, start[, end]]); --> String　　       把字符串中的 old（旧字符串）替换成 new(新字符串)，如果指定第三个参数max，则替换不超过 max 次。str.rindex(sub[, start[, end]]) --> String　　　　返回子字符串 str 在字符串中最后出现的位置，如果没有匹配的字符串会报异常，你可以指定可选参数[beg:end]设置查找的区间。
+复制代码
+
+str = 'this is replace old old old text'
+print(str.replace('old', 'new'))
+#this is replace new new new text
+print(str.replace('old', 'new',1))#指定只替换几个
+#this is replace new old old text
+print(str.replace('old', 'new',2))
+#this is replace new new old text
+
+print(str.rindex('old',10,20))#查找最后出线的位置(下标)
+#'16'
+print(str.rindex('s',0,7))#
+#'6'
+
+复制代码
+  str.split(sep=None, maxsplit=-1) --> list　　　　通过指定分隔符对字符串进行切片，如果参数num有指定值，则仅分隔 num 个子字符串
+ str.rsplit(sep=None, maxsplit=-1)          从后往前
+　　　　　　　　　　　　　　　　　　　　　　　　如果字符串开头/结尾包含空格字符串则以非空格字符串后的第一个空格为分隔符
+复制代码
+
+print('1,2,3'.split(','), '1, 2, 3'.rsplit())#split从前往后； rsplit从后往前
+#['1', '2', '3'] ['1,', '2,', '3']
+
+#如果参数num有指定值，则仅分隔 num 个子字符串
+print('1,2,3'.split(',', maxsplit=1),  '1,2,3'.rsplit(',', maxsplit=1))#此处的意思就是仅分隔1次（最多分拆次数）
+#['1', '2,3'] ['1,2', '3']
+
+print('1 2 3'.split(), '1 2 3'.rsplit())#此处是以默认值分隔，默认值为空格
+#['1', '2', '3'] ['1', '2', '3']
+
+print('test test test'.split(maxsplit=1), '1 2 3'.rsplit(maxsplit=1))#此处直接写拆分次数，那么就是默认值（空格）分隔
+#['test', 'test test'] ['1 2', '3']
+
+print('     tttt test test    '.split(), '     tttt test test    '.rsplit())#如果字符串开头/结尾包含空格字符串则以非空格字符串后的第一个空格为分隔符
+#['tttt', 'test', 'test'] ['tttt', 'test', 'test']
+
+print('1,2,,,3,'.split(','), '1,2,,,3,'.rsplit(','))
+#(['1', '2', '', '', '3', ''] ['1', '2', '', '', '3', ''])
+
+print(''.split())
+#[]
+
+print(''.split('a'))
+#['']
+
+print('bcd'.split('a'))
+#['bcd']
+
+print('bcd'.split(None))
+#['bcd']
+
+复制代码
+str.splitlines([keepends])  --> List　　　　字符串以换行符为分隔符拆分，去掉行界符；如果keepends为True，保留行界符，能被识别的行界符参照官方文档
+复制代码
+
+print('HOW\nSOFT\nWORKS'.splitlines())#字符串以换行符为分隔符拆分，去掉换行符；
+#['HOW', 'SOFT', 'WORKS']
+print('HOW\nSOFT\nWORKS'.splitlines(True))#如果keepends为True，保留换行符
+#['HOW\n', 'SOFT\n', 'WORKS']
+
+print(''.splitlines(), ''.split('\n'))#注意两者的区别
+#([] [''])
+print("One line\n".splitlines(), "Two line\n".split('\n'))#注意两者的区别
+#(['One line'] ['Two line', ''])
+
+复制代码
+ 能被识别的行界符：
+Representation	Description
+\n 	Line Feed   换行
+\r 	Carriage Return 回车
+\r\n 	Carriage Return + Line Feed  回车+换行
+\v or \x0b 	Line Tabulation
+\f or \x0c 	Form Feed 换页
+\x1c 	File Separator 文件分隔符
+\x1d 	Group Separator  组分隔符
+\x1e 	Record Separator 记录分隔符号
+\x85 	Next Line (C1 Control Code)
+\u2028 	Line Separator  行分隔符
+\u2029 	Paragraph Separator 段落分隔符号
+
+
+str.startswith(prefix[, start[, end]]) --> Bool (true or false)　　　　用于检查字符串是否是以指定子字符串开头，如果是则返回 True，否则返回 False。如果参数 beg 和 end指定值，则在指定范围内检查。
+复制代码
+
+print('Learn python in cnblogs'.startswith('Learn'))
+#True
+print('Learn python in cnblogs'.startswith('test'))
+#False
+print('Learn python in cnblogs'.startswith('python',6,12))
+#True
+print('Learn python in cnblogs'.startswith('python',1,5))
+#False
+
+复制代码
+
+
+
+str.swapcase() -- > String   用于对字符串的大小写字母进行反转(小写转大写，大写转小写)
+
+print('张Dobi a123 ß'.swapcase())#这里的 ß 被转成 SS 是一种大写
+#张dOBI A123 SS
+
+但需要注意的是 s.swapcase().swapcase() == s 不一定为真：
+
+u'\xb5'
+# 'µ'
+u'\xb5'.swapcase()
+# 'Μ'
+u'\xb5'.swapcase().swapcase()
+# 'μ'
+hex(ord(u'\xb5'.swapcase().swapcase()))
+Out[154]: '0x3bc'
+
+这里 'Μ'(是 mu 不是 M) 的小写正好与 'μ' 的写法一致。
+
+str.strip([chars]) -->String  　　　　返回"标题化"的字符串,就是说所有单词都是以大写开始，其余字母均为小写。
+
+print('learn python in cnblogs'.title())
+#Learn Python In Cnblogs
+
+
+str.upper() -->String　　　　将字符串所有字母变为大写，会自动忽略不可转成大写的字符。
+
+print('学习Python 1 day !!!'.upper())
+#学习PYTHON 1 DAY !!!
+
+str.zfill(width) --> String 　　　　用 '0' 填充字符串，并返回指定宽度的字符串。
+注：正常一般是从字符串的左边开始填充，如指定长度小于字符串长度则返回原字符串
+复制代码
+
+print('A'.zfill(5))
+#0000A
+print('--'.zfill(5))
+#-000-
+print('\'\''.zfill(5))
+#000''
+print('AAAAAAAAAAAA'.zfill(6))
+#AAAAAAAAAAAA
+print('AAAAAAAAAAAA'.zfill(15))
+#000AAAAAAAAAAAA
