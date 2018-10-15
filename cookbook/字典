@@ -130,5 +130,6 @@ c = {key:a[key] for key in a.keys() - {'z', 'w'}}
 
 
 list中的元素是dict,并且是以dict的某一个值进行排序:
+# reverse=True表示反序排列，默认正序排列
 list.sort(key=lamdba k: k.get('corr'))
 
