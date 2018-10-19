@@ -1,0 +1,43 @@
+1向原表中某些字段中插入一条记录。
+语法：insert into +表名（表中的字段，，）value（字段所对应的记录，，);
+
+mysql> insert into joke (gid,name)value(0,"joker");
+Query OK, 1 row affected (0.09 sec)
+
+2向原表的字段中插入多条记录的方法一。
+语法：insert into +表名（表中的字段，，）values（字段所对应的记录，，)(字段所对应的记录);
+
+mysql> insert into joke (gid,name)values(0,"joker"),(1,"jhj");
+Query OK, 2 rows affected (0.14 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+3向原表的字段中插入多条记录的方法二。
+语法：insert into+表名 select v1,v2 union all
+          select v1,v2;
+
+mysql> insert into book select "abc","bdd" union  all
+    -> select "add","dsf";
+Query OK, 2 rows affected (0.16 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+4复制旧表的信息到新表（假设两个表的表结构一样）
+语法：insert into+新表+select语句;
+
+mysql> insert into q1 select * from 4inall where sage=18;
+Query OK, 7 rows affected (0.28 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+5复制旧表信息到新表（假设两个的表的表结构不一样）。
+语法：：insert into+新表+字段名+select语句;
+
+mysql> insert into q1 (sname)select 4inall.s from 4inall where t=2;
+Query OK, 5 rows affected (0.13 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+6向原本中插入数据（不能是其他表的数据）：
+
+语法：insert into 原表名 set 原表字段名=原表字段名（=“具体指”可有可无）；
+
+mysql> insert  into  4a set sname=sname="赵六";
+
+Query OK, 1 row affected (0.29 sec)
