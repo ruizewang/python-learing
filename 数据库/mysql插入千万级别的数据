@@ -1,0 +1,26 @@
+第一步：配置my.ini文件
+
+文件中配置
+
+bulk_insert_buffer_size=120M 或者更大
+
+将insert语句的长度设为最大。
+
+Max_allowed_packet=1M
+
+Net_buffer_length=8k
+
+保存
+
+第二步：查看设置的参选有没有生效.
+
+Mysql > SHOW VARIABLES;
+
+bulk_insert_buffer_size默认是8M，我们要把它调成100M或百兆以上，也不要太大。下面看调整个好的
+
+
+第三步：完成设置后，批量插入数据时使用多条模式。
+
+INSERT INTO table (field1,field2,field3) VALUES ('a',"b","c"), ('a',"b","c"),('a',"b","c");
+
+将以上Mysql插入模式用php语言字符串拼接SQL方法如下，你也可转换Java,Python,Golang其它你用的最顺手的语言，
