@@ -1,0 +1,43 @@
+
+
+import datetime
+
+import time
+string转datetime
+
+            str = '2012-11-19'
+
+            date_time = datetime.datetime.strptime(str,'%Y-%m-%d')
+
+            date_time
+
+datetime.datetime(2012,11,19,0,0)
+datetime转string
+
+            date_time.strftime('%Y-%m-%d')
+
+'2012-11-19'
+datetime转时间戳
+
+            time_time = time.mktime(date_time.timetuple())
+
+            time_time
+
+1353254400.0
+时间戳转string
+
+            time.strftime('%Y-%m-%d',time.localtime(time_time))
+
+'2012-11-19'
+date转datetime
+
+            date = datetime.date.today()
+
+            date
+
+            datetime.date(2012,11,19)
+
+            datetime.datetime.strptime(str(date),'%Y-%m-%d') #将date转换为str，在由str转换为datetime
+
+            datetime.datetime(2012,11,19,0,0)
+
