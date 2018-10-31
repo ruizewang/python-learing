@@ -1,0 +1,17 @@
+
+
+三种方式交换键值对（前提：值唯一）：
+1.
+mydict={"a":1,"b":2,"c":3}
+mydict_new={}
+for key,val in mydict.items():
+    mydict_new[val]=key
+
+return mydict_new
+2.
+mydict={"a":1,"b":2,"c":3}
+mydict_new=dict([val,key] for key,val in mydict.items())
+3.利用zip运算符：
+mydict={"a":1,"b":2,"c":3}
+
+mydict_new=dict(zip(mydict.values(),mydict.keys()))
