@@ -27,8 +27,6 @@ def getLastDayClosePrice():
 
 if __name__ == '__main__':
     getLastDayClosePrice()
-    # pass
-    # getAiTradingData('000001.SZ')
-    # getAiTradingData()
+
 
 
