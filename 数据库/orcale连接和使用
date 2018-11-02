@@ -1,0 +1,34 @@
+# coding=utf-8
+
+import cx_Oracle
+
+oracle_db_conf = dict(DBInfo = '127.0.0.1:21001/AIDB',USER='aa',PASSWD='1111111')
+oracle_connton = cx_Oracle.connect(oracle_db_conf['USER'],oracle_db_conf['PASSWD'],oracle_db_conf['db_ip'])
+
+
+def getLastDayClosePrice():
+    lastPrice = {}
+    cursor = oracle_connton.cursor()
+
+    try:
+        sql = "SELECT * from table_name"
+        cursor.execute(sql)
+        data = cursor.fetchall()
+        if data:
+            for row in data:
+                close_price = round(row[1], 2)
+                lastPrice[row[0]]=close_price
+        print(len(lastPrice))
+        # r.set("lastDayPrice",lastPrice)
+    except Exception as e:
+        print('获取最新的收盘价失败:', e)
+    finally:
+        cursor.close()
+
+if __name__ == '__main__':
+    getLastDayClosePrice()
+    # pass
+    # getAiTradingData('000001.SZ')
+    # getAiTradingData()
+
+
