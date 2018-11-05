@@ -1,0 +1,585 @@
+http: https://mp.weixin.qq.com/s?__biz=MzIxOTQ5MzIxNA%3D%3D&mid=2247483695&idx=1&sn=6d0dfe5899f9c3c273ca74582b996515&chksm=97db271ea0acae0842844286affb8e5e4f84fd4866be45966228b734aa5401a592430dea5985
+
+ Sentry监控Django应用并使用email+钉钉通知
+原创： 安生 Python大陆 7月27日
+
+Sentry是一个开源的程序异常跟踪系统，基本上主流的语言，Sentry都支持，Sentry是用Django+DRF+Celery+Celery-Beat开发的，如果你是Pythoner，并且对这些技术栈都相当熟悉，你可以阅读一下相关的源码，定有不少的收获，这里值得一提的是Sentry在部署的时候只支持Python2，不支持Python3。
+
+这篇文章我们将会以 Docker的方式部署 Sentry，这也是官方推荐的部署方式，并且我们会写一个简单的 Django应用，使用 email+钉钉的方式进行通知，一旦出现异常，开发人员可以及时收到并处理。
+环境
+
+我在 vultr上开了一台云服务器供这次测试使用，用的是 CentOS7的系统。
+初始化操作
+
+安装epel源
+
+    $ yum install epel-release -y
+
+更新系统
+
+    $ yum update -y
+
+安装一些工具包
+
+    $ yum install python-pip vim git -y
+
+建议重启下系统
+
+    $ reboot
+
+基本配置
+
+    内存
+
+    $ free -h
+
+                  total        used        free      shared  buff/cache   available
+
+    Mem:           3.7G         95M        3.4G        8.4M        168M        3.4G
+
+    Swap:            0B          0B          0B
+
+    CPU
+
+    $ cat /proc/cpuinfo | grep processor | wc -l
+
+    2
+
+配置也就是 2H4G，如果你是 1G内存的服务器，貌似我在腾讯云上面跑起来比较艰难，感觉至少还是要 2G把。
+安装Docker
+
+CentOS系列的安装文档放在：https://docs.docker.com/install/linux/docker-ce/centos/ ，感兴趣的就可以去阅读，我这里就简化一些操作。
+
+    安装一些软件包
+
+    $ yum install -y yum-utils device-mapper-persistent-data lvm2
+
+    添加docker的repo源
+
+    $ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+    安装docker
+
+    $ yum install docker-ce -y
+
+    启动docker
+
+    $ systemctl start docker
+
+    开机自启动
+
+    $ systemctl enable docker
+
+    查看docker版本
+
+    $ docker --version
+
+    Docker version 18.03.1-ce, build 9ee9f40
+
+    运行一个 hello-world
+
+    $ docker run hello-world
+
+    Unable to find image 'hello-world:latest' locally
+
+    latest: Pulling from library/hello-world
+
+    9db2ca6ccae0: Pull complete
+
+    Digest: sha256:4b8ff392a12ed9ea17784bd3c9a8b1fa3299cac44aca35a85c90c5e3c7afacdc
+
+    Status: Downloaded newer image for hello-world:latest
+
+    Hello from Docker!
+
+    This message shows that your installation appears to be working correctly.
+
+    To generate this message, Docker took the following steps:
+
+     1. The Docker client contacted the Docker daemon.
+
+     2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+
+        (amd64)
+
+     3. The Docker daemon created a new container from that image which runs the
+
+        executable that produces the output you are currently reading.
+
+     4. The Docker daemon streamed that output to the Docker client, which sent it
+
+        to your terminal.
+
+    To try something more ambitious, you can run an Ubuntu container with:
+
+     $ docker run -it ubuntu bash
+
+    Share images, automate workflows, and more with a free Docker ID:
+
+     https://hub.docker.com/
+
+    For more examples and ideas, visit:
+
+     https://docs.docker.com/engine/userguide/
+
+如果你运行之后出现的结果和我一样，那么，OK，docker已经安装完成了.
+
+如果你使用的是国内的服务器，可能在 pull镜像的时候，异常的慢，所以官方就提供了国内的docker镜像加速，点我点我，配置好之后一定要记得重启下docker的服务，不然无法加载配置，重启命令如下：
+
+    $ systemctl restart docker
+
+安装docker-compose
+
+    $ curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+    $ chmod +x /usr/local/bin/docker-compose
+
+我装的是 1.21.2版本，通常你安装的 docker和 docker-compose是最新的版本都不会有什么问题，查看一下 docker-compose版本
+
+    $ docker-compose --version
+
+    docker-compose version 1.21.2, build a133471
+
+安装Sentry
+
+终于到了关键的步骤， Sentry，官方提供了一整套 docker的部署方式来运行 Sentry。
+
+    下载项目
+
+    $ cd /opt/
+
+    $ git clone https://github.com/getsentry/onpremise.git sentry
+
+    $ cd sentry
+
+    创建数据库和Sentry配置目录
+
+    $ mkdir -p data/{sentry,postgres}
+
+    添加一些依赖库
+
+    $ vim requirements.txt
+
+    # Add plugins here
+
+    sentry-dingding~=0.0.1  # 钉钉通知插件
+
+    django-smtp-ssl~=1.0  # 发邮件支持SSL协议
+
+    构建Docker镜像
+
+    $ docker-compose build
+
+    生成密钥
+
+    $ docker-compose run --rm web config generate-secret-key
+
+    ......
+
+    # 最后一行会输出类似如下的秘钥串
+
+    kbjodp(id&b0^kbnxijn11&2e6xu&vy1(oini!-zl)pl610n&v
+
+把上面的秘钥添加到 docker-compose.yml文件的 SENTRY_SECRET_KEY环境变量中
+
+    $ vim docker-compose.yml
+
+    ......
+
+    SENTRY_SECRET_KEY: 'kbjodp(id&b0^kbnxijn11&2e6xu&vy1(oini!-zl)pl610n&v'
+
+    生成数据库表并创建管理员用户
+
+    $ docker-compose run --rm web upgrade
+
+    ......
+
+    Would you like to create a user account now? [Y/n]: y  # 创建用户
+
+    Email: ianshengme@gmail.com  # 邮箱
+
+    Password:  # 密码
+
+    Repeat for confirmation:  # 确认密码
+
+    Should this user be a superuser? [y/N]: y  # 为超级管理员用户
+
+    启动服务
+
+    $ docker-compose up -d
+
+可以通过 docker-compose ps查看一下启动了那些容器
+
+    $ docker-compose ps
+
+           Name                     Command               State           Ports
+
+    ------------------------------------------------------------------------------------
+
+    sentry_cron_1        /entrypoint.sh run cron          Up      9000/tcp
+
+    sentry_memcached_1   docker-entrypoint.sh memcached   Up      11211/tcp
+
+    sentry_postgres_1    docker-entrypoint.sh postgres    Up      5432/tcp
+
+    sentry_redis_1       docker-entrypoint.sh redis ...   Up      6379/tcp
+
+    sentry_smtp_1        docker-entrypoint.sh tini  ...   Up      25/tcp
+
+    sentry_web_1         /entrypoint.sh run web           Up      0.0.0.0:9000->9000/tcp
+
+    sentry_worker_1      /entrypoint.sh run worker        Up      9000/tcp
+
+上面的几个服务，介绍如下：
+名称	描述
+sentry_cron	定时任务，使用的是 celery-beat
+sentry_memcached	memcached
+sentry_postgres	pgsql数据库
+sentry_redis	运行celery需要的服务
+sentry_smtp	发邮件
+sentry_web	使用 django+drf写的一套 SentryWeb界面
+sentry_worker	celery的worker服务，用来跑异步任务的
+
+服务启动之后，默认会监听 9000端口，如果你想更改，可以在 docker-compose.yml中进行更改。
+
+我将我的域名 ansheng.me添加了一条 A记录，记录值是 sentry，指向这台sentry的云服务器，所以可以通过 sentry.ansheng.me进行访问。
+Sentry的基本设置
+
+浏览器打开 http://sentry.ansheng.me:9000/，输入邮箱和密码进行登录
+
+登录成功之后，输入对应的 RootURL和 AdminEmail，然后点击 Continue
+
+点击之后就进入了 Sentry的主界面
+
+添加一个Python项目
+
+点击右上角的 Addnew，选择 Project
+
+然后创建项目
+
+项目创建完成之后，会出现一个使用的界面
+
+测试Python程序
+
+按照上面的步骤 ，我们来一步一步的操作，我在我这台服务器上面操作，Python版本如下：
+
+    $ python -V
+
+    Python 2.7.5
+
+    安装raven
+
+    $ pip install raven --upgrade
+
+    添加测试代码
+
+    $ vim sentry_python_test.py
+
+    from raven import Client
+
+    client = Client('http://ce5502f746a4484f9b2c391a54d2d1c4:bca94f6b330a4dd183e68243b2a1b99c@sentry.ansheng.me:9000/2')
+
+    try:
+
+        1 / 0
+
+    except ZeroDivisionError:
+
+        client.captureException()
+
+    运行
+
+    $ python sentry_python_test.py
+
+    Sentry is attempting to send 1 pending error messages
+
+    Waiting up to 10 seconds
+
+    Press Ctrl-C to quit
+
+查看异常
+
+在上面的使用界面中，点击 Gotit~Takeme to theIssueStream.进入到项目的 Issue页面，也就是错误页面
+
+可以看到已经有一条异常了，这个异常就是我们刚测时捕获的报错，点击 ZeroDivisionError大标题，进入异常的详细页面。
+
+在项目页面中我们可以看到 MESSAGE和 EXCEPTION这两块，输出了具体的错误详情
+
+基本上的步骤就像上面一样，流程都差不多
+添加Django项目并进行监控
+
+根据上面创建 PythonSentry项目的步骤添加一个名为 cash，是 Django框架的项目，并把 DSN的记录值保存下来
+
+    http://9ad8168873a94fb1927e14111b9bca1e:29ea550781e24ca2ba0c0ee4829dfc96@sentry.ansheng.me:9000/3
+
+创建django项目
+
+django的项目我在我的电脑上创建.
+
+    添加一个名为 cash的虚拟环境
+
+    $ pyenv virtualenv 3.6.5 cash
+
+    切换虚拟环境
+
+    $ pyenv activate cash
+
+    安装django
+
+    $ pip install django
+
+    创建project
+
+    $ cd /tmp
+
+    $ django-admin startproject cash
+
+    $ cd cash
+
+    $ python manage.py migrate
+
+    启动项目
+
+    $ python manage.py runserver 0:9999
+
+    Performing system checks...
+
+    System check identified no issues (0 silenced).
+
+    July 17, 2018 - 03:35:05
+
+    Django version 2.0.7, using settings 'cash.settings'
+
+    Starting development server at http://0:9999/
+
+    Quit the server with CONTROL-C.
+
+端口监听在 9999，可以通过curl进行访问测试
+
+    $ curl -I http://127.0.0.1:9999
+
+    HTTP/1.1 200 OK
+
+    ......
+
+状态是200表示运行没问题
+
+    查看目录结构
+
+    ➜  cash tree ./
+
+    ./
+
+    ├── cash
+
+    │   ├── __init__.py
+
+    │   ├── settings.py
+
+    │   ├── urls.py
+
+    │   ├── views.py
+
+    │   └── wsgi.py
+
+    ├── db.sqlite3
+
+    └── manage.py
+
+    编写一个简单的views
+
+    $ vim cash/views.py
+
+    from django.http import HttpResponse
+
+    def success(request):
+
+        return HttpResponse("OK")
+
+    def error(request):
+
+        1 / 0
+
+        return HttpResponse("Not OK")
+
+    添加url
+
+    $ vim cash/urls.py
+
+    from django.urls import path
+
+    from . import views
+
+    urlpatterns = [
+
+        path('success', views.success, name='success'),
+
+        path('error', views.error, name='error'),
+
+    ]
+
+    访问测试
+
+访问可以返回成功的API
+
+    $ curl http://127.0.0.1:9999/success
+
+    OK
+
+访问会报错的API
+
+    $ curl -I http://127.0.0.1:9999/error
+
+    HTTP/1.1 500 Internal Server Error
+
+    ......
+
+报了一个 500的错误，日志输出如下
+
+    Internal Server Error: /error
+
+    Traceback (most recent call last):
+
+      File "/Users/shengan/.pyenv/versions/cash/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+
+        response = get_response(request)
+
+      File "/Users/shengan/.pyenv/versions/cash/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+
+        response = self.process_exception_by_middleware(e, request)
+
+      File "/Users/shengan/.pyenv/versions/cash/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+
+        response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+      File "/private/tmp/cash/cash/views.py", line 8, in error
+
+        1 / 0
+
+    ZeroDivisionError: division by zero
+
+    [17/Jul/2018 03:50:55] "HEAD /error HTTP/1.1" 500 60675
+
+集成Sentry
+
+    安装raven
+
+    $ pip install raven --upgrade
+
+    在 INSTALLED_APPS中添加 raven.contrib.django.raven_compat
+
+    INSTALLED_APPS = (
+
+        ......
+
+        'raven.contrib.django.raven_compat',
+
+    )
+
+    在setting内添加sentry配置
+
+    import os
+
+    import raven
+
+    RAVEN_CONFIG = {
+
+        'dsn': 'http://9ad8168873a94fb1927e14111b9bca1e:29ea550781e24ca2ba0c0ee4829dfc96@sentry.ansheng.me:9000/3'  # DSN输入我们刚才记录下来的DSN
+
+    }
+
+    配置完成之后，我我们再来进行下测试
+
+访问错误的API
+
+    $ curl -I http://127.0.0.1:9999/error
+
+    异常列表
+
+    异常详情
+
+配置email通知
+
+我这里使用的是网易邮箱，具体操作如下
+
+    修改config.yml文件添加 MailServer的配置
+
+    $ vim config.yml
+
+    mail.backend: 'django_smtp_ssl.SSLEmailBackend'  # Use dummy if you want to disable email entirely
+
+    mail.host: 'smtp.163.com'
+
+    mail.port: 465
+
+    mail.username: 'anshengme@163.com'
+
+    mail.password: '14RJg5vzGFWUNKiP'  # 这里的密码，不是登录密码，是"客户端授权密码"
+
+    mail.use-tls: false
+
+    # The email address to send on behalf of
+
+    mail.from: 'anshengme@163.com'
+
+    重新build镜像
+
+    $ docker-compose build
+
+    $ docker-compose up -d
+
+重启之后可以在 Admin==> 邮件下面找到邮箱的配置
+
+然后点击下面的 向ianshengme@gmail.com发送一份测试邮件，然后进入你的邮箱，查看是否收到了邮件
+
+我这里是可以成功收到发送过来的测试邮件，通常邮箱配置完成之后就可以接收到异常通知了。
+
+    验证用户的邮箱
+
+找到 Settings=>Account=>Emails
+
+然后点击 Resendverification，会收到一封验证邮件
+
+点击 Confirm确认邮箱。
+
+    异常通知测试
+
+然后呢，我们在访问一下错误的API
+
+    $ curl -I http://127.0.0.1:9999/error
+
+    HTTP/1.1 500 Internal Server Error
+
+    查看邮箱收到的报警邮件
+
+基本上你收到的错误邮件就和上面的差不多，不知道为什么那个头像不显示，不管它，如果你要查看错误详情，点击 ViewonSentry就可以打开异常详情了。
+配置钉钉通知
+
+我们都知道，邮箱通知的时效性太差，不能够即使传递，所以我们重点介绍下 钉钉机器人的群通知。
+
+    创建钉钉群组添加自定义机器人并获取到 access_token
+
+我这里获取到的 access_token是 4dadfa77dfc3fe3b34e91237665afbef165e745dd93ec191c48bf4843b1ad63c
+
+    配置
+
+找到cash项目的所有集成
+
+然后找到 DingDing这个插件， 启用插件，然后点击 ConfigurePlugin配置插件
+
+输入刚刚获取到的 access_token，点击 SaveChanges以保存更改
+
+
+    测试异常通知
+
+然后我们访问以下异常的API
+
+    $ curl -I http://127.0.0.1:9999/error
+
+    HTTP/1.1 500 Internal Server Error
+
+    ......
+
+此时你的钉钉机器人应该会发送如下的报错
+
+点击上面的 href就可以跳转到错误详情页面，到此，本篇文章也就结束了。
