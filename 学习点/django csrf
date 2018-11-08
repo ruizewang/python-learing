@@ -1,0 +1,54 @@
+CSRF, Cross Site Request Forgery, 跨站点伪造请求。举例来讲，某个恶意的网站上有一个指向你的网站的链接，如果某个用户已经登录到你的网站上了，那么当这个用户点击这个恶意网站上的那个链接时，就会向你的网站发来一个请求，你的网站会以为这个请求是用户自己发来的，其实呢，这个请求是那个恶意网站伪造
+
+举个例子：
+
+假如用户abc登录了银行的网站，并且向abc2进行了转账，对银行发送的请求是 http://bank.example/withdraw?account=abc&amount=1000000&for=abc2. 通常情况下，请求发送到服务器后，服务器会首先验证是否是合法的session，如果是则转账成功。假设黑客也有同样银行的账号。他知道转账的时候会生成如上的请求链接。黑客也可以发送同样的请求给服务器要求转账给自己。但是服务器校验他的这个请求不是合法的session。因此黑客想到了CSRF的方式。他自己做一个网站，在网站中发下如下链接：http://bank.example/withdraw?account=abc&amount=1000000&for=heike 并且通过广告或其他的方式诱使abc点击这个链接，上述 url 就会从 abc的浏览器发向银行，而这个请求会附带 abc浏览器中的 cookie 一起发向银行服务器。大多数情况下，该请求会失败，因为他要求 abc 的认证信息。但是，如果 abc 当时恰巧刚访问他的银行后不久，他的浏览器与银行网站之间的 session 尚未过期，浏览器的 cookie 之中含有 abc 的认证信息。这时，悲剧发生了，这个 url 请求就会得到响应，钱将从 abc 的账号转移到黑客的账号，而 abc 当时毫不知情
+
+那么回到django中的post失败有两种解决办法：
+
+解决办法一：将csrf中间层注释掉
+
+MIDDLEWARE = [
+
+    'django.middleware.security.SecurityMiddleware',
+
+    'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'django.middleware.common.CommonMiddleware',
+
+#    'django.middleware.csrf.CsrfViewMiddleware',
+
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    'django.contrib.messages.middleware.MessageMiddleware',
+
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+]
+
+此时将不会进行csrf的校验，但如前面所述，这是一种不安全的行为。而且djano也不推荐使用
+
+
+
+解决办法二：
+
+在前面的提示中有这样一句话：
+
+In any template that uses a POST form, use the csrf_token tag inside the <form> element if the form is for an internal URL, e.g.:
+
+<form action="" method="post">{% csrf_token %}
+
+也就是说在网页中加入csrf_token的标签就可以通过csrf校验
+
+Django 提供的 CSRF 防护机制：
+
+1 django 第一次响应来自某个客户端的请求时，会在服务器端随机生成一个 token，把这个 token 放在 cookie 里。然后每次 POST 请求都会带上这个 token，这样就能避免被 CSRF 攻击。
+
+2 在返回的 HTTP 响应的 cookie 里，django 会为你添加一个 csrftoken 字段，其值为一个自动生成的 token，在所有的 POST 表单时，必须包含一个 csrfmiddlewaretoken 字段 （只需要在模板里加一个 tag， django 就会自动帮你生成，见下面）
+
+3 在处理 POST 请求之前，django 会验证这个请求的 cookie 里的 csrftoken 字段的值和提交的表单里的 csrfmiddlewaretoken 字段的值是否一样。如果一样，则表明这是一个合法的请求，否则，这个请求可能是来自于别人的 csrf 攻击，返回 403 Forbidden.
+
+4 在所有 ajax POST 请求里，添加一个 X-CSRFTOKEN header，其值为 cookie 里的 csrftoken 的值
+
+5.使用装饰器＠csrf_exempt：在进行处理某一个函数的时候，跳过ｃｓｒｆ
+from django.views.decorators.csrf import csrf_exempt
