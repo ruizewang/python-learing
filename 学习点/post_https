@@ -1,0 +1,19 @@
+from urllib import parse,request
+import json
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+textmod="sessionData=MIIClTCCAmwTE1BBWUxPQURfU0VTU0lPTkRBVEExggJTMIICAxMNRU5DUllQVFRJQ0tFVASCAfD4astQizjBJDpwN0mZ8-NHB7Xf4NXG6djwuRI7RcScitLiVBXAbK8eTrH--aaa2RD1pW3AIX2SyojwkUHcd2EsNzg8caRX1PkTzThHs4_A-xYyXWKUsekV8apGthiCJ7DZv5Y11f5P20TP0pTc-B28tzHnGmOZfxasPWnczMy1LDkz1gNL8xTYOM632GY_a0CTz_olw_Vr5Zoio85cjdMcFqe8mWZ_Uh9CyncXfV0L9VN_dwQZTnhJZyZbpAxPTRyvpYvlzKjKcRMf4CBY6ho2LJubaL5s9SAR4VZZAPj3sJ5TWOtW9r8mX1b1hU_RzZEpuR0C8NbvK3nu1Z8VaT8kM68eyOM8goT_38s0PTQ0uqVf7RdGlXgvXC7LDtahgYmmU9R9SZjGDsKhbnfA9p-3wDivz3VRYFDSxqYO3UebTo4EaXCmC5gjiD78XGMnfZNED6xONP0YGLFOc9_OIjcBrO_86lTMk2Dc_zYq6FoPDdnthGgjsMKyBH2eLyiADtEzcVOXjtBDsvzPEZAaa1pIXjQyebdIEnEvsuYY1TbCQWe-oIGV3Cdx0FJt6FYqCZyQXM_78qDwMKbh8n5CgH8nE0ef-TUC3_0So_St7dQSi65F1o_RjXYXK0rP0ua51WtBXqCe5qb_ie2kptGHoav4MD0TCVNFU1NJT05JRAQwQThFMTgxNUE2MEJGRjVENTc1ODNEMkZGRDRFNjZBNkZCN0M3NzIxNTk1QUZGNjMyMAsTBUtFWUlEBAIxMzAMBggrBgEFBQgBAgUAAxUAZRO-B1Lozj4zJ16OA8rdWJQbaxc"
+
+#普通数据使用
+textmod = textmod.encode(encoding='utf-8')
+print(textmod)
+
+headers = {"Content-type": "application/x-www-form-urlencoded", "Authorization": 'Basic QUlAQ0lUSUNTLkNPTTpRTHAxZEFuSFNMTFVETTFR', 'Content-Type':"UTF-8", "Accept-Charset":"UTF-8"}
+
+url="https://127.0.0.1/api"
+req = request.Request(url=url,data=textmod,headers=headers)
+res = request.urlopen(req)
+res = res.read()
+print(res)
+
+print(res.decode(encoding='utf-8'))

@@ -1,0 +1,53 @@
+在进行构建https的post请求的时候,会报错:
+
+requests.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:645)
+
+原因:
+当你urllib.urlopen一个 https 的时候会验证一次 SSL 证书
+当目标使用的是自签名的证书时就会爆出一个
+urllib2.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:581)> 的错误消息
+
+要解决这个问题，PEP-0476的文档说
+
+For users who wish to opt out of certificate verification on a single connection, they can achieve this by providing the contextargument to urllib.urlopen :
+
+import ssl
+
+# This restores the same behavior as before.
+context = ssl._create_unverified_context()
+urllib.urlopen("https://no-valid-cert", context=context)
+
+It is also possible, though highly discouraged , to globally disable verification by monkeypatching the ssl module in versions of Python that implement this PEP:
+
+import ssl
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    # Legacy Python that doesn't verify HTTPS certificates by default
+    pass
+else:
+    # Handle target environment that doesn't support HTTPS verification
+    ssl._create_default_https_context = _create_unverified_https_context
+
+
+就是说你可以禁掉这个证书的要求，urllib来说有两种方式，一种是urllib.urlopen()有一个参数context,把他设成ssl._create_unverified_context
+
+或者修改现在的全局默认值
+
+_create_unverified_https_context
+
+或
+
+ssl._create_default_https_context
+
+为
+
+ssl._create_unverified_context
+
+测试了一下，确实可以，返回了几个token,那么requests呢，难道必须设置全局变量吗。
+
+其实request的post和get都有一个叫verify的参数，把他设成False就可以了。
+
+
+response = requests.post(url=request_url, headers=headers, data=json.dumps(test_data), verify=False).content
