@@ -1,0 +1,58 @@
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+from fabric.api import *
+from datetime import datetime
+
+
+#登录用户和主机名
+env.user = 'root'
+env.hosts = ['127.0.0.1']
+env.warn_only = True
+
+def pack():
+    """
+    打包
+    :return:
+    """
+    tar_files = ['project']
+    local('rm -f web_site.tar.gz')
+    local('tar -czvf web_site.tar.gz  project/* --exclude=\'*.pyc\' --exclude=\'*.log\' --exclude=\'.idea/*\'')
+
+
+def deploy():
+    #远程压缩包路径
+    remote_tmp_tar = '/root/redhat/web_site.tar.gz'
+    tag = datetime.now().strftime('%y.%m.%d_%H.%M.%S')
+    #删除远程旧的压缩包
+    run('rm -f %s' % remote_tmp_tar )
+    #备份上一版网站
+    run('mv /root/redhat/web_site web_site%s' % tag)
+    #停止uwsgi与nginx
+    run('pkill -9 -f uwsgi')
+    run('service nginx stop')
+    #上传tar到服务器
+    put('web_site.tar.gz',remote_tmp_tar)
+    #解压
+    remote_dist_dir = '/root/redhat/web_site/'
+    remote_dist_link = ''
+    # run('mkdir %s' % remote_dist_dir)
+    run('tar -zxvf %s ' % remote_tmp_tar)
+    #
+    with cd('/root/redhat/'):
+        run('tar -zxvf %s' % remote_tmp_tar)
+        run('mv project web_site')
+        with cd('web_site/'):
+            run('python3 manage.py collectstatic')
+
+    # run('cat /tmp/uwsgi.pid |xargs kill -9')
+    #重启uwsgi与nginx
+    with cd(remote_dist_dir):
+        run('sh runserver.sh')
+
+    run('service nginx start')
+
+
+
+
+
+
