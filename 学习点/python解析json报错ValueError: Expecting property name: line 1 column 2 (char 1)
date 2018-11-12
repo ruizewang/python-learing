@@ -1,0 +1,11 @@
+今天解析json文本报以下错误：
+
+ValueError: Expecting property name: line 1 column 2 (char 1)
+
+经查询得知，由于JSON中，标准语法中，不支持单引号，属性或者属性值，都必须是双引号括起来
+
+再次运行后，还是有报错：
+
+Invalid \escape: line 1 column 5863 (char 5863)
+
+主要因unicode编码所致，
