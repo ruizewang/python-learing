@@ -1,0 +1,20 @@
+使用类来定义mysql数据库连接,返回的格式是ｄｉｃｔ格式，
+class connectDB(object):
+    """数据库链接类"""
+
+    def __init__(self, env):
+        self.env = env
+        env_db = DB_dict[env]
+        self.mysql_server = connect(env_db['HOST'], env_db['USER'], env_db['PASSWORD'],
+                                    env_db['DBNAME'], env_db['PORT'], charset='utf8')
+　　　　def a(self):  
+      mysql_cur = self.mysql_server.cursor(dictionary=True)
+      # mysql_cur = self.mysql_server.cursor()
+      mysql_cur.execute('select windcode, order_share from target_order where '
+                          'trade_date = "{}" and strategy_id = "{}" and risk_level = 0 '.format(today, strategy))
+      datas = mysql_cur.fetchall()
+      order_dict = defaultdict(int)
+      for data in datas:
+            order_dict[data[0]] = data[1]
+      mysql_cur.close()
+      return order_dict

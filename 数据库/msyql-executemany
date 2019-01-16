@@ -1,0 +1,9 @@
+python的MySQLdb库可以使用批量操作executemany，进行多行插入。
+
+比如向user表(username,salt,pwd)插入数据，具体的sql语句如下：
+
+sql = 'INSERT INTO 表名 VALUES(%s,%s,%s)'  #不管什么类型，统一使用%s作为占位符
+param = ((username1, salt1, pwd1), (username2, salt2, pwd2), (username3, salt3, pwd3))  #对应的param是一个tuple或者list
+n=cursor.executemany(sql,param)
+
+之前使用execute方法循环写入数据，表字段多的时候，每秒有时只能写入几条，而executemany方法一次性全部提交，1w条数据只用了不到1s，极大提升了性能。
