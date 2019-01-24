@@ -1,0 +1,46 @@
+0  0 * * * /usr/sbin/ntpdate 10.23.132.71 > /var/log/automan.log 2>&1
+01 00 * * * /usr/local/bin/python3.5 /root/redhat/ai_site/utils/caches.py > /var/log/caching_logs/caches_$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+00 5 * * * /usr/local/bin/python3.5 /root/redhat/ai_site/utils/update_cache.py > /var/log/caching_logs/update_caches_$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+00 6 * * * /usr/local/bin/python3.5 /root/redhat/ai_site/utils/caching_replace.py > /var/log/caching_logs/caching_replace$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59 09 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stk_price.py > /var/log/caching_logs/stk_price.log 2>&1
+
+*/1 10-15 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stk_price.py > /var/log/caching_logs/stk_price.log 2>&1
+
+#00 17 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stk_getWindChange.py > /var/log/caching_logs/stk_getWindChange.log 2>&1
+
+34 09 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/intel/dataToRedis.py > /var/log/caching_logs/dataToRedis$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+35 09 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/intel/data_plate.py > /var/log/caching_logs/data_plate$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+00 04 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/intel/cachePlateData.py > /var/log/caching_logs/cache_plate_data$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+00 18 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stra/dailyReportRedis.py > /var/log/caching_logs/cache_daily_report_data$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+00 23 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stra/dailyReportRedis.py > /var/log/caching_logs/cache_daily_report_data$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+45 06 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stra/dailyReportRedis.py > /var/log/caching_logs/cache_daily_report_data$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+00 10 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/strategy/strategy_combo.py > /var/log/caching_logs/cache_combo$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+00 21 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/strategy/strategy_combo.py > /var/log/caching_logs/cache_combo$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+#30 9 * * 1-5 /usr/local/bin/python3 /root/redhat/ai_site/manage.py crontab run 80f951e23d8ae827eac8e8bdc07cfcd3 >> /var/log/caching_logs/run_order.log # django-cronjobs for AI_Account
+
+00 01 * * * sh /root/redhat/restart_uuu.sh 
+0  2 * * * sh /opt/dump/imp_dump.sh > /var/log/impdp.log 2&1 
+
+15 17 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stra/timed_task.py > /var/log/caching_logs/run_timed_task$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+02 16 * * mon-fri /usr/local/bin/python3.5 /root/redhat/Sentiment/dealdata/every_day_update.py > /var/log/caching_logs/run_sentiment_updata$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+30 20 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/strategy/index_screen.py > /var/log/caching_logs/run_index_filter_updata$(date +"\%Y\%m\%d_\%H:\%M").log 2>&1
+
+30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59 09 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stk_price_index_screen.py > /var/log/caching_logs/stk_price_index_screen.log 2>&1
+
+*/1 10-15 * * mon-fri /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stk_price_index_screen.py > /var/log/caching_logs/stk_price_index_screen.log 2>&1
+
+*/5 * * * * /usr/local/bin/python3.5 /root/redhat/ai_site/utils/stra/eventRedisNew.py > /var/log/caching_logs/event_data_updata$(date +"\%Y\%m\%d").log 2>&1
+
