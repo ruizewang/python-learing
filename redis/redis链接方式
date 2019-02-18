@@ -1,0 +1,17 @@
+redis的两种链接方式:
+1.
+import redis
+pool = redis.ConnectionPool(host='127.0.0.1', port=6379)
+r = redis.Redis(connection_pool=pool)
+r.set(key_name)
+r.get(key_name)
+r.delete(key_name)
+r.exist(key_name)
+
+2.
+import redis
+r = redis.Redis(host='172.23.122.11', port=6379, password='ai600030')
+r.set(key_name)
+r.get(key_name)
+r.delete(key_name)
+r.exist(key_name)
