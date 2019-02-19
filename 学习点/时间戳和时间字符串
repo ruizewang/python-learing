@@ -1,0 +1,10 @@
+# 字符串转时间戳
+def to_timestamp(timestr):
+    return int(time.mktime(time.strptime(timestr, "%Y-%m-%d %H:%M:%S")))
+
+
+# 时间戳转字符串
+def timestamp_to(timestamp):
+    time_array = time.localtime(timestamp)
+    other_style_time = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
+    return other_style_t
