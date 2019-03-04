@@ -1,0 +1,5 @@
+如果你想给你的应用添加 WSGI 中间件，你可以封装内部 WSGI 应用。例如若是你想用 Werkzeug 包中的某个中间件来应付 lighttpd 中的 bugs ，可以这样做:
+
+from werkzeug.contrib.fixers import LighttpdCGIRootFix
+app.wsgi_app = LighttpdCGIRootFix(app.wsgi_app)
+
