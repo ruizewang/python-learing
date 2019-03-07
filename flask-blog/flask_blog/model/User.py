@@ -2,7 +2,7 @@
 from flask_blog import db
 
 
-class User(db.model):
+class User(db.Model):
     __tablename__ = 'b_user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(10), unique=True)
