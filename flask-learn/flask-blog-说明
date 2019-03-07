@@ -1,0 +1,5 @@
+1.在应用目录下的__init__.py中,一定要在app对象声明之后，再导入model,否则是没有办法创建表的
+2.在应用目录下的__init__.py中,一定要在app对象声明之后，再导入view模块
+3.在创建表的时候,db.Model不能写成db.model,否则创建表不成功
+4.对app.config.from_envvar('FLASKR_SETTINGS',silent=True)的设置
+
