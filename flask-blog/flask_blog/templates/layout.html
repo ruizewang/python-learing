@@ -7,7 +7,9 @@
     <div class="metanav">
         {% if not session.logged_in %}
         <a href="{{ url_for('login') }}">login in</a>
+        <a href="{{ url_for('register') }}">register</a>
         {% else %}
+            <a href="{{ url_for('logout') }}"><span>{{ session.username }}</span> ,欢迎您!</a>
         <a href="{{ url_for('logout') }}">log out</a>
         {% endif %}
     </div>

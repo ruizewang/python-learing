@@ -13,7 +13,7 @@ def show_entries():
     return render_template('show_entries.html', entries=categorys)
 
 
-@app.route('/add')
+@app.route('/add', methods=['POST'])
 def add_entry():
     if not session.get('logged_in'):
         abort(401)
@@ -26,7 +26,7 @@ def add_entry():
     return redirect(url_for('show_entries'))
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
@@ -39,8 +39,11 @@ def login():
             error = 'Invalid Username'
         elif passwd is None:
             error = 'Invalid password'
+        elif username is None and password is None:
+            return redirect(url_for('register'))
         else:
             session['logged_in'] = True
+            session['username'] = username
             flash('You were logged in')
             return redirect(url_for('show_entries'))
     return render_template('login.html', error=error)
@@ -49,5 +52,28 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
+    session.pop('username', None)
     flash('You were logged put')
     return redirect(url_for('show_entries'))
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == "GET":
+        return render_template('register.html')
+    else:
+        error = None
+        username = request.form['username']
+        password = request.form['password']
+        if username is None:
+            error = 'Invalid Username'
+        elif password is None:
+            error = 'Invalid password'
+        elif username is None and password is None:
+            flash('Please enter username and password！')
+            return redirect(url_for('register'))
+        userinfo = User(username, password)
+        db.session.add(userinfo)
+        db.session.commit()
+        flash('You were successlly registered!')
+        return render_template('login.html', error=error)
