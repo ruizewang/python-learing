@@ -1,0 +1,3 @@
+定位：postition: static,relative,absolute,fixed
+relative:相对定位，将依据top,bottom,left,right等属性在正常文档流中偏移
+absolute:绝对定位，其层叠通过z-index属性定义

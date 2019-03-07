@@ -1,0 +1,3 @@
+1.document.write():向页面写入内容
+2.document.getElementById:通过元素的id来查找元素
+3.innerHTML="":写入内容或替换内容
