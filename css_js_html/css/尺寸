@@ -1,0 +1,25 @@
+dimension:尺寸的含义
+width:检索或设置对象的宽度,对img对象来说，只定义此属性值
+属性值:
+    auto:无特定的宽度值
+    length:长度值来定义宽度,不允许负数
+    percentage:百分比来定义宽度,不允许负数
+
+min-width,max-width:设置或检索最小或最大的宽度,如果min-width属性的值大于max-width属性的值，
+                    max-width将会自动以min-width的值作为自己的值。
+属性值:
+    length:同上
+    percentage:同上
+
+height:检索或设置对象的高度，
+属性值:
+    auto:无特定的宽度值
+    length:长度值来定义宽度,不允许负数
+    percentage:百分比来定义宽度,不允许负数
+
+min-height,max-height:设置或检索最小或最大的宽度,如果min-height属性的值大于max-width属性的值，
+                    max-height将会自动以min-width的值作为自己的值。
+
+属性值:
+    length:同上
+    percentage:同上
