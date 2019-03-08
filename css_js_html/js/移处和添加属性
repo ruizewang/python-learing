@@ -1,0 +1,16 @@
+4、jquery怎么移除标签onclick属性？
+
+获得a标签的onclick属性: $("a").attr("onclick")
+
+删除onclick属性：$("a").removeAttr("onclick");
+
+设置onclick属性：$("a").attr("onclick","test();");
+5、jquery中addClass,removeClass,toggleClass的使用。
+
+$(selector).addClass(class)：为每个匹配的元素添加指定的类名
+
+$(selector).removeClass(class)：从所有匹配的元素中删除全部或者指定的类，删除class中某个值；
+
+$(selector).toggleClass(class)：如果存在（不存在）就删除（添加）一个类
+
+$(selector).removeAttr(class);删除class这个属性；

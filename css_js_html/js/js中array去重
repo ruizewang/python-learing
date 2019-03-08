@@ -1,0 +1,37 @@
+方法一：
+
+var arr = [0,2,3,4,4,0,2];
+var obj = {};
+var tmp = [];
+for(var i = 0 ;i< arr.length;i++){
+   if( !obj[arr[i]] ){
+      obj[arr[i]] = 1;
+      tmp.push(arr[i]);
+   }
+}
+console.log(tmp);
+
+结果如下： [0, 2, 3, 4]
+
+ 方法二：
+
+var arr = [2,3,4,4,5,2,3,6],
+   arr2 = [];
+for(var i = 0;i< arr.length;i++){
+    if(arr2.indexOf(arr[i]) < 0){
+        arr2.push(arr[i]);
+    }
+}
+console.log(arr2);
+
+结果为：[2, 3, 4, 5, 6]
+
+ 方法三：
+
+var arr = [2,3,4,4,5,2,3,6];
+var arr2 = arr.filter(function(element,index,self){
+return self.indexOf(element) === index;
+});
+console.log(arr2);
+
+结果为：[2, 3, 4, 5, 6]
