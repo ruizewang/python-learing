@@ -1,0 +1,18 @@
+属性：position,top,right,bottom.left,z-index
+position: absolute,relative,fixed,static
+            static: 没有特殊定位，对象遵循正常文档流，其他四个定位属性不可用
+            absolute:绝对定位，对象脱离正常文档流，可使用其他四个属性，进行绝对定位，层叠可通过              z-index来定义
+            relative:相对定位，可通过top.right,bottom,left来进行偏移位置
+            fixed：可使用上下左右四个属性以窗口为参考点进行定位，当出现滚动条的时候，对象不会随着               滚动
+z-index:auto，integer，检索或者设置对象的层叠顺序.
+并级的对象，属性参数值越大，就越在上面
+如果两个对象的属性值相同，将依据他们在ｈｔｍｌ文档中的顺序层叠，写在后面的将回覆盖前面的
+这个属性值必须是在定义position属性为absolute.relative或fixed的时候才生效．
+
+top-right-bottom-left:auto,length,percentage
+auto:无特殊定位，legnth：通过长度值来定义距离，可为负数
+percentage:通过百分比来定义，可为负数
+必须在position的属性为absolute,relative,fixed的情形下，可生效
+
+
+

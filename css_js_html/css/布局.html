@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lauout(布局)</title>
+    <style>
+        .clear-right {
+            float: right;
+            background: #eee;
+        }
+        .clear-left {
+            clear: right;
+            background: #ddd;
+        }
+        .float {
+            float: right;
+            background: #eee;
+        }
+        .visibility {
+            visibility: hidden;i
+        }
+        .overflow {
+            overflow: auto;
+            width: 200px;
+            height: 100px;
+            background: #eee;
+        }
+        .overflow-x {
+            overflow: auto;
+            width: 150px;
+            white-space: nowrap;
+        }
+        .overflow-y {
+            overflow-y: auto;
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="float">my is float right</div>
+<div class="visibility">my is visibility, but i have the position</div>
+<div class="clear-right">my is clear right</div>
+<div class="clear-left">my is clear left</div>
+<div class="overflow">
+    <p>my is overflow</p>
+    <p>my is overflow</p>
+    <p>my is overflow</p>
+    <p>my is overflow</p>
+</div>
+<div class="overflow-x">my is overflow-x, and while having a rows x　aaaaaaaaaaa</div>
+<div class="overflow-y">
+    <ul>
+        <li>news list</li>
+        <li>news list</li>
+        <li>news list</li>
+        <li>news list</li>
+        <li>news list</li>
+        <li>news list</li>
+        <li>news list</li>
+    </ul>
+</div>
+
+</body>
+</html>

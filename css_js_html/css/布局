@@ -1,0 +1,60 @@
+layout:布局的含义．
+display:设置或检索对象是否以及如何显示,
+属性值：
+    none:隐藏对象,和visibility属性的hidden是不同的，他不为被隐藏的对象保留物理空间
+    inline:指定对象为内敛元素
+    block:指定对象为块元素
+    list-item:指定对象为列表项目
+    inline-block:指定对象为内敛块元素
+    table:指定对象为块元素级别的表格
+    inline-table:指定对象为内敛元素级别的表格
+    table-caption:指定对象作为表格标题
+    table-cell:指定对象为表格单元格
+    table-row:指定对象为表格行
+    table-row-group:指定对象为表格列组显示
+    table-header-group:指定对象为表格标题组
+    table-footer-group:指定对象为表格脚注组
+    compact:分配对象为块对象
+    run-in:分配对象为块对象
+    ruby:将对象作为表格脚注组显示
+    ruby-base:将对象作为表格教主组
+    ruby-text：将对象作为表格脚注组显示（CSS3）
+    ruby-base-group：将对象作为表格脚注组显示（CSS3）
+    ruby-text-group：将对象作为表格脚注组显示（CSS3）
+
+
+float:设置对象是否以及浮动,属性值none,left,right
+若是一个元素的float属性不是none的时候,对象是为块对象
+可以被应用在任何非绝对定位的元素上
+
+clear:设置对象不允许有浮动对象的边,属性值none-both-left-right
+    none:允许两边可以有浮动对象
+    both:不允许有浮动对象
+    left:不允许有左边的浮动对象
+    right:不允许有右边的浮动对象
+
+visbility:设置或检索是否显示对象,此属性的隐藏对象保留占据的物理空间
+属性值：
+    visiable:设置对象可见
+    hidden:设置对象隐藏
+    collapse:隐藏表格的行或列．
+
+clip:设置对象的可视区域，区域外的部分是透明的．该属性必须将position的属性设置为absolute，才可用
+属性值：
+    auto:对象无剪切
+    rect(num|auto num|auto num|auto num|auto):顺序上－右－下－左,提供自对象左上角(0,0)坐标计算偏移数值.
+
+overflow:检索或设置当对象的内容超过其指定高度以及宽度的时候，怎么管理内容.对于table来说，假如           table-layout属性设置为fixed，则td对象支持带有默认值为hidden的overflow属性。如果设        为hidden，scroll或者auto，那么超出td尺寸的内容将被剪切。如果设为visible，将导致           额外的文本溢出到右边或左边（视direction属性设置而定）的单元格。
+属性值：
+    visible:不剪切内容
+    hidden:将超出对象尺寸的内容进行裁剪，将不出现滚动条
+    scoll:将超出对象尺寸的内容进行裁剪，并以滚动条的方式显示超出的内容
+    auto:在需要的时候进行裁剪并添加滚动条，是body对象和textarea的默认值
+
+overflow-x,overflow-y:检索或设置当对象的内容超过指定的宽度(高度)时候，对内容的管理
+属性值:
+    visible：不剪切内容。
+    hidden：将超出对象宽度的内容进行裁剪，将不出现滚动条。
+    scroll：将超出对象宽度的内容进行裁剪，并以滚动条的方式显示超出的内容。
+    auto：在需要时剪切内容并添加滚动条，此为body对象和textarea的默认值。
+
