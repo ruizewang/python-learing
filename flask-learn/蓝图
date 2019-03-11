@@ -1,0 +1,124 @@
+首先，我对蓝图的理解相对通俗，就是觉得蓝图对于视图方法模块化、大项目协同开发过程中的一个很好的工具.
+一个蓝图定义了可用于单个应用的视图,模板，静态文件等等的集合.
+
+views.py
+ 1 from app import app
+ 2
+ 3
+ 4 @app.route('/user/index')
+ 5 def index():
+ 6     return 'user_index'
+ 7
+ 8 @app.route('/user/show')
+ 9 def show():
+10     return 'user_show'
+11
+12 @app.route('/user/add')
+13 def add():
+14     return 'user_add'
+15
+16 @app.route('/admin/index')
+17 def adminindex():
+18     return 'admin_index'
+19
+20 @app.route('/admin/show')
+21 def adminshow():
+22     return 'admin_show'
+23
+24 @app.route('/admin/add')
+25 def adminadd():
+26     return 'admin_add'
+
+#从视图方法中，我们看到有6个视图，分别对应admin,user两个不同用户的3个功能index,add,show.
+
+这样写显然没问题，但是明显与python提倡的模块化，优雅的代码特点相违背,即不是很python的python代码.
+
+让我们在这里假想两个问题:
+1.如果admin和user不止只有3个功能呢，比如好几百个，导致views的代码量已经达到了上万行？
+2.如果我们有多个同事分工开发admin，user和其它可能的模块呢,都同时往一个views里写代码吗，在做版本控制时，提交过程中频繁出现提交冲突了怎么办？
+3.加入我们要抛弃admin或者user功能块时怎么办，要一一手动删除所有admin或是user相关的代码吗，这样当然可以，但是会不会太low呢?
+
+当然根据Pythonic特点，我们肯定希望尽可能的把代码尽量的模块化，让我们的代码看起来更加的优雅和顺畅，这个时候flask.Blueprint(蓝图)就派上用场了
+
+将你的应用组织成不同的组件,比如把这里的admin，user相关的视图方法分为两个组件，一个是admin组件，一个是user组件.这时我们可以
+
+创建两个蓝图实现这两个独立的组件.
+
+2.我们如何使用蓝本将上述的视图方法看上去更加pythonic呢？
+
+由于上面的例子中只有两个组件(模块)admin,user,我们可以创建名为admin.py和user.py的两个文件,分别在里面创建两个蓝图的实例对象admin,user.
+
+直接上代码:
+
+#admin.py
+#admin.py
+from flask import Blueprint,render_template, request
+
+admin = Blueprint('admin',__name__)
+
+@admin.route('/index')
+def index():
+    return render_template('admin/index.html')
+
+@admin.route('/add')
+def add():
+    return 'admin_add'
+
+@admin.route('/show')
+def show():
+    return 'admin_show'
+
+#要想创建一个蓝图对象，你需要import flask.
+Blueprint()
+类并用参数
+name
+和
+import_name
+初始化。import_name通常用
+__name__
+，一个表示当前模块的特殊的Python变量，作为
+import_name
+的取值。
+
+复制代码
+
+#user.py
+复制代码
+
+from flask import Blueprint, render_template, redirect
+
+user = Blueprint('user',__name__)
+
+@user.route('/index')
+def index():
+    return render_template('user/index.html')
+
+@user.route('/add')
+def add():
+    return 'user_add'
+
+@user.route('/show')
+def show():
+    return 'user_show'
+
+复制代码
+
+好了，视图函数已经分开了，我们如何使用它们的呢？再来看一下我们的views.py变成了什么样吧？
+
+#views.py
+复制代码
+
+from app import app
+from .admin import admin
+from .user import user
+#这里分别给app注册了两个蓝图admin,user
+#参数url_prefix='/xxx'的意思是设置request.url中的url前缀，
+#即当request.url是以/admin或者/user的情况下才会通过注册的蓝图的视图方法处理请求并返回
+app.register_blueprint(admin,url_prefix='/admin')
+app.register_blueprint(user, url_prefix='/user')
+
+复制代码
+
+#现在我们的views是否已经变得很简单了呢?顺便回答第三个问题，如果想弃用某一个组件(模块)我们只需要相对应的注释掉给app注册蓝图的行即可.
+#细心的伙伴还可以发现，在views.py中在使用默认endpoint的前提下，我们是没有办法使用同一个视图方法名的（当然我们也不建议在同一个文件中有两个视图方法名相同，
+#尽管指向他们的request.url不同),但是使用了蓝图之后我们就可以在不同模块中使用相同的方法名了,例如add,show..
