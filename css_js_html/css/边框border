@@ -1,0 +1,61 @@
+boder:符合属性,设置对象边框的特性.
+属性值:
+    border-width:边框的宽度
+    border-style:边框的样式（实体，虚体等）
+    border-color:边框的颜色
+
+border-top,border-right,border-bottom,border-left:复合属性。设置对象对应部边框的特性.
+属性值：
+    [ border-top-width ]：设置或检索对象的顶部边框宽度。
+        属性值:
+            <length>：用长度值来定义边框的厚度。不允许负值
+            medium：定义默认厚度的边框。
+            thin：定义比默认厚度细的边框。
+            thick：定义比默认厚度粗的边框。
+    [ border-top-style ]：设置或检索对象的顶部边框样式。
+        属性值:同上
+    [ border-top-color ]：设置或检索对象的顶部边框颜色。
+        属性值:同上
+    [ border-bottom-width ]：设置或检索对象的顶部边框宽度。
+        属性值:同上
+    [ border-bottom-style ]：设置或检索对象的顶部边框样式。
+        属性值:同上
+    [ border-bottom-color ]：设置或检索对象的顶部边框颜色。
+        属性值:同上
+    [ border-right-width ]：设置或检索对象的顶部边框宽度。
+        属性值:同上
+    [ border-right-style ]：设置或检索对象的顶部边框样式。
+        属性值:同上
+    [ border-right-color ]：设置或检索对象的顶部边框颜色。
+        属性值:同上
+    [ border-left-width ]：设置或检索对象的顶部边框宽度。
+        属性值:同上
+    [ border-left-style ]：设置或检索对象的顶部边框样式。
+        属性值:同上
+    [ border-left-color ]：设置或检索对象的顶部边框颜色。
+        属性值:同上
+
+border-colors:边框的多重颜色,
+border的width为(n)px，那么最多可以设置n组边框色，每组边框色宽度为1px；如果border的width为10px，却只设置了6组边框色，
+那么最后一组边框色将自动渲染剩余的宽度．
+本属性为伪属性，其分裂后的border-top-colors, border-right-colors, border-bottom-colors, border-left-colors
+才是有效属性。
+
+属性值:取指定的颜色
+
+border-top-colors, border-right-colors, border-bottom-colors, border-left-colors：设置或检索对象对应边框的多重颜色。参阅border-left-color属性。
+    border的width为(n)px，那么最多可以设置n组边框色，每组边框色宽度为1px；如果border的width为10px，却只设置了6组边框色，那么最后一组边框色将自动渲染剩余的宽度
+
+border-image:设置或检索对象的边框样式使用图像来填充。
+属性值:
+    none：无背景图片。
+    <url>：使用绝对或相对地址指定图像。
+    <number>：用浮点数指定宽度。不允许负值。
+    <percentage>：用百分比指定宽度。不允许负值。
+    <length>：用长度值指定宽度。不允许负值。
+    stretch：指定用拉伸方式来填充边框背景图。
+    repeat：指定用平铺方式来填充边框背景图。当图片碰到边界时，如果超过则被截断。
+    round：指定用平铺方式来填充边框背景图。图片会根据边框的尺寸动态调整图片的大小直至正好可以铺满整个边框。写本文档时
+        仅Firefox能看到该效果
+
+
