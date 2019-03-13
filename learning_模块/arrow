@@ -1,0 +1,30 @@
+import timeK
+# 字符串转时间戳
+def to_timestamp(timestr):
+    return int(time.mktime(time.strptime(timestr, "%Y-%m-%d %H:%M:%S")))
+
+
+# 时间戳转字符串
+def timestamp_to(timestamp, flag):
+    time_array = time.localtime(timestamp)
+    if flag:
+        other_style_time = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
+    else:
+        other_style_time = time.strftime("%Y-%m-%d", time_array)
+    return other_style_time
+
+
+# 时间戳转字符串格式
+def timestamp_to_str(timestamp, flag):
+    time_array = timestamp
+    if flag == 1:
+        other_style_time = ''.join(time_array.split('-'))
+    else:
+        other_style_time = ''.join(time_array.split(':'))
+    return other_style_time
+
+
+# 分割日期
+def datetimeSplit(datetime, split_flag):
+    res = datetime.split(split_flag)
+    return res
