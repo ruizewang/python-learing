@@ -1,0 +1,65 @@
+background:复合属性，设置对象的背景特性.
+属性值:
+    background-color:对象的背景颜色
+    background-image:背景图像，可以是真实的图片路径或使用渐变创建的背景图像
+    bakcground-repeat:对象的背景图像如何铺排填充
+    background-attachment:指定对象的背景图像是随对象内容滚动还是固定的
+    background-position:指定对象的背景图像的位置
+    background-origin:指定对象的背景图像显示的原点
+    background-clip:指定对象的背景图像向外裁剪的区域
+    background-size:指定对象的背景图像的尺寸大小
+
+background-position:图像的位置，必须先指定background-imag的属性．
+    该属性提供两个参数：如山提供两个，分别是横纵坐标
+    如是一个，则是横坐标，纵坐标将默认为50％
+    <bg-position>=[<percentage>|<length>|left|center①|right][<percentage>|<length>|top|center②| bottom]?
+属性值:
+    <percentage>：用百分比指定背景图像填充的位置。可以为负值。
+    <length>：用长度值指定背景图像填充的位置。可以为负值。
+    left：背景图像在横向上填充从左边开始。
+    center①：背景图像在横向上填充从中间开始。
+    right：背景图像在横向上填充从右边开始。
+    top：背景图像在纵向上填充从顶部开始。
+    center②：背景图像在纵向上填充从中间开始。
+    bottom：背景图像在纵向上填充从底部开始。
+
+background-repeat:设置或检索对象的背景图像如何铺排填充。必须先指定background-image属性。
+属性值:
+    repeat-x： 背景图像在横向上平铺
+    repeat-y：背景图像在纵向上平铺
+    repeat：背景图像在横向和纵向平铺
+    no-repeat： 背景图像不平铺
+    round：背景图像自动缩放直到适应且填充满整个容器。（CSS3）
+    space：背景图像以相同的间距平铺且填充满整个容器或某个方向。（CSS3）
+
+
+background-origin:设置或检索对象的背景图像计算background-position时的参考原点(位置)。
+属性值:
+    padding-box：从padding区域（含padding）开始显示背景图像。
+    border-box：从border区域（含border）开始显示背景图像。
+    content-box：从content区域开始显示背景图像。
+
+background-clip:指定对象的背景图像向外裁剪的区域。
+属性值:
+    padding-box：从padding区域（不含padding）开始向外裁剪背景。
+    border-box：从border区域（不含border）开始向外裁剪背景。
+    content-box：从content区域开始向外裁剪背景。
+    text：从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果。遮罩效果 See with Webkit
+
+background-size:检索或设置对象的背景图像的尺寸大小。
+    该属性提供2个参数值(特性值cover和contain除外)。
+    如果提供两个，第一个用于定义背景图像的宽度，第二个用于定义背景图像的高度。
+    如果只提供一个，该值将用于定义背景图像的宽度，第2个值默认为auto，即高度为auto，此时背景图以提供的宽度作为参照来进行等比    缩放。
+属性值:
+    <length>：用长度值指定背景图像大小。不允许负值。
+    <percentage>：用百分比指定背景图像大小。不允许负值。
+    auto：背景图像的真实大小。
+    cover：将背景图像等比缩放到完全覆盖容器，背景图像有可能超出容器。
+    contain：将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。
+
+
+
+
+
+
+

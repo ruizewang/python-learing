@@ -1,0 +1,12 @@
+color：检索或设置对象的文本颜色。无默认值
+    可以使用Color Name(颜色名称), HEX, RGB, RGBA, HSL, HSLA, transparent来指定color。
+    注意，用颜色名称指定color可能不被一些浏览器接受。
+属性值:
+    <color>：指定颜色
+
+opacity:检索或设置对象的不透明度。
+属性值:
+    opacity：<number>
+    默认值：	1
+实例：div{filter:alpha(opacity=50);} /* for IE8 and earlier */
+    div{opacity:.5;} /* for IE9 and other browsers */
