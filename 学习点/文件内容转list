@@ -1,0 +1,19 @@
+# ##加载事件名称###
+def load_dict(file_name):
+    a_share_dict = {}
+    path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'files/'+file_name)
+    with open(path) as file:
+        for line in file.readlines():
+            lr = line.strip().split(',')
+            a_share_dict[lr[0]] = lr[1]
+    return a_share_dict
+
+
+def load_list(file_name):
+    a_share_list = list()
+    path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'files/'+file_name)
+    with open(path) as file:
+        for line in file.readlines():
+            lr = line.strip()
+            a_share_list.append(lr)
+    return a_share_list
