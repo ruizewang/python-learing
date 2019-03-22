@@ -1,0 +1,1105 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+body::-webkit-scrollbar {
+    display: none
+    /* 隐藏滚动条，但依旧具备可以滚动的功能 */
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1200px;
+    position: relative;
+    z-index: 1;
+}
+
+#strategy {
+    position: relative;
+}
+
+#strategy table {
+    font-size: 14px;
+    color: #000;
+}
+
+#strategy .left {
+    width: 220px;
+    height: 820px;
+    padding-top: 65px;
+    border-right: 1px solid #a0a0a0;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    display: none;
+}
+
+#strategy .right {
+    min-height: 771px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+#strategy .title {
+    padding: 0 26px;
+    line-height: 56px;
+    color: #000;
+    font-size: 14px;
+}
+
+#strategy .line {
+    width: 100%;
+    height: 1px;
+    background: #101010;
+    margin-bottom: 2px;
+}
+
+#strategy .left ul li {
+    height: 46px;
+    position: relative;
+    z-index: 1;
+}
+
+#strategy .left ul li .sectionDone {
+    background: url("../imgs/strategy/sectionDone.png") no-repeat;
+    width: 25px;
+    height: 25px;
+    background-size: 100%;
+    position: absolute;
+    right: 20px;
+    top: 11px;
+    display: none;
+}
+
+#strategy .left ul .on {
+    background: #73e2de;
+}
+
+#strategy .left ul .on a {
+    color: #fff;
+}
+
+#strategy .left ul li a {
+    display: block;
+    line-height: 46px;
+    height: 46px;
+    color: #565656;
+    font-size: 16px;
+    padding: 0 26px;
+}
+
+#strategy .left ul li a:hover {
+    background: #f7f7fa;
+}
+
+#strategy .left ul .on a {
+    background: #73e2de !important;
+}
+
+#strategy .left .bottomLine {
+    position: absolute;
+    bottom: 140px;
+    z-index: 1;
+}
+
+#strategy .left .bottomLine2 {
+    bottom: 143px;
+}
+
+#strategy .left .save {
+    display: block;
+    width: 193px;
+    height: 42px;
+    line-height: 42px;
+    margin: 47px auto 60px auto;
+    background: #ec6941;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+#strategy .left .save .subIcon {
+    background: url("../imgs/strategy/submit.png") no-repeat;
+    width: 25px;
+    height: 25px;
+    background-size: 100%;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    z-index: 2;
+}
+
+.disabled {
+    background: #ccc !important;
+    cursor: not-allowed !important;
+}
+
+.disabled p {
+    color: #fff !important;
+}
+
+#strategy td {
+    text-align: center;
+}
+
+#strategy .left .save p {
+    width: 193px;
+    height: 42px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+    color: #fff;
+    line-height: 42px;
+    padding-left: 12px;
+    display: block;
+}
+
+.section {
+    padding: 0 0 44px 0;
+}
+
+.no2 {
+    display: none;
+    padding-top: 40px;
+}
+
+.no3 {
+    display: none;
+    padding-top: 40px;
+}
+
+.no4 {
+    display: none;
+    padding-top: 40px;
+}
+
+.selectConfig {
+    margin-left: 85px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.selectConfig .cute {
+    padding: 10px 20px 10px;
+    border: 1px solid #76a7e1;
+    position: relative;
+    z-index: 1;
+}
+
+.selectConfig .cute .select {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 15px auto;
+}
+
+.selectConfig .cute .selectBg {
+    background: url("../imgs/strategy/select.png") no-repeat;
+    width: 35px;
+    height: 35px;
+    background-size: 100%;
+    position: absolute;
+    right: -17px;
+    top: -17px;
+    z-index: 2;
+    display: none;
+}
+
+.selectConfig .cute p {
+    font-size: 16px;
+    color: #2e2e2e;
+    line-height: 16px;
+}
+
+.selectConfig .cute:nth-child(1) .select {
+    background: url("../imgs/strategy/newConfig.png") no-repeat;
+    background-size: 100%;
+}
+
+.selectConfig .cute:last-child .select {
+    background: url("../imgs/strategy/oldConfig.png") no-repeat;
+    background-size: 100%;
+}
+
+.selectConfig .or {
+    background: url("../imgs/strategy/or.png") no-repeat;
+    width: 26px;
+    height: 70px;
+    background-size: 100%;
+    margin: 15px 12px 0;
+}
+
+.selectConfig .on {
+    border: 3px solid #76a7e1;
+    padding: 8px 18px 8px;
+}
+
+.selectConfig .cute:hover {
+    border: 3px solid #76a7e1;
+    padding: 8px 18px 8px;
+}
+
+.selectConfig .on .selectBg {
+    display: block;
+}
+
+.base .baseName {
+    font-size: 14px;
+    line-height: 38px;
+    color: #000;
+    text-align: center;
+    width: 110px;
+}
+
+.base input {
+    border-bottom: 1px solid #004986;
+    color: #004986;
+    font-size: 14px;
+    line-height: 29px;
+    width: 220px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+.configBase {
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: 14px;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 14px;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 14px;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 14px;
+}
+
+.configTitle {
+    margin-bottom: 30px;
+    padding: 0 6px;
+}
+
+.init {
+    width: 94%;
+    margin-left: 3%;
+    padding: 50px 30px 15px;
+    border: 1px dashed #6b89a4;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.uploadCSV {
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 16px;
+    z-index: 2;
+}
+
+.uploadCSV p {
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+}
+
+.uploadCSV i {
+    background: url("../imgs/strategy/upload.png") no-repeat 0 center;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+}
+
+.init .initTxt {
+    font-size: 22px;
+    line-height: 22px;
+    padding: 0 8px;
+    background: #fff;
+    color: #000;
+    position: absolute;
+    z-index: 2;
+    left: 22px;
+    top: -11px;
+}
+
+.owntip {
+    visibility: hidden;
+    font-size: 12px;
+    text-align: left;
+    color: #ff2c2c;
+}
+
+.section .baseControl {
+    width: 196px;
+    margin: 0 auto;
+}
+
+.section .baseControl .fl div {
+    width: 52px;
+    height: 52px;
+}
+
+.section .baseControl .fl p {
+    color: #000;
+    font-size: 17px;
+    line-height: 17px;
+}
+
+.prev, .first {
+    margin-right: 80px;
+}
+
+.right .prev div {
+    background: url("../imgs/strategy/next.png") no-repeat;
+    background-size: 100%;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+.right .first div {
+    background: url("../imgs/strategy/first.png") no-repeat;
+    background-size: 100%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.right .last div {
+    background: url("../imgs/strategy/preview.png") no-repeat;
+    background-size: 100%;
+    margin-left: 4px;
+}
+
+.right .next div {
+    background: url("../imgs/strategy/next.png") no-repeat;
+    background-size: 100%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.layui-input, .layui-select, .layui-textarea {
+    border-width: 0;
+    border-bottom: 1px solid #004986;
+    border-radius: 0;
+}
+
+.poolLoad {
+    margin-bottom: 20px;
+}
+
+.poolSelect p {
+    font-size: 14px;
+    line-height: 38px;
+    color: #000;
+    text-align: center;
+}
+
+.poolLoad > .poolSelect .layui-form-select {
+    float: left;
+    width: 318px;
+    height: 38px;
+    line-height: 38px;
+}
+
+.poolLoad .layui-select-title {
+    float: left;
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #004986;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #004986 !important;
+    width: 288px;
+}
+
+.controlParam .layui-form-select {
+    float: left;
+    width: 130px;
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #004986;
+}
+
+.poolLoad .layui-select-title > input {
+    display: none;
+}
+
+.controlParam .layui-select-title > input {
+    display: block;
+    color: #004986;
+    font-size: 14px;
+    line-height: 38px;
+}
+
+.layui-form-select dl {
+    z-index: 10000;
+}
+
+.layui-form-select dl dd {
+    color: #444;
+    font-size: 14px;
+    text-align: left;
+}
+
+select {
+    line-height: 38px;
+    color: #444;
+    text-align: left;
+    border-bottom: 1px solid #004986;
+    height: 38px;
+}
+
+.layui-form-select dl dt {
+    font-size: 15px;
+    color: #676767;
+    background: #d8d8d8;
+    height: 26px;
+    line-height: 26px;
+    text-align: left;
+}
+
+.layui-form-select dl {
+    max-height: 307px !important;
+}
+
+.print {
+    visibility: hidden;
+}
+
+.basic {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #535353;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.basic h3 {
+    font-size: 16px;
+    height: 18px;
+    line-height: 18px;
+    color: #000;
+    font-weight: normal;
+    position: absolute;
+    left: 18px;
+    top: -9px;
+    z-index: 2;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.statusHide {
+    display: none;
+}
+
+.preview {
+    padding: 33px 107px 24px 70px;
+    margin-bottom: 50px;
+    display: none;
+}
+
+.preview > p {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    text-align: left;
+    border-bottom: none;
+    margin-bottom: 37px;
+}
+
+#algo_conf .handsontable thead th .relative {
+    padding: 2px 0;
+    font-size: 12px;
+}
+
+#algo_conf table {
+    font-size: 13px !important;
+}
+
+.preview .limit {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.preview table tbody tr, .preview table tbody td {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 12px;
+    color: #000;
+    line-height: 30px;
+}
+
+.preview table thead th {
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    color: #fff;
+    background: #f40;
+    font-size: 14px;
+}
+
+.preview table tr {
+    line-height: 30px;
+    height: 30px;
+}
+
+.preview table tr:nth-child(even) {
+    background: #eee;
+}
+
+.strategy_info {
+    margin-right: 46px;
+}
+
+.strategy_info table {
+    width: 270px;
+}
+
+.strategy_info table tr td p {
+    width: 125px;
+    font-size: 12px;
+}
+
+.strategy_info table tr td p:first-child {
+    text-align: right;
+    font-weight: bold;
+    margin-right: 10px;
+    line-height: 30px;
+    height: 30px;
+}
+
+.strategy_info table tr td p:last-child {
+    text-align: left;
+    margin-left: 10px;
+    color: #3e4655;
+    line-height: 30px;
+    height: 30px;
+}
+
+.security_pool > table {
+    width: 593px;
+    max-height: 293px;
+}
+
+.security_pool .limit > table {
+    width: 593px;
+}
+
+.part2, .part3, .part4 {
+    margin-top: 50px;
+}
+
+.configBox {
+    width: 922px;
+    overflow-x: auto;
+}
+
+.configBox > table {
+    max-height: 296px;
+    width: 922px;
+    max-width: unset;
+}
+
+.order_router {
+    margin-top: 43px;
+}
+
+.order_router > table {
+    width: 290px;
+    max-height: 296px;
+}
+
+.order_router .limit > table {
+    width: 290px;
+}
+
+.training_index {
+    margin-top: 43px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.training_index > table {
+    width: 290px;
+    max-height: 294px;
+}
+
+.training_index .limit > table {
+    width: 290px;
+}
+
+.training_common_index {
+    margin-top: 43px;
+}
+
+.training_common_index > table {
+    width: 290px;
+    max-height: 293px;
+}
+
+.training_common_index .limit > table {
+    width: 290px;
+}
+
+.account > table {
+    width: 907px;
+    max-height: 294px;
+}
+
+.account .limit > table {
+    width: 907px;
+}
+
+.algo_conf > table {
+    width: 907px;
+    max-height: 315px;
+}
+
+.algo_conf .limit > table {
+    width: 907px;
+}
+
+.algo_conf {
+    margin-top: 43px;
+}
+
+.part1 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #fedc5d;
+}
+
+.part2 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #99b055;
+}
+
+.part3 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #2ecaf6;
+}
+
+.part4 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #ffa171;
+}
+
+.verticalTxt {
+    width: 20px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+.performance_index {
+    margin-right: 10px;
+}
+
+.performance_index > table {
+    width: 440px;
+    max-height: 296px;
+}
+
+.performance_index .limit > table {
+    width: 440px;
+}
+
+.security_pool_index > table {
+    width: 440px;
+    max-height: 295px;
+}
+
+.security_pool_index .limit > table {
+    width: 440px;
+}
+
+.benchmark {
+    margin-right: 10px;
+    margin-top: 43px;
+}
+
+.benchmark > table {
+    width: 580px;
+    max-height: 294px;
+}
+
+.benchmark .limit > table {
+    width: 580px;
+}
+
+.mail_receivers {
+    margin-top: 43px;
+}
+
+.mail_receivers > table {
+    width: 300px;
+    max-height: 295px;
+}
+
+.mail_receivers .limit > table {
+    width: 300px;
+}
+
+.finalControl {
+    width: 344px;
+    margin: 62px auto 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.finalControl a {
+    display: block;
+    border-radius: 4px;
+}
+
+.finalControl .return {
+    width: 116px;
+    height: 32px;
+    line-height: 32px;
+    background: #989898;
+    text-align: center;
+    color: #fff;
+    margin-right: 34px;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.finalControl .toSubmit, .finalControl .submited {
+    position: absolute;
+    left: 150px;
+    top: 0;
+    z-index: 2;
+}
+
+.finalControl .toSubmit {
+    width: 194px;
+    height: 42px;
+    line-height: 42px;
+    background: #ff962f;
+    color: #fff;
+    font-size: 20px;
+}
+
+.finalControl .toSubmit div {
+    margin: 1px 12px 0 43px;
+    font-size: 26px;
+}
+
+.finalControl .toSubmit p {
+    line-height: 42px;
+    font-size: 20px;
+}
+
+.finalControl .submited {
+    width: 194px;
+    height: 42px;
+    line-height: 42px;
+    background: #ff962f;
+    color: #fff;
+    font-size: 20px;
+    display: none;
+}
+
+.finalControl .submited div {
+    margin: 1px 12px 0 43px;
+    font-size: 26px;
+}
+
+.finalControl .submited p {
+    line-height: 42px;
+    font-size: 20px;
+}
+
+.tab_head a {
+    color: #656565;
+}
+
+.strategyLoad {
+    height: 38px;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+#strategy .loadName {
+    display: block;
+    height: 38px;
+    line-height: 34px;
+    border: 1px solid #dcdcdc;
+    color: #5a5a5a;
+    font-size: 14px;
+    padding: 0 5px;
+}
+
+#strategy .loadName:hover {
+    background: #dcdcdc;
+    color: #5a5a5a;
+    border: 1px solid #dcdcdc;
+}
+
+/*dropdown menu*/
+.dropdown-menu {
+    background-color: #f9f9f9;
+    z-index: 102;
+    text-align: left;
+    color: black;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    max-height: 500px;
+
+}
+
+#strategy .dropdown-menu > li > a:hover {
+    background: transparent;
+}
+
+#strategy .dropdown-menu > li {
+
+    width: 100%;
+    padding: 3px 0;
+    font-size: 13px;
+    list-style-type: none;
+}
+
+#strategy .dropdown-menu > li:hover {
+    background: #dcdcdc;
+    color: #5a5a5a;
+}
+
+#strategy .R_aside {
+    left: 100% !important;
+    top: 0 !important;
+    overflow-y: auto;
+    max-height: 215px;
+}
+
+#strategy .sendAjax > ul > li {
+    padding: 10px 20px;
+}
+
+#strategy .changeStrategy {
+    cursor: pointer;
+}
+
+.handsontable thead th .relative {
+    background: #f40;
+    color: #fff;
+}
+
+.handsontable .htAutocompleteArrow {
+    color: #f40 !important;
+}
+
+.download {
+    display: block;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    right: 150px;
+    top: 12px;
+    background: #f40;
+    color: #fff;
+    border-radius: 2px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.download:hover {
+    background: #f40;
+    color: #fff;
+}
+
+.download:hover {
+    background: #f40;
+    color: #fff;
+}
+
+.handsontable th, .handsontable td {
+    padding: 0 !important;
+}
+
+.currentName {
+    line-height: 38px;
+    margin-left: 20px;
+    color: #000;
+    font-size: 18px;
+}
+
+.layui-form-select dl dd.layui-this {
+    background-color: #f40;
+}
+
+.layui-laydate .layui-this {
+    background-color: #f40 !important;
+}
+
+.singleControl .baseInput {
+    width: 90px;
+}
+
+.controlParam {
+    margin: 0 0 20px;
+}
+
+.controlParam .baseName, .poolLoad .baseName {
+    width: 98px;
+}
+
+.poolLoad .dropdown-menu {
+    width: 229px;
+}
+
+.poolLoad .menu1 {
+    top: -362px;
+}
+
+.singleIndex {
+    display: block;
+    height: 38px;
+    line-height: 34px;
+    border: 1px solid #dcdcdc;
+    color: #5a5a5a;
+    font-size: 14px;
+    padding: 0 5px;
+    margin-top: 20px;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #f40;
+    background-color: #f40;
+}
+
+.layui-form-checkbox[lay-skin=primary] i {
+    margin-top: 10px;
+}
+
+.layui-form-checkbox[lay-skin=primary]:hover i {
+    border-color: #f40;
+}
+
+.multiSelect {
+    text-align: left;
+    border-bottom: 1px solid #004986;
+}
+
+.multiSelect a {
+    color: #004986;
+    font-size: 14px;
+    line-height: 38px;
+    margin-right: 5px;
+}
+
+.optimal {
+    display: block;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    right: 147px;
+    top: 114px;
+    border: 1px dashed #f40;
+    color: #f40;
+    border-radius: 2px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.getPool {
+    display: block;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    right: 30px;
+    top: 114px;
+    border: 1px solid #f40;
+    color: #f40;
+    border-radius: 2px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.waiting {
+    display: none;
+}
+
+.waiting div {
+    font-size: 80px;
+    color: #004986;
+    margin: 62px 0 62px 48%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.layui-form-checkbox[lay-skin=primary] span {
+    width: 264px;
+    height: 36px;
+    line-height: 36px;
+}
+
+.poolLoad .multiSelect a {
+    display: inline-block;
+}
+
+.poolLoad .multiSelect a i {
+    background: url("../imgs/strategy/delete.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    margin-top: 9px;
+}

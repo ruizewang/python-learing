@@ -1,0 +1,508 @@
+body{
+  background:#F4F4F4;
+  /*background-image: url("../img/04-智能投顾状态final.jpg");*/
+  background-size: 100%;
+}
+
+.input_pred{
+  display: inline-block;
+
+    width: 70%;
+    margin: 4vw auto 2vw auto;
+    padding: 0.8vw 0.8vw 0.8vw 1vw;
+
+    background-color: white;
+
+    font-size: 1.3vw;
+    line-height: 1.42857143;
+    color: #A5ACB2;
+
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0 2px 1px rgba(0,0,0,.075);
+    box-shadow: 0 2px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+}
+#pred_search_btn{
+  display: inline-block;
+    width: 6.2vw;
+    height: 3.5vw;
+    border: none;
+    background: #B91E25;
+    color: white;
+
+    vertical-align: middle;
+}
+#pred{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+    border: none;
+}
+
+
+
+
+/*--榜单-----*/
+
+
+.upH1_str{
+  display: inline-block;
+  border: none;
+
+  margin-top: 0;
+  margin-bottom: 0px;
+  padding-left: 0.1vw;
+  padding-right: 1vw;
+  padding-bottom: 0.5vw;
+
+  font-size: 1.5vw;
+  font-weight: 600;
+  text-align: left;
+  color: black;
+}
+
+.daily_rank_title{
+  text-align: left;
+  font-size: 2.4vw;
+  font-weight: 500;
+  width: 100%;
+  margin-bottom: 3vw;
+}
+
+#dailyrank_opt{
+  display:inline-block;
+  float: right;
+  margin-top:1vw;
+  vertical-align: bottom;
+
+  color:#F34957;
+  font-size: 1.5vw;
+  font-weight: 400;
+  text-decoration: underline;
+  line-height: 1.6vw;
+
+  margin-right: 3vw;
+}
+
+
+
+
+/*--table------*/
+.caption{
+  font-size: 1.3vw;
+  margin-top: 2vw;
+
+}
+
+.col-md-6{
+  padding-left: 3vw;
+
+  text-align: left;
+}
+.upSec{
+  padding-left: 6vw;
+}
+table{
+  /*border:1px solid #bbbbbb;*/
+  border:none;
+  margin-top: 1.4vw;
+  text-align: left;
+  font-size: 1.2vw;
+}
+th{ 
+  font-weight: 400;
+  padding-left: 0.7vw;
+}
+
+tr{  height: 3vw;  
+}
+
+table tr:nth-child(odd){  
+  background:#efefef;
+}
+/*table td:nth-child(even){ color:#C00;}*/
+td{  
+  border:1px solid #c7c7c7;
+  padding-left:0.7vw;
+  padding-right:0.7vw;
+}
+
+#uprank{
+  background: #EF3441!important;
+  color: white; 
+
+}
+#downrank{
+  background: #007100!important;
+  color: white; 
+
+}
+.th_rank{
+  width: 4.5vw;
+}
+.th_wind{
+  width: 10vw;
+}
+.th_name{
+  width: 12vw;
+}
+
+
+
+/*--prediction----*/
+
+.upH1_pred{
+  display: inline-block;
+  border: none;
+
+  margin-top: 0;
+  margin-bottom: 0px;
+  padding-left: 0.1vw;
+  padding-right: 1vw;
+  padding-bottom: 0.5vw;
+
+  font-size: 1.5vw;
+  font-weight: 600;
+  text-align: left;
+  color: black;
+}
+
+.title-Sec2{     
+  font-size:3vw;
+
+  
+
+  color:rgba(0,0,0,1);
+  text-align: center;
+  margin-top: 5vw; 
+  font-weight: 400;
+  border: none;
+    margin-bottom: 0px;
+}
+
+.subtitle-Sec2{
+  font-size:1.4vw;
+
+  font-weight: 300;
+
+  color:rgba(124,133,138,1);
+  text-align: center;
+  margin-top: 0.8vw; 
+  border: none;
+}
+
+.up-input_pred{
+  display: inline-block;
+  
+  width: 25%;
+  margin: 1vw auto 2vw auto;
+}
+.up-pred_form{
+  text-align: left;
+}
+
+
+
+/*--涨跌卡------*/
+.p_card_Sec{
+  width: 35%;
+  display: inline-block;
+  padding:0 2vw 0 0.9vw;
+  vertical-align: top;
+
+}
+.p_card_title{
+  font-size: 1.7vw;
+  padding-left: 2vw;
+  margin-top: 1vw;
+  text-align:left;
+  margin-bottom: 1vw;
+}
+
+.p_card_wind{
+  color:#959595;
+  font-size: 1.2vw;
+}
+
+
+
+.border_up{
+   border-top:9px solid #F34957;
+}
+
+.border_down{
+   border-top:9px solid #4C8334;
+}
+.border_std{
+   border-top:9px solid #909090;
+}
+
+
+.border_2{
+   border-top:9px solid #F34957;
+}
+
+.border_0{
+   border-top:9px solid #4C8334;
+}
+.border_1{
+   border-top:9px solid #909090;
+}
+
+
+
+.p_card_code{
+  display: inline;
+  float: right;
+  margin-right: 1vw;
+  margin-top: 1vw;
+  color: #777777;
+}
+
+
+.img_M{
+  width:4vw;
+  margin-right: 0.5vw;
+  vertical-align: text-bottom;
+}
+
+.img_L{
+  display: block;
+  width: 6.8vw;
+  height:6.8vw;
+  margin:4vw auto 0 auto;
+
+}
+
+
+.p_card_perc{
+  /*color: rgba(255,255,255,0);*/
+  margin: 0;
+  /*margin-top: 0.4vw;*/
+  font-size: 1.1vw;
+
+}
+
+.p_card_info{
+  margin-top: 1vw;
+  padding-bottom: 1.8vw;
+
+}
+
+.p_card_up{
+  font-size: 2.7vw;
+  color: #F34957;
+  margin: 0;
+  margin-top: -9vw;
+  line-height: 1;
+}
+.p_card_up>span{
+  font-size: 1.5vw;
+}
+.p_card_up_i{
+  padding: 0 2.5vw;
+  font-size: 1.2vw;
+  color: #A5A5A5;
+  line-height: 1.5;
+  margin: 0;
+  margin-top: 0.5vw;
+}
+
+.p_card_down{
+  color: #4c8334;
+}
+
+.p_card_half{
+  margin-top: 1vw;
+  margin-bottom: 1.7vw;
+}
+
+.p_warning{
+  color: #8B8B8B;
+  margin: 0;
+  font-size: 1.2vw;
+  
+  margin-top:3.5vw; 
+  padding-left: 2.8vw;
+}
+.p_warning>p{
+  text-indent: 4vw;
+  margin:0;
+  font-size: 1.1vw;
+}
+.img_logo{
+  width: 1.7vw;
+  margin-right: 0.3vw;
+  /*margin: 4vw 0 0 3vw;*/
+}
+
+
+
+
+
+/*--侧边栏------*/
+
+.p_sidenav{
+  /*position: relative;*/
+  position: absolute;
+
+  left:2vw;
+  text-align:left;
+}
+.p_card_Spac{
+  width: 15%;
+  display: inline-block;
+  font-size: 1.34vw;
+}
+
+.p_card_Spac img{
+  width: 1.7vw;
+  margin-right: 0.5vw;
+}
+
+.p_selected{
+  text-decoration: underline;
+  color: #F34957;
+}
+
+
+#sole_border{
+
+ background:rgba(255,255,255,1);
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.09);
+
+
+  margin-left: 1.9vw;
+
+  text-align: center;
+  position:relative;
+  width: 20vw;
+}
+
+
+#sole_img {
+    display: block;
+    width: 6.8vw;
+    height:6.8vw;
+    margin:4vw auto 0 auto;
+}
+
+#rel_img {
+    display: block;
+    width: 6.8vw;
+    height:6.8vw;
+    margin:4vw auto 0 auto;
+}
+
+#rel_border{
+
+ background:rgba(255,255,255,1);
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.09);
+
+
+  margin-left: 1.9vw;
+
+  text-align: center;
+  position:relative;
+
+
+  width: 20vw;
+}
+.old_iframe{
+  text-align:left;
+}
+.old_iframe a{
+  text-decoration: underline;
+  padding-top:1vw;
+
+}
+
+/*refresh*/
+.img_sole_0{
+background:url('../imgs/doc/stock_pred0@2x.png');
+background-size:contain;
+}
+.img_sole_1{
+background:url('../imgs/doc/stock_pred1@2x.png');
+background-size:contain;
+}
+.img_sole_2{
+background:url('../imgs/doc/stock_pred2@2x.png');
+background-size:contain;
+}
+.img_rel_0{
+background:url('../imgs/doc/part_pred0@2x.png');
+background-size:contain;
+}
+.img_rel_2{
+background:url('../imgs/doc/part_pred2@2x.png');
+background-size:contain;
+}
+
+
+.img_Sup{
+    position: absolute;
+
+    width: 1.5vw;
+    top: 4.5vw;
+    right: 5vw;
+}
+.img_Sup_S{
+    position: absolute;
+
+    width: 1.5vw;
+    top: 4.5vw;
+    right: 5vw;
+}
+
+
+.extra_info{
+position: absolute;
+top: 6.5vw;
+left: 13vw;
+width: 12vw;
+
+border-radius: 3px;
+word-break: normal;
+text-align: left;
+padding: 0.5vw;
+color:transparent;
+}
+
+.extra_info_S{
+  top: 1vw;
+  left: 8vw;
+  width: 21vw;
+color:transparent;
+}
+
+
+#no_data_hint_pl{
+font-size:1.5vw;
+}
+
+#no_data_hint{
+font-size:1.5vw;
+}
+
+.p_sidenav>span{
+line-height:2;
+}
+
+#wrong_data_hint{
+   text-align: left;
+
+margin-left: 10.3vw;
+
+font-size: 1.1vw;
+
+color: #b91e25;
+}
+.pre_index_info{
+    text-align:left;
+    margin-top:4vw;
+    padding:0 2vw;
+}

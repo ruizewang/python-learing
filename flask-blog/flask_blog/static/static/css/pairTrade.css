@@ -1,0 +1,49 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: unset;
+    padding: unset;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1200px;
+    position: relative;
+    z-index: 1;
+    min-height: 690px;
+}
+
+.footer {
+    z-index: 0;
+}
+
+.current {
+    padding: 10px 20px 0;
+    margin-bottom: 10px;
+}
+
+.current h2 {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+}
+
+.waiting {
+    font-size: 80px;
+    color: #f40;
+    margin: 50px 0 20px 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}

@@ -1,0 +1,301 @@
+/*--banner-----*/
+body {
+    overflow-y: scroll;
+}
+
+.bannerbox {
+    margin-top: 50px;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner > img {
+    min-height: 150px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.detail-btn {
+    position: absolute;
+    bottom: 18%;
+    left: 12%;
+
+    height: 4vw;
+    width: 14vw;
+
+    border: 1px solid #FFFFFF;
+    background: transparent;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.5vw;
+    font-weight: 300;
+
+    max-height: 50px;
+    max-width: 200px;
+}
+
+.detail-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.mainlist {
+
+    background-color: #fff;
+
+}
+
+/*--tag切换-----*/
+.tag-btn {
+    text-align: center;
+    border: none;
+    padding-top: 3.4vw;
+    padding-bottom: 0.4vw;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+
+.tag-btn:hover {
+    border-bottom: 2px solid black;
+}
+
+.tag-btn:active {
+    border-bottom: 2px solid black;
+}
+
+.tag_btn_active {
+    border-bottom: 2px solid black;
+}
+
+.tag-content {
+    display: none;
+}
+
+.tag-content:nth-child(2) {
+    display: block;
+}
+
+#tag-text {
+    width: 100%;
+    border: none;
+    background: none;
+    font-size: 1.4vw;
+    color: rgba(83, 95, 103, 1);
+}
+
+#tag-text:hover {
+    text-decoration: none;
+}
+
+#tag-text:active {
+    text-decoration: none;
+}
+
+/*--选项卡-----*/
+.icon {
+    height: 4vw;
+}
+
+.card-btn {
+    padding-top: 2.5vw;
+    padding-left: 1.8vw;
+    padding-right: 1.8vw;
+    height: 18vw;
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+    /*border-bottom: 0.1px solid rgba(231,244,255,1);*/
+}
+
+.card-btn:hover {
+    background: rgba(231, 244, 255, 1);
+}
+
+.title-card {
+    font-size: 1.7vw;
+
+    font-weight: 400;
+
+    color: rgba(28, 27, 43, 1);
+    margin-top: 2vw;
+    border: none;
+}
+
+.intro-card {
+    font-size: 1.2vw;
+
+    font-weight: 300;
+
+    color: rgba(148, 154, 157, 0.8);
+    margin-top: 2vw;
+    line-height: 1.5em;
+}
+
+/*--团队介绍页-----*/
+.aboutUsSec {
+    /*height: 50vw;*/
+    background: rgba(62, 70, 85, 1);
+    background-image: url("../img/index/logintop.png");
+    padding-top: 3vw;
+    margin-top: 1vw;
+}
+
+.data-big {
+    font-size: 8.2vw;
+    font-family: HelveticaNeue;
+
+    color: rgba(156, 207, 214, 1);
+    font-weight: 200;
+}
+
+.percent {
+    font-size: 3.2vw;
+    font-family: STHeitiSC-Light;
+
+    color: rgba(255, 255, 255, 1);
+}
+
+.intro-us {
+    font-size: 1.8vw;
+
+    font-weight: 200;
+    color: white;
+    line-height: 1.4em;
+}
+
+.detail-btn-inverse {
+    height: 4vw;
+    width: 14vw;
+    border: 1px solid #FFFFFF;
+    background: transparent;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.5vw;
+    font-weight: 300;
+    margin-top: 7vw;
+    margin-bottom: 6vw;
+}
+
+.detail-btn-inverse:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.P-top {
+    padding-top: 4vw;
+}
+
+/*--help-Sec-----*/
+.help-Sec {
+    /*padding-bottom: 10vw; */
+}
+
+.help-card {
+    border: 1px solid #E6EAEF;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+    transition: All 0.2s ease-out;
+
+}
+
+.help-card:hover {
+    margin-top: 0vw;
+}
+
+.help-card-title {
+    padding: 1.5vw 0 1.5vw 1.5vw;
+    background: #E6EAEF;
+    text-align: left;
+}
+
+.help-icon {
+    width: 2.3vw;
+    height: auto;
+    vertical-align: bottom;
+    margin-right: 0.8vw;
+}
+
+.help-card-intro {
+    padding: 0.5vw 1.5vw 1.5vw 1.5vw;
+}
+
+.card-Sec {
+    margin-top: 5vw;
+    margin-bottom: 7vw;
+}
+
+#info_ai {
+    display: none;
+}
+
+#ct1 {
+    padding-top: 2vw;
+
+}
+
+@media screen and (max-width: 900px) {
+    .col-sm-3 {
+        width: 0;
+    }
+
+    #tag-text {
+        font-size: 16px;
+    }
+
+    .detail-btn {
+        height: 7vw;
+        width: 20vw;
+    }
+
+    .tag-btn {
+        display: inline-block;
+        width: 30%;
+    }
+
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 6px;
+    }
+
+    .row .mL {
+        margin-left: 4%;
+    }
+
+    .tag-content {
+        padding: 0 26px;
+    }
+
+    .tag-content .row > div {
+        width: 48%;
+        display: inline-block;
+    }
+
+    .intro-card {
+        display: none;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .icon {
+        height: 11vw;
+    }
+
+    .title-card {
+        font-size: 3.7vw;
+    }
+
+    .card-btn {
+        margin-bottom: 8vw;
+        height: unset;
+    }
+}
+

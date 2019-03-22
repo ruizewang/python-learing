@@ -1,0 +1,507 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1200px;
+    position: relative;
+    z-index: 1;
+    min-height: 690px;
+}
+
+.current {
+    padding: 10px 20px 10px;
+    margin-bottom: 36px;
+    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.07);
+}
+
+.current h2 {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+}
+
+.current .layui-form-checkbox {
+    float: left;
+}
+
+.footer {
+    z-index: 0;
+}
+
+.straList {
+    padding-bottom: 20px;
+}
+
+.orderName {
+    padding: 0 100px;
+    margin-bottom: 25px;
+}
+
+.orderName h3 {
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.orderName .person {
+    margin: 10px 0;
+}
+
+.orderName .person .expand1 {
+    background: url("../imgs/strategy/decrease.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.orderName .person .expand2 {
+    background: url("../imgs/strategy/increase.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.orderName .person p {
+    font-size: 18px;
+    line-height: 20px;
+    margin-left: 38px;
+}
+
+.orderName .orderTitle {
+    height: 30px;
+    margin-left: 60px;
+    background: #f05b35;
+}
+
+.orderName .orderTitle li {
+    font-size: 16px;
+    line-height: 30px;
+    height: 30px;
+    color: #fff;
+    margin-left: 50px;
+}
+
+.orderName .orderTitle li:nth-child(2) {
+    width: 250px;
+    text-align: left;
+}
+
+.orderName .orderTitle li:nth-child(3) {
+    width: 50px;
+    text-align: left;
+}
+
+.orderName .orderTitle li:nth-child(4) {
+    width: 100px;
+    text-align: center;
+}
+
+.orderName .orderList {
+    background: #fff;
+    margin-left: 60px;
+}
+
+.orderName .orderList li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+
+.orderName .orderList li:nth-child(odd) {
+    background: #f2f2f2;
+}
+
+.orderName .orderList li .strategy {
+    margin: 0 20px;
+}
+
+.orderName .orderList li p {
+    font-size: 16px;
+    line-height: 30px;
+    width: 260px;
+    color: #585858;
+    margin-left: 60px;
+    text-align: left;
+}
+
+.orderName .orderList li .other a {
+    display: block;
+    line-height: 12px;
+    color: #3b3b3b;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.orderName .orderList .cute {
+    width: 18px;
+    height: 18px;
+    margin: 6px 10px 0 0;
+}
+
+.orderName .status {
+    margin-left: 38px;
+}
+
+.orderName .status h4 {
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.orderName .orderList .done h4 {
+    color: #6c9127;
+}
+
+.orderName .orderList .done .cute {
+    background: #6c9127;
+}
+
+.orderName .orderList .before h4 {
+    color: #e08400;
+}
+
+.orderName .orderList .before .cute {
+    background: #e08400;
+}
+
+.orderName .orderList .yet h4 {
+    color: #008bb4;
+}
+
+.orderName .orderList .yet .cute {
+    background: #008bb4;
+}
+
+.orderName .orderList .warning h4 {
+    color: #ff2600;
+}
+
+.orderName .orderList .warning .cute {
+    background: #ff2600;
+}
+
+.orderName .orderList .stop h4 {
+    color: #005ae073;
+}
+
+.orderName .orderList .stop .cute {
+    background: #005ae073;
+}
+
+.orderControl {
+    margin-left: 30px;
+}
+
+.takeorder {
+    width: 142px;
+    height: 44px;
+    display: block;
+    margin-right: 10px;
+}
+
+.takeorder p {
+    font-size: 18px;
+    line-height: 44px;
+    color: #fff;
+}
+
+.startOrder {
+    background: #ff9211;
+}
+
+.restartOrder {
+    background: #ff9211;
+    display: none;
+}
+
+.cancelOrder {
+    background: #f05b34;
+}
+
+.startOrder div {
+    background: url("../imgs/strategy/start.png") no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+    margin: 7px 8px 0 12px;
+}
+
+.restartOrder div {
+    background: url("../imgs/strategy/start.png") no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+    margin: 7px 8px 0 12px;
+}
+
+.cancelOrder div {
+    background: url("../imgs/strategy/stop.png") no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+    margin: 7px 8px 0 12px;
+}
+
+input[name=selectAll] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #f60;
+    background-color: #f60;
+}
+
+.layui-form-checked i, .layui-form-checked:hover i {
+    border-color: #f60 !important;
+}
+
+.layui-form-checkbox i, .layui-form-checkbox:hover i {
+    border-color: #f60 !important;
+}
+
+.current .layui-form-checkbox {
+    margin-top: 14px;
+}
+
+.orderList .layui-form-checkbox {
+    float: left;
+    margin-left: 58px;
+    margin-top: 7px;
+}
+
+.waiting {
+    font-size: 80px;
+    color: #f60;
+    margin: 62px 0 62px 48%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.layui-tab {
+    margin: 0;
+    padding-bottom: 63px;
+    position: relative;
+    z-index: 1;
+    display: none;
+}
+
+.layui-tab .selectAll .layui-form-checkbox {
+    position: absolute;
+    left: 280px;
+    top: 12px;
+    z-index: 3;
+}
+
+.layui-tab-brief > .layui-tab-more li.layui-this:after, .layui-tab-brief > .layui-tab-title .layui-this:after {
+    border-bottom: 2px solid #facd89;
+}
+
+.layui-tab-title li {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    position: relative;
+    line-height: 40px;
+    min-width: 65px;
+    padding: 0 15px;
+    text-align: center;
+    cursor: pointer;
+    color: #919191;
+}
+
+.layui-tab-title li:first-child {
+    margin-left: 20px;
+}
+
+.layui-tab-brief > .layui-tab-title .layui-this {
+    color: #000;
+}
+
+.layui-tab-item {
+    padding: 30px 20px 0;
+}
+
+.layui-this {
+    background-color: #f40 !important;
+    color: #fff !important;
+}
+
+.layui-tab-content {
+    padding: 0;
+}
+
+.layui-tab-item {
+    padding: 0;
+}
+
+.totalControl {
+    display: none;
+}
+
+.warningTip {
+    display: none;
+}
+
+@media screen and (max-width: 370px) {
+    .orderName .orderList .cute {
+        margin: 6px 0 0 0!important;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .basecon {
+        width: 100%;
+        overflow: hidden;
+        min-height: unset;
+        margin: 50px auto 15px auto;
+        padding-top: 62px;
+    }
+
+    .takeorder {
+        width: 38px;
+        height: 42px;
+        display: block;
+        margin-right: 4px;
+    }
+
+    .takeorder p {
+        display: none;
+    }
+
+    .startOrder div {
+        margin: 7px 0 0 4px;
+    }
+
+    .restartOrder div {
+        margin: 7px 0 0 4px;
+    }
+
+    .cancelOrder div {
+        margin: 7px 0 0 4px;
+    }
+
+    .current {
+        margin-bottom: 0;
+        position: fixed;
+        left: 0;
+        top: 50px;
+        z-index: 2;
+        width: 100%;
+        background: #fff;
+    }
+
+    .orderName {
+        padding: 0 20px;
+        margin-top: 20px;
+    }
+
+    .orderName h3 {
+        font-size: 20px;
+        line-height: 20px;
+        margin-bottom: 15px;
+        font-weight: normal;
+        text-align: left;
+    }
+
+    .orderControl {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .orderName .person p {
+        font-size: 16px;
+        line-height: 18px;
+        margin-left: 5px;
+    }
+
+    .orderName .orderTitle {
+        margin-left: 0;
+    }
+
+    .orderName .orderTitle li {
+        margin-left: 0;
+    }
+
+    .orderName .orderTitle li:nth-child(1) {
+        width: 15%;
+    }
+
+    .orderName .orderTitle li:nth-child(2) {
+        width: 50%;
+        text-align: left;
+    }
+
+    .orderName .orderTitle li:nth-child(3) {
+        width: 35%;
+        text-align: left;
+    }
+
+    .orderName .orderTitle li:nth-child(4) {
+        display: none;
+    }
+
+    .orderName .orderList {
+        margin-left: 0;
+    }
+
+    .orderList .layui-form-checkbox {
+        margin-left: 0;
+        margin-top: 7px;
+        width: 15%;
+    }
+
+    .orderName .orderList li p {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+
+    .orderName .orderList li p {
+        width: 50%;
+        margin-left: 0;
+    }
+
+    .orderName .status {
+        margin-left: 0;
+        width: 35%;
+        height: 30px;
+    }
+
+    .orderName .status h4 {
+        font-size: 12px;
+    }
+
+    .orderName .orderList li .other {
+        display: none;
+    }
+
+    .orderName .orderList .cute {
+        margin: 6px 4px 0 0;
+    }
+}

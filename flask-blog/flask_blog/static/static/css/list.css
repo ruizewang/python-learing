@@ -1,0 +1,161 @@
+
+.navleft {
+    width: 20vw;
+    font-size: 14px;
+    padding-left: 35px;
+    float: left;
+}
+
+
+
+.navleft-first li {
+    line-height: 48px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+}
+
+.liimg {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 14px;
+    height: 14px;
+    transition: transform 0.5s;
+    -moz-transition: -moz-transform 0.5s; /* Firefox 4 */
+    -webkit-transition: -webkit-transform 0.5s; /* Safari 和 Chrome */
+    -o-transition: -o-transform 0.5s;
+    /* background:url(../imgs/up.png); */
+}
+
+.liimghover {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+}
+
+.liimghover1 {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+}
+
+.catalog {
+    line-height: 48px;
+}
+
+.navleft-second li {
+    font-weight: 400;
+    padding-left: 20px;
+    color: #13171f;
+}
+
+.navleft-third li a, .navleft-second a {
+    color: #5e5e5e;
+}
+
+.navleft-second a:hover {
+    text-decoration: none;
+}
+
+.none {
+    display: none;
+}
+
+
+.texttwo {
+    text-indent: 2em;
+}
+
+.textfour {
+    text-indent: 4em;
+}
+
+.textsix {
+    text-indent: 6em;
+}
+
+.formtitle {
+    padding-left: 130px;
+}
+
+.line {
+    width: 838px;
+    height: 1px;
+    background-color: #e7e7e7;
+}
+
+.tradinginterface h1.install {
+    border-bottom: none;
+}
+
+.tradinginterface a.inlinefont {
+    display: inline-block;
+}
+
+.data {
+    margin: 10px 0
+}
+
+.mainbreak p {
+    white-space: normal
+}
+
+.verticalbar {
+    float: left;
+    width: 1px;
+    height: 100%;
+    background-color: #F4F4F4;
+}
+
+.navleft-second li.englings {
+    padding-left: 0;
+}
+
+.team td {
+    padding: 0.4vw 1.1vw;
+    font-size: 1.2vw;
+    color: #484848;
+    border: 1px solid #6868684d;
+}
+
+.padltwo {
+    padding-left: 2em;
+}
+
+.tc {
+    text-align: center;
+}
+
+.navleft li {
+    list-style-type: none
+}
+
+.intro {
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+}
+
+.reminder {
+    font-size: 16px;
+    color: #ff4343;
+    position: absolute;
+    left: 129px;
+    bottom: -28px;
+    display: none;
+}
+
+.axis path,
+    .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
+    }
+
+    svg {
+        margin-left: -40px;
+    }

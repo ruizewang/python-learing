@@ -1,0 +1,374 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: unset;
+    padding: unset;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1180px;
+    position: relative;
+    z-index: 1;
+    min-height: 690px;
+}
+
+.mainPart {
+    padding-bottom: 16px !important;
+    display: none;
+}
+
+.footer {
+    z-index: 0;
+}
+
+.current {
+    padding: 10px 20px 0;
+    margin-bottom: 10px;
+    position: relative;
+    display: none;
+}
+
+.cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 52px;
+    z-index: 3;
+    background: transparent;
+    display: none;
+}
+
+.current .showIndex {
+    width: 150px;
+    border-bottom: 1px solid #44a5ee;
+    height: 36px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.current .showIndex p {
+    font-size: 15px;
+    line-height: 36px;
+    margin-left: 24px;
+    color: #6995ee;
+}
+
+.current .showIndex div {
+    background: url("../imgs/strategy/down.png") no-repeat;
+    width: 15px;
+    height: 15px;
+    background-size: 100%;
+    margin-left: 7px;
+    margin-top: 12px;
+    -webkit-transition: 0.2s all ease;
+    -moz-transition: 0.2s all ease;
+    -ms-transition: 0.2s all ease;
+    -o-transition: 0.2s all ease;
+    transition: 0.2s all ease;
+}
+
+.current > h2 {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+}
+
+.current > h3 {
+    font-size: 20px;
+    line-height: 42px;
+    color: #f40;
+    border-bottom: none;
+    display: none;
+}
+
+.nowIndex {
+    display: none;
+}
+
+.nowIndex p {
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.resultPart {
+    margin-bottom: 40px;
+}
+
+.layui-table, .layui-table-view {
+    margin: 0;
+}
+
+.layui-table td, .layui-table th, .layui-table-fixed-r, .layui-table-header, .layui-table-page, .layui-table-tips-main, .layui-table-tool, .layui-table-view, .layui-table[lay-skin=line], .layui-table[lay-skin=row] {
+    border: none;
+}
+
+.layui-table-view .layui-table[lay-size=lg] .layui-table-cell {
+    height: 40px;
+    line-height: 40px;
+}
+
+.layui-table-body {
+    max-height: 640px;
+}
+
+table thead th {
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    color: #fff;
+    background: #f40;
+    font-size: 14px;
+    font-weight: bold !important;
+}
+
+.basecon table tr {
+    line-height: 30px;
+    height: 30px;
+}
+
+.layui-table tbody tr:hover input[name=start], .layui-table[lay-even] tr:nth-child(even) input[name=start] {
+    background-color: #f2f2f2;
+}
+
+.basecon table tr :hover input[name=start] {
+    background: #f2f2f2;
+}
+
+.basecon table tr:nth-child(even) {
+    background: #eee;
+}
+
+.layui-table-view .layui-table td, .layui-table-view .layui-table th {
+    padding: 0;
+}
+
+.layui-btn {
+    height: 30px;
+    line-height: 30px;
+    background-color: unset;
+    color: #f40;
+}
+
+.layui-btn :hover {
+    background-color: unset;
+    color: #f40;
+}
+
+.layui-table-cell {
+    padding: 0;
+}
+
+.layui-form-select dl dd.layui-this {
+    background-color: #f40;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #f60;
+    background-color: #f60;
+}
+
+.layui-form-checked i, .layui-form-checked:hover i {
+    border-color: #f60 !important;
+}
+
+.layui-form-checkbox i, .layui-form-checkbox:hover i {
+    border-color: #f60 !important;
+}
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    position: absolute;
+    background-color: #f40;
+}
+
+.layui-table-page .layui-laypage a:hover {
+    color: #f40;
+}
+
+.layui-table-page .layui-laypage button:hover {
+    color: #f40;
+}
+
+.layui-table-page .layui-laypage input:focus {
+    border-color: #f40 !important;
+}
+
+.layui-form-checkbox[lay-skin=primary] span {
+    margin-top: 2px;
+}
+
+.layui-colla-item {
+    width: 275px;
+    margin-left: 12px;
+    margin-top: 10px;
+}
+
+.layui-colla-item:first-child {
+    margin-left: 0;
+}
+
+.layui-colla-item:nth-child(4n+1) {
+    margin-left: 0;
+}
+
+.layui-collapse {
+    border: none;
+}
+
+.layui-nav {
+    background-color: #fff;
+    color: #000;
+}
+
+.layui-nav .layui-nav-item a {
+    color: rgba(11, 0, 0, 0.7);
+}
+
+.layui-nav .layui-nav-item a:hover {
+    color: #000;
+}
+
+.layui-nav .layui-nav-more {
+    border-color: #000 transparent transparent;
+    border-top-color: rgba(11, 0, 0, 0.7)
+}
+
+.layui-nav .layui-nav-mored, .layui-nav-itemed > a .layui-nav-more {
+    margin-top: -9px;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #0b0000
+}
+
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+    background-color: #f40;
+}
+
+.layui-nav-child {
+    padding: 0;
+}
+
+.layui-nav .layui-nav-item {
+    line-height: 42px;
+}
+
+.layui-nav-child {
+    top: 44px;
+    left: -160px;
+}
+
+.choosed {
+    font-size: 14px;
+    line-height: 42px;
+}
+
+.countNum {
+    width: 20px;
+    height: 20px;
+    background: #f40;
+    border-radius: 3px;
+    display: block;
+    color: #fff;
+    text-align: center;
+    margin-top: 11px;
+    margin-left: 5px;
+}
+
+form {
+    width: 1176px;
+    background: #fff;
+    padding-bottom: 20px;
+    -webkit-box-shadow: 2px 2px 14px 0 #000;
+    -moz-box-shadow: 2px 2px 14px 0 #000;
+    box-shadow: 2px 2px 14px 0 #000;
+    border-radius: 0 0 5px 5px;
+}
+
+.selectPart {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.singleIndex {
+    margin-bottom: 10px;
+}
+
+.confirm {
+    display: block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    background: #f40;
+    border-radius: 10px;
+}
+
+.confirm:hover {
+    color: #fff;
+}
+
+.confirm:active {
+    color: #fff;
+}
+
+.buy h2 {
+    font-size: 26px;
+    line-height: 26px;
+    color: #c00;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    border-bottom: none;
+}
+
+.sell h2 {
+    font-size: 26px;
+    line-height: 26px;
+    color: #3DA642;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    border-bottom: none;
+}
+
+.sell table thead th {
+    background: #3DA642;
+}
+
+.checkCode {
+    display: block;
+    width: 140px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 10px;
+    background: #f40;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+.waiting {
+    font-size: 80px;
+    color: #f40;
+    margin: 50px 0 20px 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}

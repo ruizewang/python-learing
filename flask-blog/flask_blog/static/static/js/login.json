@@ -1,0 +1,11 @@
+{
+	"data": {
+		"success": {
+			"result":"ok"
+		},
+		"error": {
+			"result": "fail",
+			"errmsg": "xxxxxxxx"
+		}
+	}
+}

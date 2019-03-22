@@ -1,0 +1,119 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: unset;
+    padding: unset;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1200px;
+    position: relative;
+    z-index: 1;
+    min-height: 690px;
+}
+
+.current {
+    padding: 10px 20px 0;
+    margin-bottom: 10px;
+}
+
+.current h2 {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+}
+
+.current a {
+    display: block;
+    height: 42px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #f40;
+    color: #f40;
+    border-radius: 4px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.current a:hover {
+    color: #f40;
+}
+
+.footer {
+    z-index: 0;
+}
+
+.layui-tab {
+    margin: 0;
+}
+
+.layui-tab-brief > .layui-tab-more li.layui-this:after, .layui-tab-brief > .layui-tab-title .layui-this:after {
+    border-bottom: 2px solid #facd89;
+}
+
+.layui-tab-title li {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    position: relative;
+    line-height: 40px;
+    min-width: 65px;
+    padding: 0 15px;
+    text-align: center;
+    cursor: pointer;
+    color: #919191;
+}
+
+.layui-tab-title li:first-child {
+    margin-left: 20px;
+}
+
+.layui-tab-brief > .layui-tab-title .layui-this {
+    color: #000;
+}
+
+.layui-tab-item {
+    padding: 30px 20px 0;
+}
+
+.layui-this {
+    background-color: #f40 !important;
+    color: #fff !important;
+}
+
+.log {
+    height: 594px;
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    overflow: auto;
+    margin: 20px;
+}
+
+.log p {
+    width: 100%;
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    -webkit-transition: 1s all ease;
+    -moz-transition: 1s all ease;
+    -ms-transition: 1s all ease;
+    -o-transition: 1s all ease;
+    transition: 1s all ease;
+}

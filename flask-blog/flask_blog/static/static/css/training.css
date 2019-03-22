@@ -1,0 +1,603 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: unset;
+    padding: unset;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1200px;
+    position: relative;
+    z-index: 1;
+    min-height: 690px;
+    padding-bottom: 30px;
+}
+
+.footer {
+    z-index: 0;
+}
+
+.current {
+    padding: 36px 80px 0;
+    margin-bottom: 10px;
+}
+
+.showall {
+    display: none;
+}
+
+.current h2 {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+}
+
+.current h3 {
+    font-size: 18px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+    text-align: left;
+}
+
+.current select {
+    width: 304px;
+    height: 42px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.layui-form-select {
+    float: left;
+    color: #000;
+}
+
+.preview {
+    margin-bottom: 50px;
+}
+
+.preview > p {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    text-align: left;
+    border-bottom: none;
+    margin-bottom: 37px;
+}
+
+.basic {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #535353;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.basic h3 {
+    font-size: 16px;
+    height: 18px;
+    line-height: 18px;
+    color: #000;
+    font-weight: normal;
+    position: absolute;
+    left: 18px;
+    top: -9px;
+    z-index: 2;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.part1 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #fedc5d;
+}
+
+.part2 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #99b055;
+}
+
+.part3 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #2ecaf6;
+}
+
+.part4 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #ffa171;
+}
+
+.verticalTxt {
+    width: 20px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+table thead th {
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    color: #fff;
+    background: #f40;
+    font-size: 14px;
+    font-weight: bold !important;
+}
+
+.basecon .preview table tr {
+    line-height: 30px;
+    height: 30px;
+}
+
+.layui-table tbody tr:hover input[name=start], .layui-table[lay-even] tr:nth-child(even) input[name=start] {
+    background-color: #f2f2f2;
+}
+
+.basecon table tr :hover input[name=start] {
+    background: #f2f2f2;
+}
+
+.basecon table tr:nth-child(even) {
+    background: #eee;
+}
+
+.strategy_info {
+    margin-right: 16px;
+}
+
+.strategy_info table {
+    width: 300px;
+}
+
+.strategy_info table tr td p {
+    font-size: 12px;
+}
+
+.strategy_info table tr td p:first-child {
+    text-align: right;
+    font-weight: bold;
+    margin-right: 10px;
+    line-height: 30px;
+    height: 30px;
+    color: #000;
+    width: 100px;
+}
+
+.strategy_info table tr td p:last-child {
+    text-align: left;
+    margin-left: 10px;
+    color: #3e4655;
+    line-height: 30px;
+    height: 30px;
+    width: 180px;
+}
+
+.part2, .part3, .part4 {
+    margin-top: 50px;
+}
+
+.trainingLimit {
+    width: 1040px;
+    overflow: auto;
+}
+
+.training_index {
+    margin-right: 10px;
+}
+
+.rootNet {
+    margin-top: 20px;
+}
+
+.A6 {
+    margin-top: 20px;
+}
+
+.HS {
+    margin-top: 20px;
+}
+
+.CATS {
+    margin-top: 20px;
+}
+
+.algo_conf {
+    margin-top: 20px;
+}
+
+.default_replacement {
+    margin-top: 20px;
+}
+
+.performance_index {
+    margin-right: 10px;
+}
+
+.benchmark {
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.mail_receivers {
+    margin-top: 20px;
+}
+
+.layui-table-view .layui-table td, .layui-table-view .layui-table th {
+    padding: 0;
+}
+
+.algo_conf .layui-table-header thead th > div {
+    height: 60px !important;
+    padding: 6px 5px !important;
+    line-height: 25px !important;
+}
+
+.algo_conf .layui-table-header thead th > div span {
+    white-space: normal;
+}
+
+.algo_conf .layui-table-cell {
+    padding: 0;
+}
+
+.algo_conf .layui-table th {
+    font-size: 13px;
+}
+
+.tableBottom h4 {
+    font-size: 26px;
+    line-height: 26px;
+    color: #c00;
+    margin-bottom: 20px;
+}
+
+/*dropdown menu*/
+
+.strategyLoad {
+    height: 38px;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+.current .loadName {
+    display: block;
+    width: 120px;
+    height: 38px;
+    line-height: 34px;
+    border: 1px solid #dcdcdc;
+    color: #5a5a5a;
+}
+
+.current .loadName:hover {
+    background: #dcdcdc;
+    color: #5a5a5a;
+    border: 1px solid #dcdcdc;
+}
+
+.dropdown-menu {
+    background-color: #f9f9f9;
+    z-index: 102;
+    text-align: left;
+    color: black;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    max-height: 500px;
+
+}
+
+.current .dropdown-menu > li > a:hover {
+    background: transparent;
+}
+
+.current .dropdown-menu > li {
+
+    width: 100%;
+    padding: 3px 0;
+    font-size: 13px;
+    list-style-type: none;
+}
+
+.current .dropdown-menu > li:hover {
+    background: #dcdcdc;
+    color: #5a5a5a;
+}
+
+.current .dropdown .R_aside {
+    left: 100% !important;
+    top: 0 !important;
+    overflow-y: auto;
+}
+
+.current .sendAjax > ul > li {
+    padding: 10px 20px;
+}
+
+.layui-table-body {
+    max-height: 280px;
+}
+
+.layui-table-cell {
+    padding: 0;
+}
+
+.layui-table td, .layui-table th, .layui-table-fixed-r, .layui-table-header, .layui-table-page, .layui-table-tips-main, .layui-table-tool, .layui-table-view, .layui-table[lay-skin=line], .layui-table[lay-skin=row] {
+    border: none;
+}
+
+.noshow {
+    display: none;
+}
+
+.nowStrategy {
+    font-size: 20px;
+    line-height: 24px;
+    color: #adadad;
+    margin-left: 120px;
+    margin-right: 66px;
+}
+
+.openStra {
+    height: 24px;
+    font-size: 22px;
+    color: #e96740;
+    line-height: 24px;
+    border-bottom: 1px solid #e96740;
+}
+
+.openStra:hover {
+    color: #e96740;
+}
+
+.waiting {
+    font-size: 80px;
+    color: #f40;
+    margin: 50px 0 20px 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+input[name=start] {
+    border: none;
+    text-align: center;
+}
+
+.comList {
+    background: #f5f5f5;
+    padding: 42px 146px;
+    display: none;
+}
+
+.comList .computer {
+    background: url("../imgs/strategy/normal.png") no-repeat;
+    width: 210px;
+    height: 160px;
+    background-size: 100%;
+    padding: 27px 0 67px;
+}
+
+.comList li {
+    padding: 20px 45px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    border: 1px dashed #dcdcdc;
+    border-top: none;
+    height: 220px;
+}
+
+.createNew {
+    width: 302px;
+    height: 220px;
+    background: #ebf6ff;
+}
+
+.createNew div {
+    font-size: 70px;
+    color: #ccc;
+}
+
+.comList li:nth-child(1) {
+    border-left: 1px dashed transparent;
+}
+
+.comList li:nth-child(n+3) {
+    border-left: 1px dashed transparent;
+}
+
+.comList li:nth-child(3n) {
+    border-right: 1px dashed transparent;
+}
+
+.comList li .comSelect {
+    background: url("../imgs/strategy/comSelect.png") no-repeat;
+    width: 35px;
+    height: 35px;
+    background-size: 100%;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    z-index: 2;
+    display: none;
+}
+
+.comList li .comCover {
+    background: #ebf6ff;
+    opacity: 0.6;
+    width: 302px;
+    height: 220px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    display: none;
+}
+
+.comList li .comControl {
+    width: 302px;
+    height: 220px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    display: none;
+}
+
+.comList li .comControl a {
+    display: block;
+    width: 100px;
+    height: 30px;
+    background: #6995ee;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    margin: 50px auto;
+    color: #fff;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.comList li .comControl a:hover {
+    border: 1px solid #6995ee;
+    color: #6995ee;
+    background: #fff;
+}
+
+.comList li:hover .comCover {
+    display: block;
+}
+
+.comList li:hover .comControl {
+    display: block;
+}
+
+.comList .select {
+    background: #ebf6ff;
+}
+
+.comList .select .comSelect {
+    display: block;
+}
+
+.comList li p {
+    font-size: 20px;
+    text-align: center;
+    color: #7b7b7b;
+    line-height: 20px;
+}
+
+.comList .computer table {
+    width: 210px;
+}
+
+.comList .computer tr {
+    color: #fff;
+    line-height: 22px;
+    font-size: 16px;
+    background: transparent !important;
+}
+
+.comList .computer td {
+    width: 105px;
+}
+
+.comList .computer td:first-child {
+    text-align: right;
+}
+
+.comList .computer td:last-child {
+    text-align: left;
+}
+
+.comList .primary .computer {
+    background: url("../imgs/strategy/primary.png") no-repeat;
+    width: 210px;
+    height: 160px;
+    background-size: 100%;
+}
+
+.startTraining {
+    background: #76a7e1;
+    width: 192px;
+    height: 42px;
+    margin: 30px auto 0 auto;
+    border-radius: 4px;
+    display: none;
+}
+
+.startTraining .startBg {
+    background: url("../imgs/strategy/submit.png") no-repeat;
+    width: 25px;
+    height: 25px;
+    background-size: 100%;
+    margin: 10px 12px 0 42px;
+}
+
+.startTraining p {
+    color: #fff;
+    line-height: 42px;
+    font-size: 18px;
+}
+
+.refresh {
+    cursor: pointer;
+}
+
+.refresh:hover div {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: 1s all ease;
+    -moz-transition: 1s all ease;
+    -ms-transition: 1s all ease;
+    -o-transition: 1s all ease;
+    transition: 1s all ease;
+}
+
+.refresh div {
+    background: url("../imgs/strategy/refresh.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    margin-top: 10px;
+}
+
+.refresh p {
+    font-size: 20px;
+    line-height: 20px;
+    color: #76a7e1;
+    border-bottom: 1px solid #76a7e1;
+    margin-left: 8px;
+    margin-top: 10px;
+}

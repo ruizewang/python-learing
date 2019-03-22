@@ -1,0 +1,224 @@
+.contain {
+    width: 100%;
+    height: 746px;
+    position: relative;
+    overflow: hidden;
+}
+.loginForm{
+    text-align: unset;
+    color: #333;
+    font-size: 14px;
+}
+.logintop {
+    width: 100%;
+    /*background: #181f2a url(../imgs/logintop.png) repeat-x;*/
+    height: 567px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.loginbottom {
+    width: 1950px;
+    position: absolute;
+    left: 50%;
+    margin-left: -975px;
+    top: 567px;
+    /*background: #181f2a url(../imgs/loginbottom.png) repeat-x;*/
+    height: 298px;
+}
+
+.bottomlogin {
+    margin-top: 0;
+}
+
+.loginbox {
+    width: 650px;
+    height: 490px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    margin-left: -340px;
+    top: 80px;
+    padding-top: 45px;
+}
+
+.tit {
+    font-size: 24px;
+    color: #498eff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user {
+    width: 470px;
+    height: 72px;
+    border-bottom: 1px solid #e7e7e7;
+    margin: 0 auto;
+    padding-top: 30px;
+    position: relative;
+}
+
+.user span {
+    width: 105px;
+    height: 28px;
+    border-right: 1px solid #e7e7e7;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    color: #3d3d3d;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    font-size: 14px;
+    color: #b7b7b7;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+    font-size: 14px;
+    color: #b7b7b7;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+    font-size: 14px;
+    color: #b7b7b7;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    font-size: 14px;
+    color: #b7b7b7;
+}
+
+.name {
+    width: 300px;
+    height: 28px;
+    padding-left: 20px;
+}
+
+.btn {
+    width: 470px;
+    height: 48px;
+
+    background: #498eff;
+    border-radius: 6px;
+    margin-top: 35px;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 36px;
+}
+
+.btnbox {
+    text-align: center;
+}
+
+.anther {
+    width: 470px;
+    margin: 0 auto;
+    font-size: 16px;
+    margin-top: 17px;
+    color: #3d3d3d;
+}
+
+.anther a {
+    color: #498eff;;
+}
+
+.forgetmessage {
+    float: right;
+}
+
+.reminder {
+    font-size: 16px;
+    color: #ff4343;
+    position: absolute;
+    left: 129px;
+    bottom: -28px;
+    display: none;
+}
+
+.background {
+    background-color: #181f2a;
+}
+
+.vcode {
+    width: 300px;
+    height: 28px;
+    padding-left: 20px;
+}
+
+.imgvcode {
+    margin-left: -35px;
+    position: absolute;
+    width: 105px;
+}
+
+@media screen and (max-width: 370px) {
+    .loginbox {
+        padding-top: 10px;
+    }
+
+    .user {
+        height: 66px;
+        padding-top: 20px;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .logintop {
+        width: 90%;
+        height: 80%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .loginbox {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        position: static;
+        left: unset;
+        margin-left: unset;
+        top: unset;
+    }
+
+    .name {
+        width: 56%;
+    }
+
+    .user span {
+        width: 30%;
+    }
+
+    .vcode {
+        width: 44%;
+    }
+
+    .btn {
+        width: 80%;
+    }
+
+    .anther {
+        width: 80%;
+    }
+
+    .user {
+        width: 100%;
+    }
+}

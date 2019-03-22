@@ -1,0 +1,1538 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: unset;
+    padding: unset;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1200px;
+    position: relative;
+    z-index: 1;
+    min-height: 690px;
+}
+
+.footer {
+    z-index: 0;
+}
+
+.fixedPart {
+    position: absolute;
+    left: 50px;
+    top: 60px;
+    z-index: 2;
+    width: 1120px;
+    padding-right: 50px;
+}
+
+.fixedPart .fixPart {
+    display: none;
+}
+
+.fixedPart .fixPart > p {
+    font-size: 14px;
+    line-height: 38px;
+    color: #535353;
+    margin-left: 18px;
+}
+
+.current {
+    padding: 10px 20px 0;
+    margin-bottom: 10px;
+}
+
+.current h2 {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+}
+
+.current select {
+    width: 304px;
+    height: 42px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.layui-form-select {
+    float: left;
+    color: #000;
+}
+
+.layui-tab {
+    margin: 0;
+}
+
+.layui-tab-brief > .layui-tab-more li.layui-this:after, .layui-tab-brief > .layui-tab-title .layui-this:after {
+    border-bottom: 2px solid #facd89;
+}
+
+.layui-tab-title li {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    position: relative;
+    line-height: 40px;
+    min-width: 65px;
+    padding: 0 15px;
+    text-align: center;
+    cursor: pointer;
+    color: #919191;
+}
+
+.layui-tab-title li:first-child {
+    margin-left: 20px;
+}
+
+.layui-tab-brief > .layui-tab-title .layui-this {
+    color: #000;
+}
+
+.layui-tab-item {
+    padding: 30px 20px 0;
+}
+
+.basicTop > div {
+    width: 102px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 12px;
+    color: #000;
+    border: 1px dashed #000;
+}
+
+.basicTop > p {
+    line-height: 38px;
+    font-size: 18px;
+    color: #000;
+}
+
+.basicTop > a {
+    display: block;
+    width: 125px;
+    height: 38px;
+    background: #f2f2f2;
+    border: 1px solid #c6c6c6;
+    margin-left: 24px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.basicTop > a p {
+    margin-right: 18px;
+    line-height: 38px;
+    font-size: 16px;
+    color: #000;
+}
+
+.basicTop > a div {
+    background: url("../imgs/strategy/print.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    margin-top: 9px;
+    margin-left: 18px;
+}
+
+.layui-table, .layui-table-view {
+    margin: 0;
+}
+
+.layui-table td, .layui-table th, .layui-table-fixed-r, .layui-table-header, .layui-table-page, .layui-table-tips-main, .layui-table-tool, .layui-table-view, .layui-table[lay-skin=line], .layui-table[lay-skin=row] {
+    border: none;
+}
+
+.layui-table-view .layui-table[lay-size=lg] .layui-table-cell {
+    height: 40px;
+    line-height: 40px;
+}
+
+.preview {
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.preview > p {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    text-align: left;
+    border-bottom: none;
+    margin-bottom: 37px;
+}
+
+.basic {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #535353;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.basic h3 {
+    font-size: 16px;
+    height: 18px;
+    line-height: 18px;
+    color: #000;
+    font-weight: normal;
+    position: absolute;
+    left: 18px;
+    top: -9px;
+    z-index: 2;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.part1 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #fedc5d;
+}
+
+.part2 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #99b055;
+}
+
+.part3 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #2ecaf6;
+}
+
+.part4 {
+    position: relative;
+    z-index: 1;
+    padding: 20px 0 20px 90px;
+    border-left: 9px solid #ffa171;
+}
+
+.verticalTxt {
+    width: 20px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+table thead th {
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    color: #fff;
+    background: #f40;
+    font-size: 14px;
+    font-weight: bold !important;
+}
+
+.basecon table tr {
+    line-height: 30px;
+    height: 30px;
+}
+
+.layui-table tbody tr:hover input[name=start], .layui-table[lay-even] tr:nth-child(even) input[name=start] {
+    background-color: #f2f2f2;
+}
+
+.basecon table tr :hover input[name=start] {
+    background: #f2f2f2;
+}
+
+.basecon table tr:nth-child(even) {
+    background: #eee;
+}
+
+.strategy_info {
+    margin-right: 16px;
+}
+
+.strategy_info table {
+    width: 300px;
+}
+
+.strategy_info table tr td p {
+    font-size: 12px;
+}
+
+.strategy_info table tr td p:first-child {
+    text-align: right;
+    font-weight: bold;
+    margin-right: 10px;
+    line-height: 30px;
+    height: 30px;
+    color: #000;
+    width: 100px;
+}
+
+.strategy_info table tr td p:last-child {
+    text-align: left;
+    margin-left: 10px;
+    color: #3e4655;
+    line-height: 30px;
+    height: 30px;
+    width: 180px;
+}
+
+.strategy_parameter {
+    display: none;
+}
+
+/*th[data-field=strategy_id], td[data-field=strategy_id] {*/
+/*display: none;*/
+/*}*/
+
+/*.strategy_parameter th[data-field=new_strategy_id] > div, .strategy_parameter td[data-field=new_strategy_id] {*/
+/*width: 346px;*/
+/*}*/
+
+/*.strategy_parameter th[data-field=value] > div, .strategy_parameter td[data-field=value] {*/
+/*width: 346px;*/
+/*}*/
+
+/*.strategy_parameter th[data-field=value_name] > div, .strategy_parameter td[data-field=value_name] {*/
+/*width: 346px;*/
+/*}*/
+
+.part2, .part3, .part4 {
+    margin-top: 50px;
+}
+
+.trainingLimit {
+    width: 1040px;
+    overflow: auto;
+}
+
+.training_index {
+    margin-right: 10px;
+}
+
+.rootNet {
+    margin-top: 20px;
+}
+
+.A6 {
+    margin-top: 20px;
+}
+
+.HS {
+    margin-top: 20px;
+}
+
+.CATS {
+    margin-top: 20px;
+}
+
+.algo_conf {
+    margin-top: 20px;
+}
+
+.agg_eod_position_his, .future_config {
+    margin-top: 20px;
+    display: none;
+}
+
+.default_replacement {
+    margin-top: 20px;
+}
+
+.performance_index {
+    margin-right: 10px;
+}
+
+.benchmark {
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.mail_receivers {
+    margin-top: 20px;
+}
+
+.layui-table-view .layui-table td, .layui-table-view .layui-table th {
+    padding: 0;
+}
+
+.algo_conf .layui-table-header thead th > div {
+    height: 60px !important;
+    padding: 6px 5px !important;
+    line-height: 25px !important;
+}
+
+.algo_conf .layui-table-header thead th > div span {
+    white-space: normal;
+}
+
+.algo_conf .layui-table-cell {
+    padding: 0;
+}
+
+.algo_conf .layui-table th {
+    font-size: 13px;
+}
+
+.tableBottom h4 {
+    font-size: 26px;
+    line-height: 26px;
+    color: #c00;
+    margin-bottom: 20px;
+}
+
+.strategy_overall {
+    margin-bottom: 20px;
+}
+
+.sopt_day_holding1 {
+    margin-top: 20px;
+}
+
+#sopt_day_holding2 {
+    width: 498px;
+    height: 480px;
+    margin-top: 66px;
+}
+
+.future_day_holding {
+    margin-top: 20px;
+}
+
+.rate_return {
+    margin-top: 20px;
+}
+
+.rate_return_new {
+    margin-top: 20px;
+}
+
+#rate_return1, #rate_return2, #rate_return3, #rate_return4 {
+    width: 560px;
+    height: 300px;
+    margin-top: 50px;
+    z-index: 2;
+}
+
+#barchart1, #barchart2, #barchart3, #barchart4 {
+    width: 560px;
+    height: 300px;
+    margin-top: -100px;
+}
+
+.linechart1 .linechart3 {
+    margin-right: 20px;
+    margin-top: -60px;
+}
+
+.linechart2 .linechart4 {
+    margin-top: -60px;
+}
+
+.command_buy h4, .command_sell h4 {
+    text-align: center;
+}
+
+.command_sell h4 {
+    color: #3DA642;
+}
+
+.command_sell table thead th {
+    background: #3DA642;
+}
+
+.target_holding {
+    margin-bottom: 20px;
+}
+
+#target_holding2 {
+    width: 600px;
+    height: 480px;
+    margin-bottom: 20px;
+}
+
+/*dropdown menu*/
+
+.strategyLoad {
+    height: 38px;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+.current .loadName {
+    display: block;
+    width: 120px;
+    height: 42px;
+    line-height: 40px;
+    border: 1px solid #dcdcdc;
+    color: #5a5a5a;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.current .loadName:hover {
+    background: #dcdcdc;
+    color: #5a5a5a;
+    border: 1px solid #dcdcdc;
+}
+
+.dropdown-menu {
+    background-color: #f9f9f9;
+    z-index: 102;
+    text-align: left;
+    color: black;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    max-height: 500px;
+
+}
+
+.current .dropdown-menu > li > a:hover {
+    background: transparent;
+}
+
+.current .dropdown-menu > li {
+
+    width: 100%;
+    padding: 3px 0;
+    font-size: 13px;
+    list-style-type: none;
+}
+
+.current .dropdown-menu > li:hover {
+    background: #dcdcdc;
+    color: #5a5a5a;
+}
+
+.current .dropdown .R_aside {
+    left: 100% !important;
+    top: 0 !important;
+}
+
+.current .last {
+    overflow-y: auto;
+    max-height: 215px;
+}
+
+.current .sendAjax > ul > li {
+    padding: 10px 20px;
+}
+
+.current .changeStrategy {
+    cursor: pointer;
+}
+
+.layui-tab {
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+
+.current {
+    display: none;
+}
+
+.cumulative_trade {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.command_buy .layui-table-cell, .command_sell .layui-table-cell {
+    font-size: 13px;
+}
+
+.layui-table-body {
+    max-height: 280px;
+}
+
+.pop .layui-table-body {
+    max-height: 121px;
+}
+
+.target_holding .layui-table-body {
+    max-height: 396px;
+}
+
+.popLoad {
+    background: url("../imgs/index/hex-loader2.gif") no-repeat;
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.public {
+    width: 100%;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.preformance_indicators {
+    margin-top: 20px;
+}
+
+.per_ind {
+    margin-top: 20px;
+}
+
+.preformance_indicators .layui-table-body {
+    max-height: unset;
+}
+
+.per_ind .layui-table-body {
+    max-height: unset;
+}
+
+.layui-table-body {
+    overflow-x: hidden;
+}
+
+.sopt_day_holding1 .layui-table-body {
+    max-height: 440px;
+}
+
+.layui-btn {
+    height: 30px;
+    line-height: 30px;
+    background-color: unset;
+    color: #f40;
+}
+
+.layui-btn :hover {
+    background-color: unset;
+    color: #f40;
+}
+
+.layui-table-cell {
+    padding: 0;
+}
+
+.nowStrategy {
+    font-size: 18px;
+    line-height: 42px;
+    color: #444;
+    margin-right: 20px;
+}
+
+.sendEmail {
+    display: block;
+    width: 125px;
+    height: 38px;
+    background: #f2f2f2;
+    border: 1px solid #c6c6c6;
+    color: #000;
+    margin-left: 20px;
+    line-height: 38px;
+    font-size: 18px;
+}
+
+.sendEmail:hover {
+    background: #f2f2f2;
+    color: #000;
+}
+
+.date_and_env {
+    margin-bottom: 20px;
+}
+
+.layui-laydate th {
+    background: unset !important;
+}
+
+.base .baseName {
+    font-size: 14px;
+    line-height: 38px;
+    color: #000;
+    text-align: center;
+    width: 84px;
+}
+
+.base input {
+    color: #004986;
+    font-size: 14px;
+    line-height: 29px;
+    width: 120px;
+}
+
+.layui-form-select dl dd.layui-this {
+    background-color: #f40;
+}
+
+.layui-this {
+    background-color: #f40 !important;
+    color: #fff !important;
+}
+
+.changetime {
+    width: 100px;
+    height: 38px;
+    display: block;
+    text-align: center;
+    line-height: 38px;
+    border: 1px solid #f40;
+    border-radius: 2px;
+    color: #f40;
+    margin-left: 20px;
+    margin-right: 100px;
+}
+
+.changetime:hover {
+    color: #f40;
+}
+
+.deleteStrategy {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border: 1px solid #f40;
+    color: #f40;
+    border-radius: 4px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.showChart {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.showChart .chartDiv {
+    position: absolute;
+    right: 79px;
+    top: auto;
+    z-index: 2;
+}
+
+.showChart .chartDiv > p {
+    line-height: 38px;
+    height: 38px;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #444;
+}
+
+.showChart .layui-form-select {
+    width: 200px;
+}
+
+.ellipsis1 {
+    width: 300px;
+    margin: 0 auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.pic h4 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #f40;
+}
+
+.pic1 > div, .pic2 > div {
+    width: 1140px;
+    height: 50px;
+}
+
+.deleteStrategy:hover {
+    color: #f40;
+}
+
+.moveStrategy {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border: 1px solid #f40;
+    color: #f40;
+    border-radius: 4px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.moveStrategy:hover {
+    color: #f40;
+}
+
+.fixData {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    background: #f40;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.fixData:hover {
+    color: #fff;
+}
+
+.checkStrategy {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    background: #f40;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.checkStrategy:hover {
+    color: #fff;
+}
+
+.checkCombo {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    background: #f40;
+    color: #fff;
+    border-radius: 4px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.checkCombo:hover {
+    color: #fff;
+}
+
+.order {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border: 1px solid #f40;
+    color: #f40;
+    border-radius: 4px;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.order:hover {
+    color: #f40;
+}
+
+.least {
+    font-size: 20px;
+    line-height: 42px;
+    display: none;
+}
+
+.least .start {
+    color: #f40;
+    margin: 0 15px;
+}
+
+.strName {
+    color: #f40;
+}
+
+.least .end {
+    color: #f40;
+    margin: 0 15px;
+}
+
+.today_trading {
+    margin-top: 20px;
+}
+
+#today_trading2 {
+    margin-top: 20px;
+}
+
+.radioLimit p {
+    font-size: 16px;
+    color: #f40;
+    line-height: 30px;
+}
+
+.radioLimit input {
+    width: 14px;
+    height: 14px;
+    margin-top: 6px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.waiting {
+    font-size: 80px;
+    color: #f40;
+    margin: 50px 0 20px 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+input[name=start] {
+    border: none;
+    text-align: center;
+}
+
+.toTop {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 102, 0, 0.7);
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 120px;
+    z-index: 19891012;
+}
+
+.toTop div {
+    width: 40px;
+    height: 40px;
+    background: url("../imgs/strategy/topImg.png") no-repeat;
+    background-size: 100%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    z-index: 19891013;
+    transform: translate(-50%, -50%);
+}
+
+.mailP {
+    font-size: 16px;
+    line-height: 30px;
+    color: #f40;
+    width: 55px;
+}
+
+.mailInp {
+    font-size: 14px;
+    line-height: 28px;
+    margin-left: 10px;
+    border-bottom: 1px solid #f40;
+    width: 680px;
+}
+
+.mailLimit {
+    margin-bottom: 20px;
+}
+
+#thecanvas {
+    width: 660px;
+}
+
+.layui-form-radio > i:hover, .layui-form-radioed > i {
+    color: #f40;
+}
+
+#cumulative_trade_total tr {
+    background: #f2f2f2;
+}
+
+#cumulative_trade_total td {
+    height: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    line-height: 40px;
+    cursor: default;
+}
+
+.layui-form-checkbox[lay-skin=primary] {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #f60;
+    background-color: #f60;
+}
+
+.layui-form-checked i, .layui-form-checked:hover i {
+    border-color: #f60 !important;
+}
+
+.layui-form-checkbox i, .layui-form-checkbox:hover i {
+    border-color: #f60 !important;
+}
+
+.tableList {
+    max-height: 274px;
+    overflow-y: scroll;
+}
+
+.public li div p {
+    font-size: 14px;
+    width: 25%;
+    text-align: center;
+    line-height: 38px;
+}
+
+.public li div p span {
+    font-size: 20px;
+}
+
+.eventTitle {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f40;
+}
+
+.public li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.public table {
+    width: 100%;
+    text-align: center;
+}
+
+.public table thead tr {
+    background: #f40;
+    color: #fff;
+    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.public table tbody tr {
+    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.public table tbody tr:nth-child(odd) {
+    background: #eee;
+}
+
+.public table td, .public table th {
+    width: 320px;
+    text-align: center;
+}
+
+.negative {
+    border: 1px solid #4caf50;
+    font-size: 12px;
+    line-height: 12px;
+    display: inline-block;
+    padding: 2px;
+    color: #4caf50;
+    margin-right: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    .basecon {
+        width: 100%;
+        margin: 50px auto 0 auto;
+        overflow-x: hidden;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 100%;
+    }
+
+    .moveStrategy {
+        display: none !important;
+    }
+
+    .deleteStrategy {
+        display: none !important;
+    }
+
+    .checkStrategy {
+        display: none !important;
+    }
+
+    .order {
+        display: none !important;
+    }
+
+    .sendEmail {
+        display: none !important;
+    }
+
+    .print {
+        display: none !important;
+    }
+
+    .checkCombo {
+        display: none;
+    }
+
+    .layui-tab-item {
+        padding: 0;
+    }
+
+    .waiting {
+        position: fixed;
+        left: 40%;
+        top: 100px;
+        margin: 0;
+    }
+
+    .dropdown-backdrop {
+        position: static;
+    }
+
+    .strategyLoad {
+        height: 30px;
+    }
+
+    .strategyLoad > .dropdown > .dropdown-menu {
+        min-width: unset;
+    }
+
+    .strategyLoad .dropdown-menu {
+        opacity: 1;
+    }
+
+    .current h2 {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .current .loadName {
+        margin-right: 0;
+        font-size: 12px;
+        width: 84px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .nowStrategy {
+        font-size: 12px;
+        margin: 0;
+        line-height: 30px;
+        width: 100%;
+    }
+
+    .part1 h2 {
+        display: none;
+    }
+
+    .part2 h2 {
+        display: none;
+    }
+
+    .part3 h2 {
+        display: none;
+    }
+
+    .part4 h2 {
+        display: none;
+    }
+
+    .part1 {
+        position: static;
+        z-index: 1;
+        padding: 0;
+        border-left: none;
+    }
+
+    .part2 {
+        position: static;
+        z-index: 1;
+        padding: 0;
+        border-left: none;
+    }
+
+    .part3 {
+        position: static;
+        z-index: 1;
+        padding: 0;
+        border-left: none;
+    }
+
+    .part4 {
+        position: static;
+        z-index: 1;
+        padding: 0;
+        border-left: none;
+    }
+
+    .strategy_info {
+        margin-right: 0;
+    }
+
+    .strategy_info table {
+        width: 100%;
+    }
+
+    .command_sell {
+        float: left;
+    }
+
+    .command_buy h4, .command_sell h4 {
+        text-align: left;
+    }
+
+    .layui-tab-content::-webkit-scrollbar {
+        display: none;
+    }
+
+    .fixedPart {
+        position: absolute;
+        left: 0;
+        top: 46px;
+        z-index: 2;
+        width: 100%;
+    }
+
+    .tableBottom h4 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+
+    .layui-table-body .layui-none {
+        text-align: left;
+    }
+
+    .command_buy {
+        margin-bottom: 20px;
+    }
+
+    .basicTop > p {
+        line-height: 20px;
+        font-size: 12px;
+        color: #000;
+        margin-right: 0;
+        position: absolute;
+        right: 0;
+        top: -156px;
+    }
+
+    .least .start {
+        margin: 0 4px;
+    }
+
+    .least .end {
+        margin: 0 4px;
+    }
+
+    #rate_return1, #rate_return2, #rate_return3, #rate_return4 {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    #barchart1, #barchart2, #barchart3, #barchart4 {
+        margin-top: -100px;
+        margin-left: 5px;
+    }
+
+    #sopt_day_holding2, #target_holding2 {
+        margin-top: -150px;
+        margin-left: 5px;
+        z-index: 1;
+    }
+
+    .fixData {
+        height: 26px;
+        line-height: 26px;
+        font-size: 12px;
+    }
+
+    .fixedPart .fixPart > p {
+        font-size: 13px;
+        line-height: 26px;
+    }
+
+    .current .dropdown .R_aside {
+        left: 50% !important;
+        top: 100% !important;
+    }
+
+    .layui-form {
+        width: 100% !important;
+        overflow-x: scroll;
+    }
+
+    .asset_overcview {
+        width: 100%;
+    }
+
+    .asset_overcview .layui-table-box {
+        width: 896px;
+    }
+
+    .today_trading {
+        width: 100%;
+    }
+
+    .today_trading .layui-table-box {
+        width: 1140px;
+    }
+
+    .sopt_day_holding1 {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .sopt_day_holding1 .layui-table-box {
+        width: 640px;
+    }
+
+    .future_day_holding {
+        width: 100%;
+    }
+
+    .future_day_holding .layui-table-box {
+        width: 640px;
+    }
+
+    .preformance_indicators {
+        width: 100%;
+    }
+
+    .preformance_indicators .layui-table-box {
+        width: 1140px;
+    }
+
+    .cumulative_trade {
+        width: 100%;
+    }
+
+    .cumulative_trade .layui-table-box {
+        width: 1140px;
+    }
+
+    .command_buy {
+        width: 100%;
+    }
+
+    .command_buy .layui-table-box {
+        width: 560px;
+    }
+
+    .command_sell {
+        width: 100%;
+    }
+
+    .command_sell .layui-table-box {
+        width: 560px;
+    }
+
+    .trainingLimit {
+        width: 100% !important;
+        overflow: unset;
+    }
+
+    .training_configs {
+        width: 100% !important;
+    }
+
+    .training_configs .layui-table-box {
+        width: 1040px;
+    }
+
+    .training_configs1 {
+        width: 100% !important;
+        overflow-x: scroll;
+    }
+
+    .training_configs1 .layui-table-box {
+        width: 1040px;
+    }
+
+    .training_configs2 {
+        width: 100% !important;
+        overflow-x: scroll;
+    }
+
+    .training_configs2 .layui-table-box {
+        width: 1040px;
+    }
+
+    .training_configs3 {
+        width: 100% !important;
+        overflow-x: scroll;
+    }
+
+    .training_configs3 .layui-table-box {
+        width: 1040px;
+    }
+
+    .strategy_info {
+        width: 100%;
+    }
+
+    .strategy_info .layui-table-box {
+        width: 1040px;
+    }
+
+    .security_pool {
+        width: 100%;
+    }
+
+    .security_pool .layui-table-box {
+        width: 1040px;
+    }
+
+    .account {
+        width: 100%;
+    }
+
+    .account .layui-table-box {
+        width: 1040px;
+    }
+
+    .rootNet {
+        width: 100%;
+    }
+
+    .rootNet .layui-table-box {
+        width: 1040px;
+    }
+
+    .A6 {
+        width: 100%;
+    }
+
+    .A6 .layui-table-box {
+        width: 1040px;
+    }
+
+    .HS {
+        width: 100%;
+    }
+
+    .HS .layui-table-box {
+        width: 1040px;
+    }
+
+    .CATS {
+        width: 100%;
+    }
+
+    .CATS .layui-table-box {
+        width: 1040px;
+    }
+
+    .algo_conf {
+        width: 100%;
+    }
+
+    .algo_conf .layui-table-box {
+        width: 1040px;
+    }
+
+    .performance_index {
+        width: 100%;
+    }
+
+    .performance_index .layui-table-box {
+        width: 515px;
+    }
+
+    .security_pool_index {
+        width: 100%;
+    }
+
+    .security_pool_index .layui-table-box {
+        width: 515px;
+    }
+
+    .benchmark {
+        width: 100%;
+    }
+
+    .benchmark .layui-table-box {
+        width: 635px;
+    }
+
+    .mail_receivers {
+        width: 100%;
+    }
+
+    .mail_receivers .layui-table-box {
+        width: 395px;
+    }
+
+    .training_index .layui-table-box {
+        width: 340px;
+    }
+
+    .training_common_index .layui-table-box {
+        width: 340px;
+    }
+
+    .order_router .layui-table-box {
+        width: 340px;
+    }
+
+    .target_holding {
+        width: 100% !important;
+        position: relative;
+        z-index: 2;
+    }
+
+    .target_holding .layui-table-box {
+        width: 440px;
+    }
+
+    .per_ind {
+        width: 100%;
+    }
+
+    .per_ind .layui-table-box {
+        width: 1140px;
+    }
+
+    .public .layui-table-box {
+        width: 1140px;
+    }
+
+    .strategy_parameter .layui-table-box {
+        width: 1040px;
+    }
+
+    .agg_eod_position_his .layui-table-box {
+        width: 1040px;
+    }
+
+    .future_config .layui-table-box {
+        width: 1040px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .current .dropdown .R_aside {
+        left: 46% !important;
+        top: 100% !important;
+    }
+}

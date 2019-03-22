@@ -1,0 +1,301 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1200px;
+    position: relative;
+    z-index: 1;
+    min-height: 690px;
+}
+
+.current {
+    padding: 10px 20px 0;
+}
+
+.current h2 {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+}
+
+.current h3 {
+    font-size: 18px;
+    line-height: 42px;
+    color: #000;
+    border-bottom: none;
+    display: none;
+}
+
+.current h3 span {
+    font-size: 18px;
+    line-height: 42px;
+    color: #f40;
+}
+
+.current h4 {
+    font-size: 18px;
+    line-height: 42px;
+    color: #000;
+    border-bottom: none;
+    display: none;
+    margin-right: 10px;
+}
+
+.current h4 span {
+    font-size: 18px;
+    line-height: 42px;
+    color: #f40;
+}
+
+.tablePart {
+    width: 1160px;
+    margin: 0 auto;
+}
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    background-color: #f40;
+}
+
+.layui-laypage-prev:hover, .layui-laypage-next:hover, .layui-laypage a:hover, .layui-laypage input:focus, .layui-table-view select[lay-ignore]:focus {
+    color: #f40 !important;
+    border-color: #f40 !important;
+}
+
+.layui-flow-more {
+    display: none;
+}
+
+.waiting {
+    font-size: 80px;
+    color: #f40;
+    margin: 50px 0 20px 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.mainTable {
+    margin-left: 100px;
+    margin-top: 20px;
+    display: none;
+}
+
+.tableList li {
+    width: 960px;
+}
+
+.tableList li div p {
+    font-size: 14px;
+    width: 25%;
+    text-align: center;
+    line-height: 38px;
+}
+
+.tableList li div p span {
+    font-size: 20px;
+}
+
+.eventTitle {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f40;
+}
+
+.tableList li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table thead tr {
+    background: #f40;
+    color: #fff;
+    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+}
+
+table tbody tr {
+    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+}
+
+table tbody tr:nth-child(odd) {
+    background: #eee;
+}
+
+table td, table th {
+    width: 320px;
+    text-align: center;
+}
+
+.expand1 {
+    background: url(../imgs/strategy/decrease.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    z-index: 2;
+}
+
+.expand2 {
+    background: url(../imgs/strategy/increase.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    z-index: 2;
+}
+
+.current a {
+    display: block;
+    width: 80px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.current .allOpen:hover {
+    color: #fff;
+}
+
+.current .allOpen:active {
+    color: #fff;
+}
+
+.current .allOpen:link {
+    color: #fff;
+}
+
+.current .allClose:hover {
+    color: #000;
+}
+
+.current .allClose:active {
+    color: #000;
+}
+
+.current .allClose:link {
+    color: #000;
+}
+
+.allOpen {
+    margin-right: 20px;
+    color: #fff;
+    background: #f40;
+}
+
+.allClose {
+    color: #000;
+    background: #eee;
+}
+
+.negative {
+    border: 1px solid #4caf50;
+    font-size: 12px;
+    line-height: 12px;
+    display: inline-block;
+    padding: 2px;
+    color: #4caf50;
+    margin-right: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.nav_new {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.nav_new li {
+    border-bottom: 2px solid #fff;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    margin-right: 10px;
+}
+
+.nav_new li>div {
+    display: flex;
+    justify-content: center;
+}
+
+.nav_new li p {
+    font-size: 18px;
+    color: #000;
+}
+
+.nav_new li:hover{
+    border-bottom: 2px solid #f40;
+    color: #f40;
+}
+
+.nav_new .on {
+    border-bottom: 2px solid #f40;
+    color: #f40;
+}
+.direct{
+    background: url("../imgs/strategy/down.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-top: 6px;
+    margin-left: 4px;
+    background-size: 100%;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+.up{
+    background: url("../imgs/strategy/down.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-top: 6px;
+    margin-left: 4px;
+    background-size: 100%;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.ellipsis1{
+    width: 300px;
+    margin: 0 auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

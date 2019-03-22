@@ -1,0 +1,210 @@
+body {
+    background: #F4F4F4;
+}
+
+.input-bar {
+    display: block;
+
+    width: 80%;
+    margin: 4vw auto 2vw auto;
+    padding: 0.8vw 0.8vw 0.8vw 1vw;
+
+    /* background-image: url("../img/doc/search@2x.png");*/
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-color: white;
+
+    font-size: 1.3vw;
+    line-height: 1.42857143;
+    color: #A5ACB2;
+
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, .075);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+
+@media (min-width: 2000px) {
+    .font_small {
+        font-size: 26px;
+    }
+}
+
+.row {
+    margin: 0;
+}
+
+.btn-inverse {
+
+    height: 3vw;
+    width: 12vw;
+    margin: 9vw auto 0 auto;
+
+    border: 2px solid #000000;
+    border-radius: unset;
+    background: transparent;
+
+    color: black;
+    font: "PingFangSC";
+    font-size: 1.5vw;
+    font-weight: 400;
+
+    vertical-align: middle;
+}
+
+.btn-inverse:hover {
+    background-color: rgba(231, 244, 255, 1);
+}
+
+/*--更改部分----*/
+.searchRep {
+    padding: 20px 2%;
+    margin: 0 auto 0 auto;
+}
+
+#search {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
+
+/*input[type="button"]{
+    color:white;
+}
+
+#search_btn{
+color:black;
+}*/
+.upH1 {
+    display: inline-block;
+    border: none;
+
+    margin-top: 0;
+    margin-bottom: 0px;
+    padding-left: 0.1vw;
+    padding-right: 1vw;
+    padding-bottom: 0.5vw;
+
+    font-size: 1.5vw;
+    font-weight: 600;
+    text-align: left;
+    color: black;
+}
+
+.up-input {
+    display: inline-block;
+
+    width: 25%;
+    margin: 0 auto 0 auto;
+
+}
+
+.up-btn {
+    width: 6.2vw;
+    height: 3.6vw;
+
+    border: none;
+    background: #B91E25;
+
+    color: white;
+}
+
+/*.replace_result{
+  color: black;
+  font-size: 1.5vw;
+  
+  padding-left: 0.5vw;
+}*/
+
+#search_btn_up {
+    display: inline-block;
+    width: 6.2vw;
+    height: 3.6vw;
+    border: none;
+    background: #B91E25;
+    color: white;
+}
+
+/*--更改部分结束-----*/
+.sec h2 {
+    font-size: 16px;
+    line-height: 28px;
+    border-bottom: none;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+.cube {
+    width: 44px;
+    height: 4px;
+}
+
+.table_data_ori .cube {
+    background: #000;
+    margin: 12px 38px 0;
+}
+
+.table_data_ori p {
+    font-size: 16px;
+    line-height: 28px;
+    width: 180px;
+}
+
+.layui-table th {
+    background-color: transparent;
+    color: #000;
+}
+
+.layui-table-cell .cube {
+    margin-top: 18px;
+}
+
+#replace_pool_pic_data {
+    height: 400px;
+}
+
+@media screen and (max-width: 900px) {
+    .sec h2 {
+        margin-left: 0;
+    }
+
+    .input-bar {
+        padding: 2vw 0.8vw 1vw 1vw;
+    }
+
+    .table_data_ori p {
+        width: unset;
+    }
+
+    .table_data_ori .sec {
+        margin-right: 10px;
+    }
+
+    .table_data_ori .cube {
+        margin: 12px 10px 0;
+    }
+
+    .cube {
+        width: 24px;
+    }
+
+    th[data-field=cube], td[data-field=cube], th[data-field=backup_security_name], td[data-field=backup_security_name] {
+        display: none;
+    }
+
+    .leftmain {
+        padding: 2vw 0 1vw 15px;
+    }
+
+    .searchRep {
+        padding: 20px 0;
+    }
+
+    .layui-table td, .layui-table th {
+        font-size: 12px;
+    }
+}

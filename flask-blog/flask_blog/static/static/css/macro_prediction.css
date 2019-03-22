@@ -1,0 +1,412 @@
+/*删除开始*/
+body {
+    background: #F4F4F4;
+    background: url('../img/05-模型表现final2.jpg');
+    background-size: cover;
+
+}
+
+.docSec {
+    background: transparent;
+    background: white;
+}
+
+/*删除结束*/
+
+/*--切换页面-----*/
+#day_opt {
+
+    color: #F34957;
+    font-size: 1.5vw;
+    text-decoration: underline;
+    font-weight: 400;
+    padding-top: 1vw;
+}
+
+.tab_head div {
+    display: inline-block;
+    float: left;
+    margin-top: 1.5vw;
+    width: 7.5vw;
+    height: 2.5vw;
+    line-height: 2.5vw;
+    border: solid #BFBFBF 1px;
+    background: #EEEEEE;
+    text-align: center;
+    font-size: 1.1vw;
+    color: #656565;
+    cursor: pointer;
+}
+
+.tab_selected {
+    background: #E1001C !important;
+    color: white !important;
+    border: solid #E1001C 1px !important;
+}
+
+.tab_content table {
+
+    border: solid #f3f3f3 1px;
+    line-height: 2.3vw;
+    font-size: 1.1vw;
+    margin-top: 1.5vw;
+
+}
+
+.tab_content th {
+    background: #C90019 !important;
+    border-right: none;
+
+    color: white;
+    font-weight: 400;
+    padding: 0 0.6vw;
+}
+
+.tab_content td {
+    padding: 0 0.6vw;
+}
+
+.block_id {
+    width: 5%;
+}
+
+.block_name {
+    width: 20%;
+    border-right: solid #D1CFCE 2px;
+}
+
+.block_accu {
+    width: 10%;
+}
+
+.Half {
+    padding: 0 3vw;
+}
+
+.sm_right {
+    padding-right: 1vw;
+}
+
+.sm_left {
+    padding-left: 1vw;
+}
+
+/*--个股sec-----*/
+.stock_Sec {
+    padding: 1vw 5% 0 5%;
+    text-align: center;
+
+}
+
+.stock_Sec h3 > span {
+    float: right;
+    font-size: 1.3vw;
+    vertical-align: text-bottom;
+}
+
+.stock_Sec h3 {
+    margin-top: 2vw;
+    padding-bottom: 1vw;
+    margin-right: 1.5%;
+
+    font-size: 1.2vw;
+    margin-bottom: 0;
+}
+
+/*datagrid部分*/
+.icon-filter {
+    background: url('../img/adviser/filter.png') no-repeat center;
+    background-size: 80%;
+}
+
+#stockListLayout {
+    width: 100% !important;
+    /*height: 20vw !important;*/
+}
+
+/*title lan*/
+.panel-header {
+    display: none;
+}
+
+.panel-body {
+    height: 20vw !important;
+}
+
+.datagrid-view {
+    border-top: solid 1px black;
+}
+
+.datagrid {
+    margin-top: 1vw;
+    height: 22vw;
+    /*overflow-y: auto;*/
+}
+
+.datagrid-body {
+    overflow-x: hidden;
+}
+
+#hisData {
+    cursor: pointer;
+}
+
+#dailyData {
+    cursor: pointer;
+}
+
+.panel-header, .panel-body {
+    width: 100%;
+}
+
+.datagrid-header-row {
+    background: #696969;
+    color: white;
+}
+
+.leftSec {
+    display: inline-block;
+    width: 35%;
+
+}
+
+.rightSec {
+    display: inline-block;
+    width: 63%;
+    vertical-align: top;
+    padding-left: 3%;
+    padding-top: 1.3vw;
+    text-align: left;
+
+}
+
+.stock_Sec input[type="button"] {
+    width: 6vw;
+    height: 2.2vw;
+    background: #B7192D;
+    color: white;
+}
+
+.stock_Sec input[type="button"]:disabled {
+
+    background: #E1E1E1;
+    color: dimgrey;
+}
+
+.statement {
+    font-size: 1.1vw;
+    margin-top: 0vw;
+    margin-bottom: 0.2vw;
+    line-height: 1.6vw;
+}
+
+#his_chart_title h3 {
+    margin-top: 0vw;
+}
+
+.datagrid-filter {
+    color: black !important;
+}
+
+/*dropdown menu*/
+.dropdown-menu {
+    background-color: #f9f9f9;
+
+    z-index: 1;
+
+    text-align: left;
+    color: black;
+    padding: 0;
+    margin: 0;
+
+    border-radius: 0;
+    max-height: 500px;
+
+}
+
+.sendAjax .dropdown-menu {
+    overflow-y: auto;
+}
+
+.tab_head a {
+    color: #656565;
+}
+
+.dropdown-menu > li > a:hover {
+    background: transparent;
+}
+
+.dropdown-menu > li {
+
+    width: 100%;
+    padding: 3px 0;
+    font-size: 13px;
+    list-style-type: none;
+}
+
+.dropdown:hover,
+.dropdown:hover,
+.dropdown-menu > li:hover {
+    background: #dcdcdc;
+    color: #5a5a5a;
+}
+
+/*
+ .select_mask{
+
+    border: solid #BFBFBF 1px!important;
+    background: #EEEEEE!important;
+    color: #656565!important;
+ }*/
+
+.R_aside {
+    left: 100% !important;
+    top: 0% !important;
+
+}
+
+.sendAjax > ul > li {
+    padding-left: 10px;
+
+}
+
+.tab_selected, .tab_selected > a {
+    background: #E1001C !important;
+    color: white !important;
+    border: solid #E1001C 1px !important;
+}
+
+.list_selected {
+    border-left: 4.5px solid #bd1c23 !important;
+    background: rgba(62, 79, 99, 0.1) !important;
+    color: #5a5a5a !important;
+}
+
+.leftmain {
+    padding: 0 0.7vw 1vw 3vw;
+    margin-top: 10px;
+}
+
+#chart_bar {
+    width: 100%;
+    height: 15vw;
+}
+
+#chart_line_his {
+    width: 100%;
+    height: 20vw;
+}
+
+#chart_line_daily {
+    width: 100%;
+    height: 20vw;
+}
+
+.plate_name {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .stock_Sec {
+        padding: 20px 0 0;
+    }
+
+    .leftSec {
+        width: 100%;
+    }
+
+    #chart_bar {
+        height: 200px;
+    }
+
+    .rightSec {
+        width: 100%;
+    }
+
+    .statement {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .tab_head div {
+        width: 20%;
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .dropdown-menu {
+        opacity: 1;
+    }
+
+    .plate_name {
+        margin: 0 20px 0 0;
+        float: left;
+    }
+
+    .predictDate {
+        float: left;
+    }
+
+    .dropdown-menu {
+        left: -26px;
+        max-height: 365px;
+    }
+
+    .R_aside {
+        left: 40% !important;
+    }
+
+    #chart_line_his {
+        height: 200px;
+    }
+
+    #chart_line_daily {
+        height: 200px;
+    }
+
+    .T-left span {
+        float: left;
+    }
+
+    td[field=plate], td[field=code_name], td[field=his_acc_pre], td[field=descri], .datagrid-filter-row {
+        display: none;
+    }
+
+    .datagrid-body, .datagrid-body > table {
+        width: 99% !important;
+    }
+
+    .datagrid-body td {
+        width: 33.3333%;
+    }
+
+    .datagrid-body td div {
+        width: 100%;
+    }
+
+    .panel-body {
+        height: 100% !important;
+    }
+
+    .datagrid {
+        min-height: 200px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .T-left {
+        height: 50px;
+        padding-top: 10px;
+    }
+
+    #his_chart_title {
+        width: 100%;
+    }
+}

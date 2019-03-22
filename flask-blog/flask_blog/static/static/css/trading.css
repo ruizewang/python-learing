@@ -1,0 +1,208 @@
+* {
+    font-family: "PingFangSC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei" !important;
+}
+
+body {
+    background: #eceef4;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+.basecon {
+    margin: 65px auto 15px auto;
+    background: #fff;
+    width: 1200px;
+    position: relative;
+    z-index: 1;
+    min-height: 690px;
+}
+
+.current {
+    padding: 10px 20px 0;
+}
+
+.current h2 {
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    margin-right: 34px;
+    border-bottom: none;
+}
+
+#buy, #sell {
+    width: 1200px;
+    height: 680px;
+    margin: 8px 0;
+}
+
+#trend {
+    width: 1200px;
+    height: 490px;
+}
+
+.mainTitle {
+    font-size: 20px;
+    color: #101010;
+    font-weight: bold;
+}
+
+.mainTitle .second {
+    color: #f40;
+}
+
+.input-bar {
+    display: block;
+    width: 290px;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #A5ACB2;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, .075);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.btn-inverse {
+    height: 42px;
+    width: 100px;
+    border: 2px solid #000000;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.btn-inverse:hover {
+    background-color: rgba(231, 244, 255, 1);
+}
+
+#search {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
+
+.line {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.line div {
+    margin: 0 20px 0 0;
+}
+
+.line span {
+    line-height: 42px;
+}
+
+.line div span:nth-child(1) {
+    color: #000;
+}
+
+.line div span:nth-child(2) {
+    color: #f40;
+}
+
+.waiting {
+    font-size: 80px;
+    color: #f40;
+    margin: 50px 0 20px 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.totalAsset {
+    display: none;
+}
+
+.mainTitle {
+    display: none;
+}
+
+.charts {
+    display: none;
+}
+
+.desc {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 2;
+}
+
+.desc p {
+    font-size: 12px;
+    line-height: 20px;
+    color: #2f4554;
+}
+
+.desc div {
+    background: url("../imgs/strategy/question.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+}
+
+.layui-layer-content h3 {
+    font-size: 24px;
+    color: #404040;
+    line-height: 36px;
+}
+
+.layui-layer-content pre {
+    color: #737373;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    .basecon {
+        width: 100%;
+        margin: 50px auto 0 auto;
+        overflow-x: hidden;
+        min-height: 590px;
+    }
+
+    .current h2 {
+        width: 100%;
+    }
+
+    .input-bar {
+        width: 70%;
+        margin: 4vw auto 0 auto !important;
+
+    }
+
+    .btn-inverse {
+        margin: 4vw 0 0 0 !important;
+        width: 30% !important;
+        height: 42px !important;
+    }
+
+    #buy, #sell, #trend {
+        width: 100%;
+        height: 390px;
+    }
+
+    .waiting {
+        position: fixed;
+        left: 40%;
+        top: 200px;
+        margin: 0;
+    }
+
+}
